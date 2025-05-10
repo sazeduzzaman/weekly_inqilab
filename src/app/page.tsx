@@ -1,6 +1,8 @@
+import HeroSection from "@/components/HomePage/HeroSectionItems/HeroSection";
+
 export default function Home() {
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="">
       {/* <Image
         className=""
         src="/next.svg"
@@ -9,7 +11,7 @@ export default function Home() {
         height={38}
         priority
       /> */}
-      <h1 className="text-6xl">Home Page</h1>
+      <HeroSection />
     </div>
   );
 }

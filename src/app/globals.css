@@ -37,8 +37,36 @@ body {
   font-size: 15px;
   overflow-x: auto;
 }
+/* Hide the default browser 'x' in search input */
+.hide-clear-icon::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.blinking-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: gray;
+  margin-right: 8px;
+  animation: blink 1s infinite;
+}
 
+@keyframes blink {
+  0%, 100% {
+    background-color: gray; /* Up – gray */
+  }
+  50% {
+    background-color: black; /* Down – black */
+  }
+}
+.section-title{
+      margin-bottom: -4px;
+}
 @media only screen and (max-width: 600px) {
+  .d-sm-none {
+    display: none;
+  }
   .footer-menus {
     display: flex;
     flex-direction: column;

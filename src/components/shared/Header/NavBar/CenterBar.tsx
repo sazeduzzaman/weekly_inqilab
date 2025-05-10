@@ -4,6 +4,7 @@ import { getPlaiceholder } from "plaiceholder";
 import fs from "fs/promises";
 import path from "path";
 import Link from "next/link";
+import SearchDropdown from "@/components/SearchDropdown/SearchDropdown";
 
 export default async function CenterBar() {
   // 1) Build the filesystem path
@@ -18,12 +19,12 @@ export default async function CenterBar() {
       <div className="container mx-auto">
         <div className="navbar flex w-full flex-wrap">
           {/* Left Section: Logo */}
-          <div className="navbar-start flex w-full sm:w-[20%] p-2">
+          <div className="navbar-start flex w-full sm:w-[20%]">
             <div className="dropdown">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className="btn border-0 bg-site-secondary lg:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -85,37 +86,15 @@ export default async function CenterBar() {
           </div>
 
           {/* Middle Section: Search */}
-          <div className="navbar-center flex w-full sm:w-[20%] justify-center p-2">
-            <label className="input sm:h-7 md:h-13 lg:h-13 bg-gray-200 border shadow-sm w-full">
-              <svg
-                className="h-[1.5em] opacity-50"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <g
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  strokeWidth="2.5"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.3-4.3"></path>
-                </g>
-              </svg>
-              <input
-                type="search"
-                className="grow w-full"
-                placeholder="Search"
-              />
-            </label>
+          <div className="navbar-center flex w-full sm:w-[20%] justify-center d-sm-none">
+            <SearchDropdown />
           </div>
 
           {/* Right Section: Ad */}
-          <div className="navbar-end flex w-full sm:w-[60%] justify-end p-2">
+          <div className="navbar-end flex w-full sm:w-[60%] justify-end d-sm-none">
             <div className="relative w-full aspect-[768/71]">
               <Image
-                src="/images/ads-768x71.webp"
+                src="/images/advertisement.png"
                 alt="Ad banner"
                 fill
                 placeholder="blur"

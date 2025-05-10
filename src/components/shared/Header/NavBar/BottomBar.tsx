@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import MarqueSlider from "../MarqueSlide/MarqueSlider";
 
 const BottomBar = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -25,7 +26,7 @@ const BottomBar = () => {
 
   return (
     <div
-      className={`bottom-bar bg-site-primary py-2 z-40 transition-all duration-500 ease-in-out ${
+      className={`bottom-bar bg-site-primary z-40 transition-all duration-500 ease-in-out ${
         isFixed ? "fixed top-0 left-0 w-full shadow-md" : "relative top-auto"
       }`}
     >
@@ -47,7 +48,7 @@ const BottomBar = () => {
             "আইন-আদালত",
             "ভিডিও",
           ].map((item, index) => (
-            <li key={index} className="flex items-center px-8">
+            <li key={index} className="flex items-center px-8 pt-2">
               <Link href="#" className="dark:text-white cta-menus text-white">
                 {item}
               </Link>
@@ -55,6 +56,7 @@ const BottomBar = () => {
           ))}
         </ul>
       </div>
+      <MarqueSlider/>
     </div>
   );
 };

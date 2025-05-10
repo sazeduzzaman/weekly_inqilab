@@ -8,9 +8,9 @@ const Footer = () => {
     <div className="bg-black text-white">
       <div className="container mx-auto">
         {/* Top Footer */}
-        <footer className="footer text-base-content footer-menus p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:flex sm:flex-col sm:items-center">
+        <footer className="eng-font footer text-base-content footer-menus p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
           <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Services</h6>
+            <h6 className="footer-title">Category</h6>
             <a className="link link-hover">Branding</a>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
@@ -52,7 +52,7 @@ const Footer = () => {
                     ></path>
                   </g>
                 </svg>
-                <input type="search" className="grow" placeholder="Search" />
+                <input type="search" className="grow" placeholder="Subscribe" />
               </label>
             </div>
           </nav>
