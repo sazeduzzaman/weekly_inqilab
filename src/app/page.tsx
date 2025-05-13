@@ -1,3 +1,5 @@
+import CategoryWithSidebar from "@/components/CategoryWithSidebar/CategoryWithSidebar";
+import Features from "@/components/HomePage/Features/Features";
 import HeroSection from "@/components/HomePage/HeroSectionItems/HeroSection";
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
         priority
       /> */}
       <HeroSection />
+      <Features/>
+      <CategoryWithSidebar/>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-export default function HeroSlider() {
+export default function HeroCenterSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -48,14 +48,13 @@ export default function HeroSlider() {
             {slides.map((slide) => (
               <div key={slide.id} className="w-full flex-shrink-0">
                 <Link href="#">
-                  <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3 w-full">
+                  <div className="card rounded-none image-full shadow-sm group overflow-hidden mb-3 w-full">
                     <figure className="relative h-[395px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       <Image
                         className="object-cover"
                         src={slide.image}
                         alt={slide.title}
                         fill
-                        unoptimized
                         priority
                       />
                     </figure>

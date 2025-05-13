@@ -53,15 +53,26 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     background-color: gray; /* Up – gray */
   }
   50% {
     background-color: black; /* Down – black */
   }
 }
-.section-title{
-      margin-bottom: -4px;
+.section-title {
+  margin-bottom: -4px;
+}
+/* globals.css */
+
+.overlay-img-bg {
+  background-color: rgba(255, 0, 0, 0.26) !important;
+}
+.card.image-full > figure img {
+  object-fit: cover;
+  filter: brightness(60%);
+  height: 100%;
 }
 @media only screen and (max-width: 600px) {
   .d-sm-none {

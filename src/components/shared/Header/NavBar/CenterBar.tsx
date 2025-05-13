@@ -79,27 +79,25 @@ export default async function CenterBar() {
                   height={100}
                   placeholder="blur"
                   blurDataURL={base64}
-                  unoptimized
                 />
               </Link>
             </div>
           </div>
 
           {/* Middle Section: Search */}
-          <div className="navbar-center flex w-full sm:w-[20%] justify-center d-sm-none">
+          <div className="navbar-center flex w-full sm:w-[20%] justify-center d-sm-none pr-3">
             <SearchDropdown />
           </div>
 
           {/* Right Section: Ad */}
           <div className="navbar-end flex w-full sm:w-[60%] justify-end d-sm-none">
-            <div className="relative w-full aspect-[768/71]">
+            <div className="relative w-full aspect-[768/71] p">
               <Image
                 src="/images/advertisement.png"
                 alt="Ad banner"
                 fill
                 placeholder="blur"
                 blurDataURL={base64}
-                unoptimized
                 className="object-cover"
               />
             </div>

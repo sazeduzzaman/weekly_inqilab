@@ -45,7 +45,6 @@ export default function MarqueSliderItems({
                   alt={item.name}
                   width={10}
                   height={10}
-                  unoptimized
                   priority
                 />
                 <Link href={`/category/${item.category_id}`}>

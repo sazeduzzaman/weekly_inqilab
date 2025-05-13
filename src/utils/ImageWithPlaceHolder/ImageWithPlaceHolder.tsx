@@ -27,7 +27,6 @@ const ImageWithPlaceHolder: React.FC<ImageWithPlaceholderProps> = ({
       height={height}
       placeholder="blur"
       blurDataURL={blurDataURL}
-      unoptimized
       className={className}
     />
   );

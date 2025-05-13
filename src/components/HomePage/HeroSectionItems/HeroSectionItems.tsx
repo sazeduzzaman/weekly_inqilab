@@ -2,7 +2,7 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import HeroSlider from "./HeroSlider";
+import HeroCenterSlider from "./HeroCenterSlider";
 
 const HeroSectionItems = () => {
   return (
@@ -18,8 +18,7 @@ const HeroSectionItems = () => {
                     className="object-cover"
                     src="/images/news-1.webp"
                     alt="Shoes"
-                    layout="fill" // Fill the parent container
-                    unoptimized
+                    layout="fill"
                     priority
                   />
                 </figure>
@@ -39,8 +38,7 @@ const HeroSectionItems = () => {
                     className="object-cover"
                     src="/images/news-2.webp"
                     alt="Shoes"
-                    layout="fill" // Fill the parent container
-                    unoptimized
+                    layout="fill"
                     priority
                   />
                 </figure>
@@ -55,7 +53,7 @@ const HeroSectionItems = () => {
         </div>
         <div className="col-span-6">
           <SectionTitle title="সর্বশেষ" />
-          <HeroSlider />
+          <HeroCenterSlider />
         </div>
         <div className="col-span-3">
           <SectionTitle title="সর্বাধিক" />
@@ -67,8 +65,7 @@ const HeroSectionItems = () => {
                     className="object-cover"
                     src="/images/news-1.webp"
                     alt="Shoes"
-                    layout="fill" // Fill the parent container
-                    unoptimized
+                    layout="fill"
                     priority
                   />
                 </figure>
@@ -88,8 +85,7 @@ const HeroSectionItems = () => {
                     className="object-cover"
                     src="/images/news-2.webp"
                     alt="Shoes"
-                    layout="fill" // Fill the parent container
-                    unoptimized
+                    layout="fill"
                     priority
                   />
                 </figure>

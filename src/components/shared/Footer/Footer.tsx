@@ -79,7 +79,6 @@ const Footer = () => {
                     alt="Next.js logo"
                     width={180}
                     height={38}
-                    unoptimized
                     priority
                   />
                 </p>
