@@ -21,7 +21,7 @@ const CategoryWithSidebarItems = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="">
         <SectionTitle title="বিশ্ব সংবাদ" />
         <WorldNews />
       </div>
