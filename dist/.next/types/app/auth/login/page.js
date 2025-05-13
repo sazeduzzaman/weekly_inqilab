@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-// File: H:\All Projects\Working Projects\Mern-Project\inqilab - Copy\src\app\auth\login\page.tsx
+// File: F:\Projects\inqilab\frontend\weekly_inqilab\src\app\auth\login\page.tsx
 const entry = __importStar(require("../../../../../src/app/auth/login/page.js"));
 // Check that the entry is a valid entry
 checkFields();
