@@ -26,8 +26,8 @@ function HeroCenterSlider() {
     const slides = [
         {
             id: 1,
-            image: "/images/slider-1.webp",
-            title: "শনিবার শতভাগ কারখানায় বেতন-বোনাস পরিশোধ সম্পন্ন হবে: বিজিএমইএ",
+            image: "/images/news-1.jpg",
+            title: "বাংলাদেশে ‘পাকিস্তানপন্থা’ বলে কিছু নেই: হেফাজতে ইসলাম",
         },
         {
             id: 2,

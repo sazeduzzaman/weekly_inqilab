@@ -25,18 +25,18 @@ export default function HeroCenterSlider() {
   const slides = [
     {
       id: 1,
-      image: "/images/slider-1.webp",
-      title: "শনিবার শতভাগ কারখানায় বেতন-বোনাস পরিশোধ সম্পন্ন হবে: বিজিএমইএ",
+      image: "/images/news-3.jpg",
+      title: "মোদির সময় শেষ: পাকিস্তানের প্রতিরক্ষামন্ত্রী",
     },
     {
       id: 2,
-      image: "/images/slider-2.webp",
-      title: "জান, পৃথিবীর সমস্ত সুখ আল্লাহ তোমাকে দিক: মাহিয়া মাহি",
+      image: "/images/news-4.jpg",
+      title: "‘অপারেশন সিন্দুর’ শেষ হয়নি, স্থগিত রাখা হয়েছে: মোদির হুঁশিয়ারি",
     },
     {
       id: 3,
-      image: "/images/slider-1.webp",
-      title: "নতুন সিনেমা নিয়ে আসছে বিদ্যা বালান",
+      image: "/images/news-5.jpg",
+      title: "রূপগঞ্জে সাংবাদিকের ওপর হামলার প্রতিবাদে মানববন্ধন, আলটিমেটাম",
     },
   ];
 
@@ -48,8 +48,8 @@ export default function HeroCenterSlider() {
             {slides.map((slide) => (
               <div key={slide.id} className="w-full flex-shrink-0">
                 <Link href="#">
-                  <div className="card rounded-none image-full shadow-sm group overflow-hidden mb-3 w-full">
-                    <figure className="relative h-[395px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                  <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black h-[600px] to-transparent overflow-hidden mb-3 w-full">
+                    <figure className="relative h-[525px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       <Image
                         className="object-cover"
                         src={slide.image}
@@ -59,9 +59,9 @@ export default function HeroCenterSlider() {
                       />
                     </figure>
                     <div className="card-body flex items-center justify-center">
-                      <h2 className="card-title font-normal text-center">
+                      <h1 className="card-title text-3xl font-normal text-center text-white">
                         {slide.title}
-                      </h2>
+                      </h1>
                     </div>
                   </div>
                 </Link>

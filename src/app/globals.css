@@ -2,7 +2,11 @@
 @plugin "daisyui";
 
 /* Global reset and styles */
+/* styles/globals.css */
 
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --primary-color: #000000;
   --secondary-color: #ea1b23;
@@ -28,7 +32,7 @@ body {
   background-color: var(--primary-color);
 }
 .text-site-secondary {
-  background-color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 .text-site-primary {
   color: var(--primary-color);
@@ -71,9 +75,17 @@ body {
 }
 .card.image-full > figure img {
   object-fit: cover;
-  filter: brightness(60%);
+  filter: brightness(80%);
   height: 100%;
 }
+.gradient-black-to-transparent {
+  background-image: linear-gradient(to top, black, transparent);
+}
+.card-title-gr {
+  background: linear-gradient(to right, rgb(0, 0, 0), rgba(255, 255, 255, 0.1));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 @media only screen and (max-width: 600px) {
   .d-sm-none {
     display: none;
