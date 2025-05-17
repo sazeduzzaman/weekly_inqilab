@@ -49,17 +49,23 @@ export default function HeroCenterSlider() {
               <div key={slide.id} className="w-full flex-shrink-0">
                 <Link href="#">
                   <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black h-[600px] to-transparent overflow-hidden mb-3 w-full">
-                    <figure className="relative h-[525px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                    <figure className="relative h-[550px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                      {/* Black gradient overlay on top of the image */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 " />
+
+                      {/* The image itself */}
                       <Image
-                        className="object-cover"
+                        className="object-cover z-0"
                         src={slide.image}
                         alt={slide.title}
                         fill
                         priority
                       />
                     </figure>
-                    <div className="card-body flex items-center justify-center">
-                      <h1 className="card-title text-3xl font-normal text-center text-white">
+
+                    {/* Title section */}
+                    <div className="card-body relative flex items-center justify-center bg-black">
+                      <h1 className="card-title slider-title font-normal text-center text-white z-10">
                         {slide.title}
                       </h1>
                     </div>

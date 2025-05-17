@@ -86,6 +86,48 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.36px;
+}
+.slider-title{
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 40px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.36px;
+}
+.section-title {
+  color: rgb(32, 34, 36);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.75px;
+}
+.card-body p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+  color: rgb(84, 86, 88);
+}
+.search-menu {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+}
 @media only screen and (max-width: 600px) {
   .d-sm-none {
     display: none;

@@ -1,95 +1,176 @@
-"use client";
-import { useState } from "react";
+import React from "react";
+import { IoMdClose } from "react-icons/io";
+import { RiMenuSearchLine } from "react-icons/ri";
+import SearchDropdownCanvas from "./SearchDropdownCanvas";
+import Image from "next/image";
+import Link from "next/link";
+import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
+import { BsArrowRightCircle } from "react-icons/bs";
 
-export default function SearchDropdown() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([
-    // Sample static data, replace with fetched results
-    "Apple",
-    "Banana",
-    "Cherry",
-  ]);
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-    setShowDropdown(!!value);
-    // Optional: fetch data here
-  };
-  console.log(setResults, "setResults");
+const SearchDropdown = () => {
   return (
-    <div className="relative w-full">
-      <div className="relative w-full">
-        <label className="input sm:h-7 md:h-13 lg:h-13 bg-gray-200 border shadow-sm w-full flex items-center gap-2 px-2 pr-8">
-          <svg
-            className="h-[1.5em] opacity-50"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
+    <div>
+      <div className="drawer drawer-end z-50 ">
+        <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content">
+          {/* Page content here */}
+          <label
+            htmlFor="my-drawer-4"
+            className="drawer-button btn btn-black px-5 py-3 search-menu"
           >
-            <g
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2.5"
-              fill="none"
-              stroke="currentColor"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input
-            type="search"
-            value={query}
-            onChange={handleChange}
-            className="grow w-full bg-gray-200 focus:outline-none hide-clear-icon"
-            placeholder="Search"
-          />
-
-          {/* Clear Icon */}
-          {query && (
-            <button
-              type="button"
-              onClick={() => {
-                setQuery("");
-                setShowDropdown(false);
-              }}
-              className="absolute right-2 text-black hover:text-gray-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            <RiMenuSearchLine color="red" size={20} />
+            খুজুন
+          </label>
+        </div>
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer-4"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <SearchDropdownCanvas />
+          <div className="menu bg-white text-black min-h-full w-80 p-4">
+            <div>
+              <label
+                htmlFor="my-drawer-4"
+                className="btn btn-sm btn-black p-4 pb-4 -mt-0.5 me-2"
               >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          )}
-        </label>
+                <IoMdClose />
+              </label>
+            </div>
+            {/* Close button */}
+            {/* Sidebar content here */}
+            <div>
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="text-center flex justify-start items-center flex-col">
+                    <div>
+                      <ul className="mt-15 w-70">
+                        <p className="font-bold text-start">
+                          ইনকিলাব এ দেখুন...
+                        </p>
+                        <li className="flex justify-start items-start w-auto mt-5">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" /> হোম পেজ
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            সর্বশেষ
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            জাতীয়
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            সারাদেশ
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            রাজনীতি
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            বিশ্ব সংবাদ
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            খেলা
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            বিনোদন
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            ধর্ম
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            অর্থনীতি
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            লাইফস্টাইল
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            টেক
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            অন্যান্য
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            আইন-আদালত
+                          </Link>
+                        </li>
+                        <li className="flex justify-start items-start w-auto">
+                          <Link href="/" className="hover:text-red-900">
+                            <BsArrowRightCircle color="red" />
+                            ভিডিও
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="bottom-0 absolute flex flex-col justify-center items-center px-3 mb-2">
+                      <div>
+                        <Link href="/" className="hover:text-red-900">
+                          <Image
+                            src="/images/logo.png"
+                            alt="Logo"
+                            width={250}
+                            height={100}
+                          />
+                        </Link>
+                      </div>
+                      <div className="text-[14px] text-gray-400 pt-3">
+                        <CurrentTimeShower />
+                      </div>
+                      <div>
+                        <p>
+                          এই ওয়েবসাইটের কোনো লেখা, ছবি, অডিও, ভিডিও অনুমতি
+                          ছাড়া ব্যবহার বেআইনী। কপিরাইট © ২০২৫ <br /> সাপ্তাহিক
+                          ইনকিলাব কর্তৃক সর্বসত্ব ® সংরক্ষিত
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {showDropdown && results.length > 0 && (
-        <ul className="absolute z-50 w-full mt-1 bg-white border rounded-md shadow-md max-h-60 overflow-y-auto">
-          {results.map((item, index) => (
-            <li
-              key={index}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => {
-                setQuery(item);
-                setShowDropdown(false);
-              }}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
-}
+};
+
+export default SearchDropdown;
