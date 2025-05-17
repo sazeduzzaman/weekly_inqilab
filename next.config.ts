@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    domains: ['ajkal.us'],
     remotePatterns: [
       {
         protocol: "https",

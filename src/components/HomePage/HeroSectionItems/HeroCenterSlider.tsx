@@ -1,12 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
+import { SpotLightNewsListProps } from "@/lib/types/SpotLightNewsDataType";
 
-export default function HeroCenterSlider() {
+export default function HeroCenterSlider({
+  spotLightItems,
+}: SpotLightNewsListProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -22,43 +25,40 @@ export default function HeroCenterSlider() {
     return () => clearInterval(interval);
   }, [emblaApi]);
 
-  const slides = [
-    {
-      id: 1,
-      image: "/images/news-3.jpg",
-      title: "মোদির সময় শেষ: পাকিস্তানের প্রতিরক্ষামন্ত্রী",
-    },
-    {
-      id: 2,
-      image: "/images/news-4.jpg",
-      title: "‘অপারেশন সিন্দুর’ শেষ হয়নি, স্থগিত রাখা হয়েছে: মোদির হুঁশিয়ারি",
-    },
-    {
-      id: 3,
-      image: "/images/news-5.jpg",
-      title: "রূপগঞ্জে সাংবাদিকের ওপর হামলার প্রতিবাদে মানববন্ধন, আলটিমেটাম",
-    },
-  ];
-
+  // const slides = [
+  //   {
+  //     id: 1,
+  //     image: "/images/news-3.jpg",
+  //     title: "মোদির সময় শেষ: পাকিস্তানের প্রতিরক্ষামন্ত্রী",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/images/news-4.jpg",
+  //     title: "‘অপারেশন সিন্দুর’ শেষ হয়নি, স্থগিত রাখা হয়েছে: মোদির হুঁশিয়ারি",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/images/news-5.jpg",
+  //     title: "রূপগঞ্জে সাংবাদিকের ওপর হামলার প্রতিবাদে মানববন্ধন, আলটিমেটাম",
+  //   },
+  // ];
+  console.log(spotLightItems, "slider");
   return (
     <div className="w-full">
       <div className="relative">
         <div ref={emblaRef} className="overflow-hidden">
           <div className="flex">
-            {slides.map((slide) => (
-              <div key={slide.id} className="w-full flex-shrink-0">
+            {spotLightItems.map((items) => (
+              <div key={items.id} className="w-full flex-shrink-0">
                 <Link href="#">
-                  <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black h-[600px] to-transparent overflow-hidden mb-3 w-full">
-                    <figure className="relative h-[550px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                  <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
+                    <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       {/* Black gradient overlay on top of the image */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 " />
-
-                      {/* The image itself */}
-                      <Image
-                        className="object-cover z-0"
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
+                      <OptimizedNewsImage
+                        imageName={items.title_img}
+                        altText={`Thumbnail for ${items.title_img}`}
+                        heightClass="h-[507px]"
                         priority
                       />
                     </figure>
@@ -66,7 +66,7 @@ export default function HeroCenterSlider() {
                     {/* Title section */}
                     <div className="card-body relative flex items-center justify-center bg-black">
                       <h1 className="card-title slider-title font-normal text-center text-white z-10">
-                        {slide.title}
+                        {items.news_title}
                       </h1>
                     </div>
                   </div>

@@ -5,8 +5,12 @@ import fs from "fs/promises";
 import path from "path";
 import Link from "next/link";
 import SearchDropdown from "@/components/SearchDropdown/SearchDropdown";
+import { RiFilePaper2Line } from "react-icons/ri";
+import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 
 export default async function CenterBar() {
+    const categoryItems = await CategoryDataSet();
+    console.log(categoryItems, "categoryItems");
   // 1) Build the filesystem path
   const logoFsPath = path.join(process.cwd(), "public", "images", "logo.png");
   // 2) Read into a Buffer
@@ -41,6 +45,7 @@ export default async function CenterBar() {
                   />
                 </svg>
               </div>
+              {/* mobile  Menu */}
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-white border-2 border-gray-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -71,6 +76,7 @@ export default async function CenterBar() {
             </div>
 
             <div className="relative w-full header-logo">
+              {/* Mobile Logo */}
               <Link href="/">
                 <Image
                   src="/images/logo.png"
@@ -86,7 +92,16 @@ export default async function CenterBar() {
 
           {/* Middle Section: Search */}
           <div className="navbar-center flex w-full sm:w-[20%] justify-center d-sm-none pr-3">
-            <SearchDropdown />
+            <SearchDropdown categoryItems={categoryItems} />
+            <div className="ms-3">
+              <Link
+                href="/epaper"
+                className="btn btn-black px-5 py-3 search-menu"
+              >
+                <RiFilePaper2Line color="red" size={18} />
+                <span>ইপেপার</span>
+              </Link>
+            </div>
           </div>
 
           {/* Right Section: Ad */}

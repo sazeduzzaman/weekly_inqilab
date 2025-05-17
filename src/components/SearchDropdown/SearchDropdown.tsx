@@ -6,8 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import { BsArrowRightCircle } from "react-icons/bs";
+import { CategoryListProps } from "@/lib/types/CategoryDataType";
 
-const SearchDropdown = () => {
+export default function SearchDropdown({ categoryItems }: CategoryListProps) {
+  console.log(categoryItems, "categoryItems");
+  const categoryDataItems = categoryItems.slice(0);
   return (
     <div>
       <div className="drawer drawer-end z-50 ">
@@ -45,99 +48,21 @@ const SearchDropdown = () => {
                 <div className="col-lg-12">
                   <div className="text-center flex justify-start items-center flex-col">
                     <div>
-                      <ul className="mt-15 w-70">
+                      <ul className="mt-5 w-70">
                         <p className="font-bold text-start">
                           ইনকিলাব এ দেখুন...
                         </p>
-                        <li className="flex justify-start items-start w-auto mt-5">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" /> হোম পেজ
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            সর্বশেষ
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            জাতীয়
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            সারাদেশ
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            রাজনীতি
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            বিশ্ব সংবাদ
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            খেলা
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            বিনোদন
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            ধর্ম
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            অর্থনীতি
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            লাইফস্টাইল
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            টেক
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            অন্যান্য
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            আইন-আদালত
-                          </Link>
-                        </li>
-                        <li className="flex justify-start items-start w-auto">
-                          <Link href="/" className="hover:text-red-900">
-                            <BsArrowRightCircle color="red" />
-                            ভিডিও
-                          </Link>
-                        </li>
+                        {categoryDataItems.map((item, index) => (
+                          <li
+                            className="flex justify-start items-start w-auto "
+                            key={index}
+                          >
+                            <Link href="/" className="hover:text-red-900">
+                              <BsArrowRightCircle color="red" />
+                              {item.name_bangla}
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                     <div className="bottom-0 absolute flex flex-col justify-center items-center px-3 mb-2">
@@ -171,6 +96,4 @@ const SearchDropdown = () => {
       </div>
     </div>
   );
-};
-
-export default SearchDropdown;
+}

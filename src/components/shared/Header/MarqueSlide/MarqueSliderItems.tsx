@@ -1,6 +1,6 @@
 "use client";
 
-import { BreakingNewsMarqueProps } from "@/types/BreakingNewsMarqueProps";
+import { BreakingNewsMarqueProps } from "@/lib/types/BreakingNewsMarqueProps";
 import AutoScroll from "embla-carousel-auto-scroll";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
