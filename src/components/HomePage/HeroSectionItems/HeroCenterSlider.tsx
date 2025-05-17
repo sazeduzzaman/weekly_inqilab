@@ -24,25 +24,6 @@ export default function HeroCenterSlider({
 
     return () => clearInterval(interval);
   }, [emblaApi]);
-
-  // const slides = [
-  //   {
-  //     id: 1,
-  //     image: "/images/news-3.jpg",
-  //     title: "মোদির সময় শেষ: পাকিস্তানের প্রতিরক্ষামন্ত্রী",
-  //   },
-  //   {
-  //     id: 2,
-  //     image: "/images/news-4.jpg",
-  //     title: "‘অপারেশন সিন্দুর’ শেষ হয়নি, স্থগিত রাখা হয়েছে: মোদির হুঁশিয়ারি",
-  //   },
-  //   {
-  //     id: 3,
-  //     image: "/images/news-5.jpg",
-  //     title: "রূপগঞ্জে সাংবাদিকের ওপর হামলার প্রতিবাদে মানববন্ধন, আলটিমেটাম",
-  //   },
-  // ];
-  console.log(spotLightItems, "slider");
   return (
     <div className="w-full">
       <div className="relative">
@@ -56,9 +37,10 @@ export default function HeroCenterSlider({
                       {/* Black gradient overlay on top of the image */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 " />
                       <OptimizedNewsImage
-                        imageName={items.title_img}
+                        imageName={items.title_img || "No image"}
                         altText={`Thumbnail for ${items.title_img}`}
                         heightClass="h-[507px]"
+                        widthClass="w-full"
                         priority
                       />
                     </figure>

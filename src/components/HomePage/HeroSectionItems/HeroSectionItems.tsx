@@ -28,6 +28,7 @@ export default function HeroSectionItems({
                         imageName={items.title_img || "no img"}
                         altText={`Thumbnail for ${items.title_img || "no img"}`}
                         heightClass="h-[570px]"
+                        widthClass="w-full"
                         priority
                         className="p-0"
                       />
@@ -65,9 +66,10 @@ export default function HeroSectionItems({
                   <figure className="relative w-full h-73 transition-transform duration-500 ease-in-out group-hover:scale-105">
                     {/* Image */}
                     <OptimizedNewsImage
-                      imageName={items.title_img}
+                      imageName={items.title_img || "no image"}
                       altText={`Thumbnail for ${items.title_img}`}
                       priority
+                      widthClass="w-full"
                       heightClass="h-73"
                       hoverEffect
                     />
