@@ -3,15 +3,17 @@ import SaradeshNews from "./Category/SaradeshNews";
 import JatiyoNews from "./Category/JatiyoNews";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import WorldNews from "./Category/WorldNews";
+import { ViewedDataSet } from "@/lib/api/ViewedDataSet";
 
-const CategoryWithSidebarItems = () => {
+export default async function CategoryWithSidebarItems() {
+  const viewedItems = await ViewedDataSet();
   return (
     <div className="">
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-4 ">
-          <SectionTitle title="সারাদেশ" />
+          <SectionTitle title="সর্বাধিক পঠিত" />
           <div className="mt-4">
-            <SaradeshNews />
+            <SaradeshNews viewedItems={viewedItems} />
           </div>
         </div>
         <div className="col-span-8 ">
@@ -27,6 +29,4 @@ const CategoryWithSidebarItems = () => {
       </div>
     </div>
   );
-};
-
-export default CategoryWithSidebarItems;
+}

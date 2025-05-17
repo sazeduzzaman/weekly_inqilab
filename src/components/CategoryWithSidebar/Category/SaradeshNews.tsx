@@ -1,64 +1,38 @@
-import Image from "next/image";
+import { ViewedNewsListProps } from "@/lib/types/ViewedDataType";
+import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
+import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import React from "react";
 
-const newsData = [
-  {
-    title: "মুন্সীগঞ্জে ইরি-বোরো মাঠে সবুজের সমারোহ",
-    date: "16 April 2025",
-    image: "/images/news-1.webp",
-  },
-  {
-    title: "রাজশাহীতে আমের মুকুলে মৌমাছির গুঞ্জন",
-    date: "15 April 2025",
-    image: "/images/news-1.webp",
-  },
-  {
-    title: "পটুয়াখালীর নদীতে ধরা পড়ছে ইলিশ",
-    date: "14 April 2025",
-    image: "/images/news-1.webp",
-  },
-  {
-    title: "বান্দরবানে পাহাড়ি ঝরনার সৌন্দর্য উপভোগ",
-    date: "13 April 2025",
-    image: "/images/news-1.webp",
-  },
-  {
-    title: "নওগাঁয় ধান কাটার প্রস্তুতি চলছে",
-    date: "12 April 2025",
-    image: "/images/news-1.webp",
-  },
-  {
-    title: "কক্সবাজারে পর্যটকের ভিড়",
-    date: "11 April 2025",
-    image: "/images/news-1.webp",
-  },
-];
-
-const SaradeshNews = () => {
+export default function SaradeshNews({ viewedItems }: ViewedNewsListProps) {
+  const viewedItemsFilterd = viewedItems.slice(0, 6);
   return (
     <div>
-      {newsData.map((item, index) => (
+      {viewedItemsFilterd.map((item, index) => (
         <div
           key={index}
           className="card rounded-none card-side shadow-sm items-center mb-3"
         >
-          <figure className="relative w-[150px] h-[135px] flex-none">
-            <Image
-              src={item.image}
-              alt="News Thumbnail"
-              fill
-              className="object-cover"
+          <figure className="relative w-[140px] h-[140px] flex-none">
+            <OptimizedNewsImage
+              imageName={item.title_img || "no img"}
+              altText={`Thumbnail for ${item.title_img || "no img"}`}
+              heightClass="h-full"
+              widthClass="w-full"
               priority
+              className="p-0 rounded-none"
             />
           </figure>
           <div className="card-body justify-center">
-            <h2 className="card-title">{item.title}</h2>
-            <p>{item.date}</p>
+            <h2 className="card-title">{item.news_title}</h2>
+            <small className="text-site-secondary opacity-70 block mt-1">
+              {/* {items.news_time} */}
+              <NewsTimeShower
+                newsTime={item.news_time || new Date().toISOString()}
+              />
+            </small>
           </div>
         </div>
       ))}
     </div>
   );
-};
-
-export default SaradeshNews;
+}

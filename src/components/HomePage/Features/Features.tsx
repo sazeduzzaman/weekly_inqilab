@@ -1,12 +1,13 @@
 import React from "react";
 import FeaturesItems from "./FeaturesItems";
+import { LatestDataSet } from "@/lib/api/LatestDataSet";
 
-const Features = () => {
+export default async function Features() {
+  const latestItems = await LatestDataSet();
+
   return (
     <div>
-      <FeaturesItems />
+      <FeaturesItems latestItems={latestItems}/>
     </div>
   );
-};
-
-export default Features;
+}

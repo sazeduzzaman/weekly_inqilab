@@ -36,7 +36,7 @@ export default function MarqueSliderItems({
         <div className="embla overflow-hidden" ref={emblaRef}>
           <div className="embla__container flex">
             {extendedBreakingItems.map((item, index) => (
-              <p
+              <div
                 className="embla__slide min-w-0 flex-[0_0_auto] border-r-2 border-white px-2 flex items-center gap-2"
                 key={index}
               >
@@ -52,7 +52,7 @@ export default function MarqueSliderItems({
                 <Link href={`/category/${item.category_id}`}>
                   {item.news_title}
                 </Link>
-              </p>
+              </div>
             ))}
           </div>
         </div>

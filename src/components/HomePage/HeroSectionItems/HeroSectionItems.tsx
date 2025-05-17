@@ -30,7 +30,7 @@ export default function HeroSectionItems({
                         heightClass="h-[570px]"
                         widthClass="w-full"
                         priority
-                        className="p-0"
+                        className="p-0 rounded-none"
                       />
                     </figure>
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
@@ -72,6 +72,7 @@ export default function HeroSectionItems({
                       widthClass="w-full"
                       heightClass="h-73"
                       hoverEffect
+                      className="rounded-none"
                     />
 
                     {/* Bottom Overlay with Title */}

@@ -5,7 +5,7 @@ const JatiyoNews = () => {
   return (
     <div>
       <div className="card rounded-none shadow-sm">
-        <figure className="relative h-[390px] w-full">
+        <figure className="relative h-[440px] w-full">
           <Image
             src="/images/news-1.webp"
             alt="News Thumbnail"

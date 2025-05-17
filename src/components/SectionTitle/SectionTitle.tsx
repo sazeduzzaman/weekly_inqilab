@@ -10,7 +10,7 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
       <h1 className="text-[15px] section-title mr-4 font-bold pb-2 text-shadow-0 section-title">
         {title}
       </h1>
-      <div className="flex-1 border-b-2 border-gray-200 w-full"></div>
+      <div className="flex-1 border-b-1 border-black w-full"></div>
     </div>
   );
 };
