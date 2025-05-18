@@ -21,10 +21,11 @@ export default function HeroSectionItems({
             {leatestOne.map((items) => (
               <div key={items.id}>
                 <Link
-                  href={`/details/${items.category_name.toLowerCase()}/${
+                  href={`/details/${items.category_name?.toLowerCase() ?? "general"}/${
                     items.id
                   }`}
                 >
+                  <span>{items.category_name}</span>
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                     <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
                       <OptimizedNewsImage
