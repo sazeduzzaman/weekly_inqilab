@@ -70,7 +70,6 @@ import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 
 export default async function BottomBar() {
   const categoryItems = await CategoryDataSet();
-  console.log(categoryItems, "categoryItems");
 
   return (
     <div className="bg-black">

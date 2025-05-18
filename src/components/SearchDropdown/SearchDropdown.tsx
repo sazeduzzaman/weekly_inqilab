@@ -9,7 +9,6 @@ import { BsArrowRightCircle } from "react-icons/bs";
 import { CategoryListProps } from "@/lib/types/CategoryDataType";
 
 export default function SearchDropdown({ categoryItems }: CategoryListProps) {
-  console.log(categoryItems, "categoryItems");
   const categoryDataItems = categoryItems.slice(0);
   return (
     <div>

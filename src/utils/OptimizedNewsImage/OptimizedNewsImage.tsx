@@ -8,10 +8,10 @@ interface OptimizedNewsImageProps {
   altText?: string;
   priority?: boolean;
   className?: string;
-  heightClass?: string; // CSS class to control height
-  heightStyle?: string; // e.g. "200px" or "50vh"
-  widthClass?: string; // CSS class to control width
-  widthStyle?: string; // e.g. "300px" or "80vw"
+  heightClass?: string;
+  heightStyle?: string; // e.g. "300px"
+  widthClass?: string;
+  widthStyle?: string;  // e.g. "100%"
   hoverEffect?: boolean;
 }
 
@@ -35,23 +35,22 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
     "rounded-md object-cover transition duration-300 ease-in-out transform";
   const hoverClass = hoverEffect ? "hover:scale-105" : "";
 
-  // Compose style for the container div
   const containerStyle = {
     ...(heightStyle ? { height: heightStyle } : {}),
-    ...(widthStyle ? { width: widthStyle } : {}), // default width 100%
+    ...(widthStyle ? { width: widthStyle } : {}),
   };
 
   return (
     <div
-      className={`relative ${heightClass} ${widthClass}`}
+      className={`relative overflow-hidden ${heightClass} ${widthClass}`}
       style={containerStyle}
     >
       <Image
-        className={`${baseClasses} ${className} ${hoverClass}`}
         src={hasError ? fallbackImageSrc : newsImageSrc}
         alt={altText}
-        layout="fill"
+        fill
         priority={priority}
+        className={`${baseClasses} ${className} ${hoverClass}`}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         quality={75}
         onError={() => setHasError(true)}

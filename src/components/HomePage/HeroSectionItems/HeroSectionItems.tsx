@@ -8,7 +8,6 @@ import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 export default function HeroSectionItems({
   spotLightItems,
 }: SpotLightNewsListProps) {
-  console.log(spotLightItems, "spotLightItems");
   const leatestOne = spotLightItems.slice(1, 2);
   const leatestTwo = spotLightItems.slice(3, 6);
   const leatestThree = spotLightItems.slice(6, 8);

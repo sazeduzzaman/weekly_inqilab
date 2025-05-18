@@ -10,7 +10,6 @@ import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 
 export default async function CenterBar() {
     const categoryItems = await CategoryDataSet();
-    console.log(categoryItems, "categoryItems");
   // 1) Build the filesystem path
   const logoFsPath = path.join(process.cwd(), "public", "images", "logo.png");
   // 2) Read into a Buffer
