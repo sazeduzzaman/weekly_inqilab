@@ -1,24 +1,21 @@
+import { CommonNewsTypes } from "@/lib/types/CommonNewsTypes";
+import Link from "next/link";
 import React from "react";
 
-interface NewsItem {
-  id: number;
-  title: string;
-  content: string;
-  is_featured: number;
-  news_title: string;
-}
-
 interface IsFeatureProps {
-  isFeatured: NewsItem[];
+  isFeatured: CommonNewsTypes[];
 }
 const CategoryFeature = ({ isFeatured }: IsFeatureProps) => {
   console.log(isFeatured, "isFeatured");
   return (
     <div>
       {isFeatured.map((item, index) => (
-        <div key={index}>
+        <Link
+          href={`/details/${item.category_name.toLowerCase()}/${item.id}`}
+          key={index}
+        >
           <p>{item.news_title}</p>
-        </div>
+        </Link>
       ))}
     </div>
   );

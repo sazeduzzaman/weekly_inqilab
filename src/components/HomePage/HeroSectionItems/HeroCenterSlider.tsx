@@ -31,7 +31,11 @@ export default function HeroCenterSlider({
           <div className="flex">
             {spotLightItems.map((items) => (
               <div key={items.id} className="w-full flex-shrink-0">
-                <Link href="#">
+                <Link
+                  href={`/details/${items.category_name.toLowerCase()}/${
+                    items.id
+                  }`}
+                >
                   <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
                     <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       {/* Black gradient overlay on top of the image */}

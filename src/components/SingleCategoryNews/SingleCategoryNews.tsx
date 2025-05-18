@@ -1,27 +1,22 @@
 import React from "react";
 import CategoryFeature from "./CategoryFeature";
 import CategoryNonFeature from "./CategoryNonFeature";
-
-interface NewsItem {
-  id: number;
-  title: string;
-  content: string;
-  is_featured: number;
-  news_title: string;
-}
+import { CommonNewsTypes } from "@/lib/types/CommonNewsTypes";
 
 interface SingleCategoryNewsProps {
-  singleCategoryData: NewsItem[];
+  singleCategoryData: CommonNewsTypes[];
 }
 
 const SingleCategoryNews = ({
   singleCategoryData,
 }: SingleCategoryNewsProps) => {
-  console.log(singleCategoryData, "singleCategoryData");
+  //   Filter is the data Featured Or Not
   const isFeatured = singleCategoryData.filter(
+    // if date id 1 feature then add in isFeature
     (item) => item.is_featured === 1
   );
   const nonFeatured = singleCategoryData.filter(
+    // if date id 2 non feature then add in nonFeature
     (item) => item.is_featured === 2
   );
 

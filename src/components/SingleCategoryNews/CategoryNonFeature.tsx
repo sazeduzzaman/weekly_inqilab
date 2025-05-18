@@ -1,15 +1,8 @@
+import { CommonNewsTypes } from "@/lib/types/CommonNewsTypes";
 import React from "react";
 
-interface NewsItem {
-  id: number;
-  title: string;
-  content: string;
-  is_featured: number;
-  news_title: string;
-}
-
 interface NonFeatureProps {
-  nonFeatured: NewsItem[];
+  nonFeatured: CommonNewsTypes[];
 }
 
 const CategoryNonFeature = ({ nonFeatured }: NonFeatureProps) => {

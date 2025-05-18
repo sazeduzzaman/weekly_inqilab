@@ -8,7 +8,6 @@ interface BreakingNewsData {
   image_url?: string;
   title_img?: string;
   thumbnail_img?: string;
-  news_time?: string;
 }
 
 export const BreakingDataSet = async (): Promise<BreakingNewsData[]> => {

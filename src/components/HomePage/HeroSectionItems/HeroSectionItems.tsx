@@ -20,7 +20,11 @@ export default function HeroSectionItems({
           <div className="">
             {leatestOne.map((items) => (
               <div key={items.id}>
-                <Link href="#">
+                <Link
+                  href={`/details/${items.category_name.toLowerCase()}/${
+                    items.id
+                  }`}
+                >
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                     <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
                       <OptimizedNewsImage
@@ -60,7 +64,12 @@ export default function HeroSectionItems({
           {/* <SectionTitle title="সর্বাধিক" /> */}
           <div className="">
             {leatestThree.map((items) => (
-              <Link href="#" key={items.id}>
+              <Link
+                href={`/details/${items.category_name.toLowerCase()}/${
+                  items.id
+                }`}
+                key={items.id}
+              >
                 <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                   <figure className="relative w-full h-73 transition-transform duration-500 ease-in-out group-hover:scale-105">
                     {/* Image */}

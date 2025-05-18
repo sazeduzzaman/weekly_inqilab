@@ -4,7 +4,6 @@ import { BreakingNewsListProps } from "@/lib/types/BreakingDataType";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import AutoScroll from "embla-carousel-auto-scroll";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function MarqueSliderItems({
@@ -49,7 +48,11 @@ export default function MarqueSliderItems({
                   widthClass="w-[30px]"
                   priority
                 />
-                <Link href={`/category/${item.category_id}`}>
+                <Link
+                  href={`/details/${item.category_name.toLowerCase()}/${
+                    item.id
+                  }`}
+                >
                   {item.news_title}
                 </Link>
               </div>
