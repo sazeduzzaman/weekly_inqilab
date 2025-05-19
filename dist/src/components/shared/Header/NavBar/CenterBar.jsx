@@ -11,7 +11,10 @@ const promises_1 = __importDefault(require("fs/promises"));
 const path_1 = __importDefault(require("path"));
 const link_1 = __importDefault(require("next/link"));
 const SearchDropdown_1 = __importDefault(require("@/components/SearchDropdown/SearchDropdown"));
+const ri_1 = require("react-icons/ri");
+const CategoryDataSet_1 = require("@/lib/api/CategoryDataSet");
 async function CenterBar() {
+    const categoryItems = await (0, CategoryDataSet_1.CategoryDataSet)();
     // 1) Build the filesystem path
     const logoFsPath = path_1.default.join(process.cwd(), "public", "images", "logo.png");
     // 2) Read into a Buffer
@@ -29,6 +32,7 @@ async function CenterBar() {
                   <path_1.default strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"/>
                 </svg>
               </div>
+              {/* mobile  Menu */}
               <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white border-2 border-gray-300 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 {[
             "সর্বশেষ",
@@ -54,6 +58,7 @@ async function CenterBar() {
             </div>
 
             <div className="relative w-full header-logo">
+              {/* Mobile Logo */}
               <link_1.default href="/">
                 <image_1.default src="/images/logo.png" alt="Logo" width={250} height={100} placeholder="blur" blurDataURL={base64}/>
               </link_1.default>
@@ -62,7 +67,13 @@ async function CenterBar() {
 
           {/* Middle Section: Search */}
           <div className="navbar-center flex w-full sm:w-[20%] justify-center d-sm-none pr-3">
-            <SearchDropdown_1.default />
+            <SearchDropdown_1.default categoryItems={categoryItems}/>
+            <div className="ms-3">
+              <link_1.default href="/epaper" className="btn btn-black px-5 py-3 search-menu">
+                <ri_1.RiFilePaper2Line color="red" size={18}/>
+                <span>ইপেপার</span>
+              </link_1.default>
+            </div>
           </div>
 
           {/* Right Section: Ad */}

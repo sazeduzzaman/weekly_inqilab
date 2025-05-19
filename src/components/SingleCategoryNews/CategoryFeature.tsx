@@ -11,7 +11,7 @@ const CategoryFeature = ({ isFeatured }: IsFeatureProps) => {
     <div>
       {isFeatured.map((item, index) => (
         <Link
-          href={`/details/${item.category_name.toLowerCase()}/${item.id}`}
+          href='/'
           key={index}
         >
           <p>{item.news_title}</p>

@@ -21,9 +21,7 @@ export default function HeroSectionItems({
             {leatestOne.map((items) => (
               <div key={items.id}>
                 <Link
-                  href={`/details/${items.category_name?.toLowerCase() ?? "general"}/${
-                    items.id
-                  }`}
+                  href='/'
                 >
                   <span>{items.category_name}</span>
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
@@ -66,9 +64,7 @@ export default function HeroSectionItems({
           <div className="">
             {leatestThree.map((items) => (
               <Link
-                href={`/details/${items.category_name.toLowerCase()}/${
-                  items.id
-                }`}
+                href='/'
                 key={items.id}
               >
                 <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">

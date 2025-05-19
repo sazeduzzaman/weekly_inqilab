@@ -58,6 +58,7 @@ function RootLayout({ children, }) {
         <Header_1.default />
         {children}
         <Footer_1.default />
+        
       </body>
     </html>);
 }
