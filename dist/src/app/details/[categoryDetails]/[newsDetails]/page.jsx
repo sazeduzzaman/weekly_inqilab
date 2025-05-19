@@ -21,7 +21,6 @@ async function Page({ params }) {
     }
     const data = await res.json();
     const singelNewsItems = data.data;
-    console.log(singelNewsItems);
     return (<div className="p-4">
       <NewsDetails_1.default singelNewsItems={singelNewsItems}/>
     </div>);

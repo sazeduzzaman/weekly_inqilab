@@ -22,7 +22,6 @@ export default async function Page({ params }: any) {
 
   const data = await res.json();
   const singelNewsItems = data.data;
-  console.log(singelNewsItems);
 
   return (
     <div className="p-4">

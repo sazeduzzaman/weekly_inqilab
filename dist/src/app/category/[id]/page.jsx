@@ -23,7 +23,7 @@ async function Page({ searchParams }) {
     const categoryItemsName = categoryItems[1].category_name_bangla;
     return (<div className="container mx-auto">
       <div className="mt-4 flex justify-between border-b mb-4 ">
-        <p className="font-semibold text-2xl">{categoryItemsName}</p>
+        <p className="font-semibold text-1xl">{categoryItemsName} নিউজ</p>
         <CurrentTimeShower_1.default />
       </div>
       <CategoryNews_1.default categoryId={categoryId}/>

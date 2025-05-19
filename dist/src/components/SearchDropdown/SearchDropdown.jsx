@@ -45,7 +45,7 @@ function SearchDropdown({ categoryItems }) {
                           ইনকিলাব এ দেখুন...
                         </p>
                         {categoryDataItems.map((item, index) => (<li className="flex justify-start items-start w-auto " key={index}>
-                            <link_1.default href="/" className="hover:text-red-900">
+                            <link_1.default href={`/category/${item.name}?id=${item.id}`} className="hover:text-red-900">
                               <bs_1.BsArrowRightCircle color="red"/>
                               {item.name_bangla}
                             </link_1.default>
