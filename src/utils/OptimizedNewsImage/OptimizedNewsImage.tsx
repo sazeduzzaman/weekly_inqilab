@@ -48,7 +48,7 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
       <Image
         src={hasError ? fallbackImageSrc : newsImageSrc}
         alt={altText}
-        fill
+         fill
         priority={priority}
         className={`${baseClasses} ${className} ${hoverClass}`}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

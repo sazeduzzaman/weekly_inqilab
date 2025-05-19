@@ -94,7 +94,7 @@ body {
   text-decoration: none;
   letter-spacing: -0.36px;
 }
-.slider-title{
+.slider-title {
   font-weight: 500;
   font-size: 25px;
   line-height: 40px;
@@ -127,6 +127,25 @@ body {
   text-transform: none;
   text-decoration: none;
   letter-spacing: -0.12px;
+}
+.news-details-p p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
+  color: rgb(84, 86, 88) !important;
+}
+.news-details-para p span {
+  font-weight: 400;
+  font-size: 14px !important;
+  line-height: 30px !important;
+  font-family: var(--font-tiro-bangla);
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
+  color: rgb(0, 0, 0) !important;
 }
 @media only screen and (max-width: 600px) {
   .d-sm-none {

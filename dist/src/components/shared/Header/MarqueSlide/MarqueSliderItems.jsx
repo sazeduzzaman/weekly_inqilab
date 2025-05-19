@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = MarqueSliderItems;
+const OptimizedNewsImage_1 = __importDefault(require("@/utils/OptimizedNewsImage/OptimizedNewsImage"));
 const embla_carousel_auto_scroll_1 = __importDefault(require("embla-carousel-auto-scroll"));
 const embla_carousel_react_1 = __importDefault(require("embla-carousel-react"));
-const image_1 = __importDefault(require("next/image"));
 const link_1 = __importDefault(require("next/link"));
 function MarqueSliderItems({ breakingItems, }) {
     const [emblaRef] = (0, embla_carousel_react_1.default)({ loop: true, containScroll: "keepSnaps" }, [
@@ -29,14 +29,16 @@ function MarqueSliderItems({ breakingItems, }) {
           <span className="blinking-dot"></span>
           <span className="pr-3 font-semibold">ব্রেকিং:</span>
         </div>
-        <div className="embla w-[86rem] overflow-hidden" ref={emblaRef}>
+        <div className="embla overflow-hidden" ref={emblaRef}>
           <div className="embla__container flex">
-            {extendedBreakingItems.map((item, index) => (<p className="embla__slide min-w-0 flex-[0_0_auto] border-r-2 border-white px-2 flex items-center gap-2" key={index}>
-                <image_1.default className="w-6 h-6 rounded-lg object-cover" src={item.image_url} alt={item.name} width={10} height={10} priority/>
-                <link_1.default href={`/category/${item.category_id}`}>
+            {extendedBreakingItems.map((item, index) => (<div className="embla__slide min-w-0 flex-[0_0_auto] border-r-2 border-white px-2 flex items-center gap-2" key={index}>
+                <OptimizedNewsImage_1.default className="w-6 h-6 rounded-lg object-cover" 
+        // src={item.title_img || "no img"}
+        imageName={item.title_img || "no img"} altText={item.name} heightClass="h-6" widthClass="w-[30px]" priority/>
+                <link_1.default href={`/details/${item.category_name}/${item.id}`}>
                   {item.news_title}
                 </link_1.default>
-              </p>))}
+              </div>))}
           </div>
         </div>
       </section>

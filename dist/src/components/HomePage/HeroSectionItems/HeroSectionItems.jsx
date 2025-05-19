@@ -3,81 +3,70 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const SectionTitle_1 = __importDefault(require("@/components/SectionTitle/SectionTitle"));
-const image_1 = __importDefault(require("next/image"));
+exports.default = HeroSectionItems;
 const link_1 = __importDefault(require("next/link"));
 const react_1 = __importDefault(require("react"));
 const HeroCenterSlider_1 = __importDefault(require("./HeroCenterSlider"));
-const HeroSectionItems = () => {
+const OptimizedNewsImage_1 = __importDefault(require("@/utils/OptimizedNewsImage/OptimizedNewsImage"));
+const NewsTimeShower_1 = __importDefault(require("@/utils/NewsTimeShower/NewsTimeShower"));
+function HeroSectionItems({ spotLightItems, }) {
+    const leatestOne = spotLightItems.slice(1, 2);
+    const leatestTwo = spotLightItems.slice(3, 6);
+    const leatestThree = spotLightItems.slice(6, 8);
     return (<div className="container mx-auto mt-5 mb-6">
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-3">
-          <SectionTitle_1.default title="জাতীয়"/>
+          {/* <SectionTitle title="জাতীয়" /> */}
           <div className="">
-            <link_1.default href="#">
-              <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
-                <figure className="relative w-full h-48 transition-transform duration-500 ease-in-out group-hover:scale-130">
-                  <image_1.default className="object-cover" src="/images/news-1.webp" alt="Shoes" layout="fill" priority/>
-                </figure>
-                <div className="card-body flex items-center justify-center">
-                  <h2 className="card-title font-normal">
-                    শনিবার শতভাগ কারখানায় বেতন-বোনাস পরিশোধ সম্পন্ন হবে:
-                    বিজিএমইএ
-                  </h2>
-                </div>
-              </div>
-            </link_1.default>
-
-            <link_1.default href="#">
-              <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden">
-                <figure className="relative w-full h-48 transition-transform duration-500 ease-in-out group-hover:scale-130">
-                  <image_1.default className="object-cover" src="/images/news-2.webp" alt="Shoes" layout="fill" priority/>
-                </figure>
-                <div className="card-body flex items-center justify-center">
-                  <h2 className="card-title font-normal">
-                    জান, পৃথিবীর সমস্ত সুখ আল্লাহ তোমাকে দিক: মাহিয়া মাহি
-                  </h2>
-                </div>
-              </div>
-            </link_1.default>
+            {leatestOne.map((items) => (<div key={items.id}>
+                <link_1.default href={`/details/${items.category_name}/${items.id}`}>
+                  <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
+                    <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
+                      <OptimizedNewsImage_1.default imageName={items.title_img || "no img"} altText={`Thumbnail for ${items.title_img || "no img"}`} heightClass="h-[570px]" widthClass="w-full" priority className="p-0 rounded-none"/>
+                    </figure>
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
+                      <h2 className="text-white font-normal py-20">
+                        {items.news_title} <br />
+                        <small className="text-site-secondary opacity-70 block mt-1">
+                          {/* {items.news_time} */}
+                          <NewsTimeShower_1.default newsTime={items.news_time || new Date().toISOString()}/>
+                        </small>
+                      </h2>
+                    </div>
+                    <br />
+                  </div>
+                </link_1.default>
+              </div>))}
           </div>
         </div>
         <div className="col-span-6">
-          <SectionTitle_1.default title="সর্বশেষ"/>
-          <HeroCenterSlider_1.default />
+          {/* <SectionTitle title="সর্বশেষ" /> */}
+          <HeroCenterSlider_1.default spotLightItems={leatestTwo}/>
         </div>
         <div className="col-span-3">
-          <SectionTitle_1.default title="সর্বাধিক"/>
+          {/* <SectionTitle title="সর্বাধিক" /> */}
           <div className="">
-            <link_1.default href="#">
-              <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
-                <figure className="relative w-full h-48 transition-transform duration-500 ease-in-out group-hover:scale-130">
-                  <image_1.default className="object-cover" src="/images/news-1.webp" alt="Shoes" layout="fill" priority/>
-                </figure>
-                <div className="card-body flex items-center justify-center">
-                  <h2 className="card-title font-normal">
-                    শনিবার শতভাগ কারখানায় বেতন-বোনাস পরিশোধ সম্পন্ন হবে:
-                    বিজিএমইএ
-                  </h2>
-                </div>
-              </div>
-            </link_1.default>
+            {leatestThree.map((items) => (<link_1.default href={`/details/${items.category_name}/${items.id}`} key={items.id}>
+                <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
+                  <figure className="relative w-full h-73 transition-transform duration-500 ease-in-out group-hover:scale-105">
+                    {/* Image */}
+                    <OptimizedNewsImage_1.default imageName={items.title_img || "no image"} altText={`Thumbnail for ${items.title_img}`} priority widthClass="w-full" heightClass="h-73" hoverEffect className="rounded-none"/>
 
-            <link_1.default href="#">
-              <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden">
-                <figure className="relative w-full h-48 transition-transform duration-500 ease-in-out group-hover:scale-130">
-                  <image_1.default className="object-cover" src="/images/news-2.webp" alt="Shoes" layout="fill" priority/>
-                </figure>
-                <div className="card-body flex items-center justify-center">
-                  <h2 className="card-title font-normal">
-                    জান, পৃথিবীর সমস্ত সুখ আল্লাহ তোমাকে দিক: মাহিয়া মাহি
-                  </h2>
+                    {/* Bottom Overlay with Title */}
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
+                      <h2 className="text-white font-normal">
+                        <span className="block">{items.news_title}</span>
+                        <small className="text-site-secondary opacity-70 block mt-1">
+                          {/* {items.news_time} */}
+                          <NewsTimeShower_1.default newsTime={items.news_time || new Date().toISOString()}/>
+                        </small>
+                      </h2>
+                    </div>
+                  </figure>
                 </div>
-              </div>
-            </link_1.default>
+              </link_1.default>))}
           </div>
         </div>
       </div>
     </div>);
-};
-exports.default = HeroSectionItems;
+}

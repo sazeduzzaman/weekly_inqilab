@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = HeroCenterSlider;
-const image_1 = __importDefault(require("next/image"));
 const link_1 = __importDefault(require("next/link"));
 const embla_carousel_react_1 = __importDefault(require("embla-carousel-react"));
 const react_1 = require("react");
 const fi_1 = require("react-icons/fi");
-function HeroCenterSlider() {
+const OptimizedNewsImage_1 = __importDefault(require("@/utils/OptimizedNewsImage/OptimizedNewsImage"));
+function HeroCenterSlider({ spotLightItems, }) {
     const [emblaRef, emblaApi] = (0, embla_carousel_react_1.default)({
         loop: true,
         align: "start",
@@ -23,37 +23,26 @@ function HeroCenterSlider() {
         }, 5000);
         return () => clearInterval(interval);
     }, [emblaApi]);
-    const slides = [
-        {
-            id: 1,
-            image: "/images/news-1.jpg",
-            title: "বাংলাদেশে ‘পাকিস্তানপন্থা’ বলে কিছু নেই: হেফাজতে ইসলাম",
-        },
-        {
-            id: 2,
-            image: "/images/slider-2.webp",
-            title: "জান, পৃথিবীর সমস্ত সুখ আল্লাহ তোমাকে দিক: মাহিয়া মাহি",
-        },
-        {
-            id: 3,
-            image: "/images/slider-1.webp",
-            title: "নতুন সিনেমা নিয়ে আসছে বিদ্যা বালান",
-        },
-    ];
     return (<div className="w-full">
       <div className="relative">
         <div ref={emblaRef} className="overflow-hidden">
           <div className="flex">
-            {slides.map((slide) => (<div key={slide.id} className="w-full flex-shrink-0">
-                <link_1.default href="#">
-                  <div className="card rounded-none image-full shadow-sm group overflow-hidden mb-3 w-full">
-                    <figure className="relative h-[395px] w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
-                      <image_1.default className="object-cover" src={slide.image} alt={slide.title} fill priority/>
+            {spotLightItems.map((items) => (<div key={items.id} className="w-full flex-shrink-0">
+                <link_1.default 
+        // href="/"
+        href={`/details/${items.category_name}/${items.id}`}>
+                  <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
+                    <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                      {/* Black gradient overlay on top of the image */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 "/>
+                      <OptimizedNewsImage_1.default imageName={items.title_img || "No image"} altText={`Thumbnail for ${items.title_img}`} heightClass="h-[507px]" widthClass="w-full" priority/>
                     </figure>
-                    <div className="card-body flex items-center justify-center">
-                      <h2 className="card-title font-normal text-center">
-                        {slide.title}
-                      </h2>
+
+                    {/* Title section */}
+                    <div className="card-body relative flex items-center justify-center bg-black">
+                      <h1 className="card-title slider-title font-normal text-center text-white z-10">
+                        {items.news_title}
+                      </h1>
                     </div>
                   </div>
                 </link_1.default>

@@ -56,7 +56,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
                             className="flex justify-start items-start w-auto "
                             key={index}
                           >
-                            <Link href="/" className="hover:text-red-900">
+                            <Link href={`/category/${item.name}?id=${item.id}`} className="hover:text-red-900">
                               <BsArrowRightCircle color="red" />
                               {item.name_bangla}
                             </Link>

@@ -1,55 +1,80 @@
 "use strict";
-"use client";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = SearchDropdown;
-const react_1 = require("react");
-function SearchDropdown() {
-    const [query, setQuery] = (0, react_1.useState)("");
-    const [results, setResults] = (0, react_1.useState)([
-        // Sample static data, replace with fetched results
-        "Apple",
-        "Banana",
-        "Cherry",
-    ]);
-    const [showDropdown, setShowDropdown] = (0, react_1.useState)(false);
-    const handleChange = (e) => {
-        const value = e.target.value;
-        setQuery(value);
-        setShowDropdown(!!value);
-        // Optional: fetch data here
-    };
-    console.log(setResults, "setResults");
-    return (<div className="relative w-full">
-      <div className="relative w-full">
-        <label className="input sm:h-7 md:h-13 lg:h-13 bg-gray-200 border shadow-sm w-full flex items-center gap-2 px-2 pr-8">
-          <svg className="h-[1.5em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input type="search" value={query} onChange={handleChange} className="grow w-full bg-gray-200 focus:outline-none hide-clear-icon" placeholder="Search"/>
-
-          {/* Clear Icon */}
-          {query && (<button type="button" onClick={() => {
-                setQuery("");
-                setShowDropdown(false);
-            }} className="absolute right-2 text-black hover:text-gray-700">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>)}
-        </label>
+const react_1 = __importDefault(require("react"));
+const io_1 = require("react-icons/io");
+const ri_1 = require("react-icons/ri");
+const SearchDropdownCanvas_1 = __importDefault(require("./SearchDropdownCanvas"));
+const image_1 = __importDefault(require("next/image"));
+const link_1 = __importDefault(require("next/link"));
+const CurrentTimeShower_1 = __importDefault(require("@/utils/CurrentTimeShower/CurrentTimeShower"));
+const bs_1 = require("react-icons/bs");
+function SearchDropdown({ categoryItems }) {
+    const categoryDataItems = categoryItems.slice(0);
+    return (<div>
+      <div className="drawer drawer-end z-50 ">
+        <input id="my-drawer-4" type="checkbox" className="drawer-toggle"/>
+        <div className="drawer-content">
+          {/* Page content here */}
+          <label htmlFor="my-drawer-4" className="drawer-button btn btn-black px-5 py-3 search-menu">
+            <ri_1.RiMenuSearchLine color="red" size={20}/>
+            খুজুন
+          </label>
+        </div>
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
+          <SearchDropdownCanvas_1.default />
+          <div className="menu bg-white text-black min-h-full w-80 p-4">
+            <div>
+              <label htmlFor="my-drawer-4" className="btn btn-sm btn-black p-4 pb-4 -mt-0.5 me-2">
+                <io_1.IoMdClose />
+              </label>
+            </div>
+            {/* Close button */}
+            {/* Sidebar content here */}
+            <div>
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="text-center flex justify-start items-center flex-col">
+                    <div>
+                      <ul className="mt-5 w-70">
+                        <p className="font-bold text-start">
+                          ইনকিলাব এ দেখুন...
+                        </p>
+                        {categoryDataItems.map((item, index) => (<li className="flex justify-start items-start w-auto " key={index}>
+                            <link_1.default href={`/category/${item.name}?id=${item.id}`} className="hover:text-red-900">
+                              <bs_1.BsArrowRightCircle color="red"/>
+                              {item.name_bangla}
+                            </link_1.default>
+                          </li>))}
+                      </ul>
+                    </div>
+                    <div className="bottom-0 absolute flex flex-col justify-center items-center px-3 mb-2">
+                      <div>
+                        <link_1.default href="/" className="hover:text-red-900">
+                          <image_1.default src="/images/logo.png" alt="Logo" width={250} height={100}/>
+                        </link_1.default>
+                      </div>
+                      <div className="text-[14px] text-gray-400 pt-3">
+                        <CurrentTimeShower_1.default />
+                      </div>
+                      <div>
+                        <p>
+                          এই ওয়েবসাইটের কোনো লেখা, ছবি, অডিও, ভিডিও অনুমতি
+                          ছাড়া ব্যবহার বেআইনী। কপিরাইট © ২০২৫ <br /> সাপ্তাহিক
+                          ইনকিলাব কর্তৃক সর্বসত্ব ® সংরক্ষিত
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {showDropdown && results.length > 0 && (<ul className="absolute z-50 w-full mt-1 bg-white border rounded-md shadow-md max-h-60 overflow-y-auto">
-          {results.map((item, index) => (<li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => {
-                    setQuery(item);
-                    setShowDropdown(false);
-                }}>
-              {item}
-            </li>))}
-        </ul>)}
     </div>);
 }

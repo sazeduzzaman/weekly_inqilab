@@ -17,7 +17,7 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
       <div className="grid grid-cols-6 gap-3">
         {latestItems.map((item) => (
           <div key={item.id}>
-            <Link href="/">
+            <Link href={`/details/${item.category_name}/${item.id}`}>
               <div className="card rounded-none shadow-sm group">
                 <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage

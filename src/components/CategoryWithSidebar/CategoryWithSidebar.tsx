@@ -12,7 +12,7 @@ const CategoryWithSidebar = () => {
         </div>
         <div className="col-span-3">
           <SectionTitle title="আমাদের সম্পর্কে" />
-          <FirstSidebar/>
+          <FirstSidebar />
         </div>
       </div>
     </div>
