@@ -2,11 +2,6 @@
 
 export const dynamic = "force-dynamic"; // 💡 Add this line
 
-// interface PageProps {
-//   params: { id: string }; // from /category/[id]
-//   searchParams: { id?: string }; // from ?id=4
-// }
-
 export default async function Page({ params, searchParams }: any) {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;

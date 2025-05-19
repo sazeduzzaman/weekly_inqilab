@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.dynamic = void 0;
 exports.default = Page;
 exports.dynamic = "force-dynamic"; // 💡 Add this line
-// interface PageProps {
-//   params: { id: string }; // from /category/[id]
-//   searchParams: { id?: string }; // from ?id=4
-// }
 async function Page({ params, searchParams }) {
     const resolvedParams = await params;
     const resolvedSearchParams = await searchParams;
