@@ -1,19 +1,28 @@
 "use strict";
 // app/details/[categoryDetails]/[newsDetails]/page.tsx
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dynamic = void 0;
 exports.default = Page;
+const NewsDetails_1 = __importDefault(require("@/components/NewsDetails/NewsDetails"));
 exports.dynamic = "force-dynamic";
-async function Page({ params, searchParams }) {
-    // Await the whole params and searchParams objects (since Next.js treats them as promises)
+async function Page({ params }) {
     const resolvedParams = await params;
-    const resolvedSearchParams = await searchParams;
-    const category = decodeURIComponent(resolvedParams.categoryDetails);
-    const news = decodeURIComponent(resolvedParams.newsDetails);
-    const newsId = resolvedSearchParams.id; // example query param
+    const newsId = resolvedParams.newsDetails;
+    console.log("Fetching news for ID:", newsId);
+    const res = await fetch(`https://backoffice.ajkal.us/news-detail/${newsId}`, {
+        next: { revalidate: 60 },
+    });
+    if (!res.ok) {
+        console.error("Failed to fetch news data");
+        return <p>Failed to fetch news data</p>;
+    }
+    const data = await res.json();
+    const singelNewsItems = data.data;
+    console.log(singelNewsItems);
     return (<div className="p-4">
-      <h1>Category: {category}</h1>
-      <h2>News: {news}</h2>
-      {newsId && <p>News ID (from query): {newsId}</p>}
+      <NewsDetails_1.default singelNewsItems={singelNewsItems}/>
     </div>);
 }

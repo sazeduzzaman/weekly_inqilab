@@ -19,8 +19,7 @@ function HeroSectionItems({ spotLightItems, }) {
           {/* <SectionTitle title="জাতীয়" /> */}
           <div className="">
             {leatestOne.map((items) => (<div key={items.id}>
-                <link_1.default href='/'>
-                  <span>{items.category_name}</span>
+                <link_1.default href={`/details/${items.category_name}/${items.id}`}>
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                     <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
                       <OptimizedNewsImage_1.default imageName={items.title_img || "no img"} altText={`Thumbnail for ${items.title_img || "no img"}`} heightClass="h-[570px]" widthClass="w-full" priority className="p-0 rounded-none"/>
@@ -47,7 +46,7 @@ function HeroSectionItems({ spotLightItems, }) {
         <div className="col-span-3">
           {/* <SectionTitle title="সর্বাধিক" /> */}
           <div className="">
-            {leatestThree.map((items) => (<link_1.default href='/' key={items.id}>
+            {leatestThree.map((items) => (<link_1.default href={`/details/${items.category_name}/${items.id}`} key={items.id}>
                 <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                   <figure className="relative w-full h-73 transition-transform duration-500 ease-in-out group-hover:scale-105">
                     {/* Image */}

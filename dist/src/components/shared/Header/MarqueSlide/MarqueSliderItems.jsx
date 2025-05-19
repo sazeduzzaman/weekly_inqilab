@@ -35,7 +35,7 @@ function MarqueSliderItems({ breakingItems, }) {
                 <OptimizedNewsImage_1.default className="w-6 h-6 rounded-lg object-cover" 
         // src={item.title_img || "no img"}
         imageName={item.title_img || "no img"} altText={item.name} heightClass="h-6" widthClass="w-[30px]" priority/>
-                <link_1.default href='/'>
+                <link_1.default href={`/details/${item.category_name}/${item.id}`}>
                   {item.news_title}
                 </link_1.default>
               </div>))}

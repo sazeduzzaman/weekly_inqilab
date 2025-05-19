@@ -20,10 +20,7 @@ export default function HeroSectionItems({
           <div className="">
             {leatestOne.map((items) => (
               <div key={items.id}>
-                <Link
-                  href='/'
-                >
-                  <span>{items.category_name}</span>
+                <Link href={`/details/${items.category_name}/${items.id}`}>
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                     <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
                       <OptimizedNewsImage
@@ -64,7 +61,7 @@ export default function HeroSectionItems({
           <div className="">
             {leatestThree.map((items) => (
               <Link
-                href='/'
+                href={`/details/${items.category_name}/${items.id}`}
                 key={items.id}
               >
                 <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">

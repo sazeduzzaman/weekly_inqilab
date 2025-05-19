@@ -1,22 +1,32 @@
 // app/details/[categoryDetails]/[newsDetails]/page.tsx
 
+import NewsDetails from "@/components/NewsDetails/NewsDetails";
+
 export const dynamic = "force-dynamic";
 
-export default async function Page({ params, searchParams }: any) {
-  // Await the whole params and searchParams objects (since Next.js treats them as promises)
+export default async function Page({ params }: any) {
   const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
 
-  const category = decodeURIComponent(resolvedParams.categoryDetails);
-  const news = decodeURIComponent(resolvedParams.newsDetails);
+  const newsId = resolvedParams.newsDetails;
 
-  const newsId = resolvedSearchParams.id; // example query param
+  console.log("Fetching news for ID:", newsId);
+
+  const res = await fetch(`https://backoffice.ajkal.us/news-detail/${newsId}`, {
+    next: { revalidate: 60 },
+  });
+
+  if (!res.ok) {
+    console.error("Failed to fetch news data");
+    return <p>Failed to fetch news data</p>;
+  }
+
+  const data = await res.json();
+  const singelNewsItems = data.data;
+  console.log(singelNewsItems);
 
   return (
     <div className="p-4">
-      <h1>Category: {category}</h1>
-      <h2>News: {news}</h2>
-      {newsId && <p>News ID (from query): {newsId}</p>}
+      <NewsDetails singelNewsItems={singelNewsItems} />
     </div>
   );
 }
