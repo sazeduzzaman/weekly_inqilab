@@ -3,6 +3,7 @@ import { LatestNewsListProps } from "@/lib/types/LatestDataType";
 import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -42,6 +43,14 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="relative w-full h-full">
+        <Image
+          src="/images/advertisement.gif"
+          alt="Ad banner"
+          fill
+          className="object-cover rounded-md"
+        />
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import CategoryWithSidebarItems from "./CategoryWithSidebarItems";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import FirstSidebar from "../Sidebar/FirstSidebar";
 
 const CategoryWithSidebar = () => {
@@ -11,7 +10,6 @@ const CategoryWithSidebar = () => {
           <CategoryWithSidebarItems />
         </div>
         <div className="col-span-3">
-          <SectionTitle title="আমাদের সম্পর্কে" />
           <FirstSidebar />
         </div>
       </div>

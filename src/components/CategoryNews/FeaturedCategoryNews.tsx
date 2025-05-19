@@ -1,4 +1,3 @@
-import LimitedText from "@/utils/LimitedText/LimitedText";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Link from "next/link";
@@ -88,14 +87,9 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
                       />
                     </div>
                     <div className="w-2/3 text-sm font-medium p-3">
-                      <h1 className="card-title font-semibold mb-2">
+                      <h1 className="ft-2-size font-semibold mb-2 ">
                         {item.news_title}
                       </h1>
-                      <LimitedText
-                        htmlContent={item.news_short_brief}
-                        wordLimit={10}
-                        className="news-details-p"
-                      />
                       <small className="text-gray-500 opacity-95 block mt-4">
                         <NewsTimeShower
                           newsTime={item.news_time || new Date().toISOString()}

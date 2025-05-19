@@ -21,7 +21,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
             className="drawer-button btn btn-black px-5 py-3 search-menu"
           >
             <RiMenuSearchLine color="red" size={20} />
-            খুজুন
+            আরও দেখুন...
           </label>
         </div>
         <div className="drawer-side">
@@ -56,7 +56,10 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
                             className="flex justify-start items-start w-auto "
                             key={index}
                           >
-                            <Link href={`/category/${item.name}?id=${item.id}`} className="hover:text-red-900">
+                            <Link
+                              href={`/category/${item.name}?id=${item.id}`}
+                              className="hover:text-red-900"
+                            >
                               <BsArrowRightCircle color="red" />
                               {item.name_bangla}
                             </Link>

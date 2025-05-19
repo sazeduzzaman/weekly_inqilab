@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-export default async function ProductDetails({
-  params,
-}: {
-  params: { categoryDetails: string; newsDetails: string };
-}) {
-  const { categoryDetails, newsDetails } = await params;
-
-  return (
-    <h1>
-      Details for category: {categoryDetails}, News: {newsDetails}
-    </h1>
-=======
 // app/details/[categoryDetails]/[newsDetails]/page.tsx
 
 import NewsDetails from "@/components/NewsDetails/NewsDetails";
@@ -40,6 +27,5 @@ export default async function Page({ params }: any) {
     <div className="p-4">
       <NewsDetails singelNewsItems={singelNewsItems} />
     </div>
->>>>>>> bb0290d37c227578e2d795058f30949cb1acc760
   );
 }

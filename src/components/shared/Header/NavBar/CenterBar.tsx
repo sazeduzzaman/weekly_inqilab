@@ -1,22 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import { getPlaiceholder } from "plaiceholder";
-import fs from "fs/promises";
-import path from "path";
 import Link from "next/link";
 import SearchDropdown from "@/components/SearchDropdown/SearchDropdown";
 import { RiFilePaper2Line } from "react-icons/ri";
 import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 
 export default async function CenterBar() {
-    const categoryItems = await CategoryDataSet();
-  // 1) Build the filesystem path
-  const logoFsPath = path.join(process.cwd(), "public", "images", "logo.png");
-  // 2) Read into a Buffer
-  const logoBuffer = await fs.readFile(logoFsPath);
-  // 3) Generate base64 + metadata (no more `img`!)
-  const { base64 } = await getPlaiceholder(logoBuffer);
-
+  const categoryItems = await CategoryDataSet();
   return (
     <div className=" bg-white shadow-sm">
       <div className="container mx-auto">
@@ -82,8 +72,6 @@ export default async function CenterBar() {
                   alt="Logo"
                   width={250}
                   height={100}
-                  placeholder="blur"
-                  blurDataURL={base64}
                 />
               </Link>
             </div>
@@ -98,7 +86,7 @@ export default async function CenterBar() {
                 className="btn btn-black px-5 py-3 search-menu"
               >
                 <RiFilePaper2Line color="red" size={18} />
-                <span>ইপেপার</span>
+                <span>ইপেপার পড়ুন</span>
               </Link>
             </div>
           </div>
@@ -110,8 +98,6 @@ export default async function CenterBar() {
                 src="/images/advertisement.png"
                 alt="Ad banner"
                 fill
-                placeholder="blur"
-                blurDataURL={base64}
                 className="object-cover"
               />
             </div>

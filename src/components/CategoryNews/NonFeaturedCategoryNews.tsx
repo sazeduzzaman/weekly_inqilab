@@ -58,7 +58,7 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
                             />
                           </figure>
                           <div className="card-body">
-                            <h2 className="text-2xl">{item.news_title}</h2>
+                            <h2 className="ft-size">{item.news_title}</h2>
                             <div
                               className="news-details-p"
                               dangerouslySetInnerHTML={{
