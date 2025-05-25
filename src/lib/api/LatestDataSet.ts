@@ -9,11 +9,13 @@ interface LatestNewsData {
   title_img?: string;
   thumbnail_img?: string;
   news_time?: string;
+  title? : string;
+  slug?: string;
 }
 
 export const LatestDataSet = async (): Promise<LatestNewsData[]> => {
   try {
-    const response = await fetch("https://backoffice.ajkal.us/latest-news");
+    const response = await fetch("https://v2.weeklyinqilab.com/api/v1/latest-news");
     const data = await response.json();
     return data.data;
   } catch (error) {

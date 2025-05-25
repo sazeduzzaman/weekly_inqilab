@@ -30,7 +30,7 @@ function HeroCenterSlider({ spotLightItems, }) {
             {spotLightItems.map((items) => (<div key={items.id} className="w-full flex-shrink-0">
                 <link_1.default 
         // href="/"
-        href={`/details/${items.category_name}/${items.id}`}>
+        href={`/details/${items.slug}/${items.id}`}>
                   <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
                     <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       {/* Black gradient overlay on top of the image */}
@@ -41,7 +41,7 @@ function HeroCenterSlider({ spotLightItems, }) {
                     {/* Title section */}
                     <div className="card-body relative flex items-center justify-center bg-black">
                       <h1 className="card-title slider-title font-normal text-center text-white z-10">
-                        {items.news_title}
+                        {items.title}
                       </h1>
                     </div>
                   </div>

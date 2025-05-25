@@ -13,7 +13,7 @@ interface ViewedNewsData {
 
 export const ViewedDataSet = async (): Promise<ViewedNewsData[]> => {
   try {
-    const response = await fetch("https://backoffice.ajkal.us/viewed-news");
+    const response = await fetch("https://v2.weeklyinqilab.com/api/v1/viewed-news");
     const data = await response.json();
     return data.data;
   } catch (error) {

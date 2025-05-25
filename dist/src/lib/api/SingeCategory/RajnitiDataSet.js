@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RajnitiDataSet = void 0;
 const RajnitiDataSet = async () => {
     try {
-        const response = await fetch("https://backoffice.ajkal.us/category-news/12");
+        const response = await fetch("https://v2.weeklyinqilab.com/api/v1/category-news/politics");
         const data = await response.json();
         return data.data;
     }

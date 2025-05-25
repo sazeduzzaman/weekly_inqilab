@@ -7,7 +7,7 @@ interface SpotLightNewsData {
 
 export const SpotLightDataSet = async (): Promise<SpotLightNewsData[]> => {
   try {
-    const response = await fetch("https://backoffice.ajkal.us/spotlight-news");
+    const response = await fetch("https://v2.weeklyinqilab.com/api/v1/spotlight-news");
     const data = await response.json();
     return data.data;
   } catch (error) {

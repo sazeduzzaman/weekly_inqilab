@@ -11,6 +11,8 @@ export interface ViewedNewsData {
   thumbnail_img?: string;
   news_time?: string;
   category_name?: string;
+  title?: string;
+  slug?: string;
 }
 
 export interface ViewedNewsListProps {

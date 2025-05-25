@@ -12,6 +12,8 @@ export interface RajnitiNewsData {
   news_time?: string;
   category_name?: string;
   is_featured?: number;
+  title?: string;
+  slug?: string;
 }
 
 export interface RajnitiNewsListProps {

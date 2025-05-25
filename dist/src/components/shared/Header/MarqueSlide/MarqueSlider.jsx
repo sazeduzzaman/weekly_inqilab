@@ -8,6 +8,7 @@ const BreakingDataSet_1 = require("@/lib/api/BreakingDataSet");
 const MarqueSliderItems_1 = __importDefault(require("./MarqueSliderItems"));
 async function MarqueSlider() {
     const breakingItems = await (0, BreakingDataSet_1.BreakingDataSet)();
+    console.log(breakingItems, "breakingItems");
     return (<div>
       <MarqueSliderItems_1.default breakingItems={breakingItems}/>
     </div>);
