@@ -3,34 +3,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = Footer;
 const SocialLinks_1 = __importDefault(require("@/components/SocialLinks/SocialLinks"));
 const image_1 = __importDefault(require("next/image"));
 const link_1 = __importDefault(require("next/link"));
 const react_1 = __importDefault(require("react"));
-const Footer = () => {
+const FooterCategoryItems_1 = __importDefault(require("./FooterCategoryItems"));
+const CategoryDataSet_1 = require("@/lib/api/CategoryDataSet");
+async function Footer() {
+    const categoryItems = await (0, CategoryDataSet_1.CategoryDataSet)();
     return (<div className="bg-black text-white">
       <div className="container mx-auto">
         {/* Top Footer */}
         <footer className="eng-font footer text-base-content footer-menus p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+          <FooterCategoryItems_1.default categoryItems={categoryItems}/>
           <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Category</h6>
-            <a className="link link-hover">Branding</a>
-            <a className="link link-hover">Design</a>
-            <a className="link link-hover">Marketing</a>
-            <a className="link link-hover">Advertisement</a>
-          </nav>
-          <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Company</h6>
-            <a className="link link-hover">About us</a>
-            <a className="link link-hover">Contact</a>
-            <a className="link link-hover">Jobs</a>
-            <a className="link link-hover">Press kit</a>
-          </nav>
-          <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Legal</h6>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
+            <h6 className="footer-title">Site Info</h6>
+            <link_1.default href="/terms" className="link link-hover">
+              Terms & Conditions
+            </link_1.default>
+            <link_1.default href="/policy" className="link link-hover">
+              Privacy policy
+            </link_1.default>
+            <link_1.default href="/ad-cost" className="link link-hover">
+              Advertisement
+            </link_1.default>
+            <link_1.default href="/about" className="link link-hover">
+              About Us
+            </link_1.default>
+            <link_1.default href="/contact" className="link link-hover">
+              Contact Us
+            </link_1.default>
           </nav>
           <nav className="flex flex-col justify-center items-center sm:items-start">
             <h6 className="footer-title">Social</h6>
@@ -73,5 +76,4 @@ const Footer = () => {
         </footer>
       </div>
     </div>);
-};
-exports.default = Footer;
+}

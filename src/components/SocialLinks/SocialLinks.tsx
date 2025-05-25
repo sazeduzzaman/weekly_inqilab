@@ -25,7 +25,7 @@ const SocialLinks = () => {
           <FaYoutube className="text-[16px]" />
         </button>
       </Link>
-      <Link type="button" href="auth/login" className="">
+      <Link type="button" href="/auth/login" className="">
         <button className="btn btn-circle bg-black border-0 text-white btn-sm">
           <FaUser className="text-[16px]" />
         </button>

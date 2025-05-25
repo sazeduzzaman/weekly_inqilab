@@ -3,6 +3,9 @@ import SocialLinks from "../SocialLinks/SocialLinks";
 import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { RiAdvertisementLine } from "react-icons/ri";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { MdConnectWithoutContact } from "react-icons/md";
 
 const FirstSidebar = () => {
   return (
@@ -19,19 +22,33 @@ const FirstSidebar = () => {
           </div>
         </div>
       </div>
+      <div className="card rounded-none shadow-sm mt-5">
+        <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+          গুরুত্বপূর্ণ
+        </div>
+        <div className="card-body">
+          <div>
+            <Link href="/ad-cost" className="flex items-center">
+              <RiAdvertisementLine className="me-3" size={30} /> প্রিন্ট সংস্করণ
+            </Link>
+          </div>
+          <div>
+            <Link href="/epaper" className="flex items-center">
+              <HiOutlineLightBulb className="me-3" size={30} /> অনলাইন সংস্করণ
+            </Link>
+          </div>
+          <div>
+            <Link href="/contact" className="flex items-center">
+              <MdConnectWithoutContact className="me-3" size={30} /> যোগাযোগের
+              ঠিকানা
+            </Link>
+          </div>
+        </div>
+      </div>
 
-      <div className="card rounded-none shadow-sm">
-        <figure>
-          <Image
-            src="/images/ads2-768x528.webp"
-            alt="Advertisement"
-            width={768}
-            height={528}
-            layout="responsive"
-          />
-        </figure>
+      <div className="card rounded-none shadow-sm mt-5">
         <Link href="#">
-          <h1 className="text-center pt-10 text-3xl site-text-secondary ">
+          <h1 className="text-center text-3xl site-text-secondary ">
             আমাদের ইপেপার
           </h1>
           <figure className="border border-red-700">
@@ -45,6 +62,16 @@ const FirstSidebar = () => {
           </figure>
         </Link>
       </div>
+      <div className="card rounded-none mt-3 ">
+        <figure>
+          <img src="/images/side-ad.jfif" alt="Shoes" />
+        </figure>
+      </div>
+      {/* <div className="card rounded-none mt-3">
+        <figure>
+          <img src="/images/side-ad-2.jpg" alt="Shoes" />
+        </figure>
+      </div> */}
     </div>
   );
 };

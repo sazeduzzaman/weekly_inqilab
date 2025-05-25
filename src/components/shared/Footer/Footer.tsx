@@ -2,32 +2,34 @@ import SocialLinks from "@/components/SocialLinks/SocialLinks";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import FooterCategoryItems from "./FooterCategoryItems";
+import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 
-const Footer = () => {
+export default async function Footer() {
+  const categoryItems = await CategoryDataSet();
   return (
     <div className="bg-black text-white">
       <div className="container mx-auto">
         {/* Top Footer */}
         <footer className="eng-font footer text-base-content footer-menus p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+          <FooterCategoryItems categoryItems={categoryItems} />
           <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Category</h6>
-            <a className="link link-hover">Branding</a>
-            <a className="link link-hover">Design</a>
-            <a className="link link-hover">Marketing</a>
-            <a className="link link-hover">Advertisement</a>
-          </nav>
-          <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Company</h6>
-            <a className="link link-hover">About us</a>
-            <a className="link link-hover">Contact</a>
-            <a className="link link-hover">Jobs</a>
-            <a className="link link-hover">Press kit</a>
-          </nav>
-          <nav className="flex flex-col justify-center items-center sm:items-start">
-            <h6 className="footer-title">Legal</h6>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
+            <h6 className="footer-title">Site Info</h6>
+            <Link href="/terms" className="link link-hover">
+              Terms & Conditions
+            </Link>
+            <Link href="/policy" className="link link-hover">
+              Privacy policy
+            </Link>
+            <Link href="/ad-cost" className="link link-hover">
+              Advertisement
+            </Link>
+            <Link href="/about" className="link link-hover">
+              About Us
+            </Link>
+            <Link href="/contact" className="link link-hover">
+              Contact Us
+            </Link>
           </nav>
           <nav className="flex flex-col justify-center items-center sm:items-start">
             <h6 className="footer-title">Social</h6>
@@ -89,6 +91,4 @@ const Footer = () => {
       </div>
     </div>
   );
-};
-
-export default Footer;
+}
