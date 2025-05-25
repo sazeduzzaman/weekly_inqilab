@@ -26,7 +26,6 @@ interface Props {
 }
 
 export default function NewsDetails({ singelNewsItems }: Props) {
-  console.log(singelNewsItems, "singelNewsItems");
 
   const item = singelNewsItems;
 

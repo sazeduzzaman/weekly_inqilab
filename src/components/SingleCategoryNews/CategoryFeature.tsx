@@ -6,7 +6,6 @@ interface IsFeatureProps {
   isFeatured: CommonNewsTypes[];
 }
 const CategoryFeature = ({ isFeatured }: IsFeatureProps) => {
-  console.log(isFeatured, "isFeatured");
   return (
     <div>
       {isFeatured.map((item, index) => (

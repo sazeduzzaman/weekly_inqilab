@@ -7,7 +7,6 @@ import Link from "next/link";
 import React from "react";
 
 export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
-  console.log(rajnitiItems, "rajnitiItems");
   //   Filter is the data Featured Or Not
   const isFeatured = rajnitiItems.filter(
     // if date id 1 feature then add in isFeature
@@ -19,7 +18,6 @@ export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
     (item) => item.is_featured === 2
   );
   const nonFeatureData = isnonFeatured.slice(0, 3);
-  console.log(isFeatured, nonFeatureData, "nonFeatured and feature");
   return (
     <div>
       <div>

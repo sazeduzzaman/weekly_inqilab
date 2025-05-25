@@ -6,7 +6,6 @@ interface NonFeatureProps {
 }
 
 const CategoryNonFeature = ({ nonFeatured }: NonFeatureProps) => {
-  console.log(nonFeatured, "nonFeatured");
   return (
     <div>
       {nonFeatured.map((item, index) => (

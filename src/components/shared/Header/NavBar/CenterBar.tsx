@@ -95,7 +95,7 @@ export default async function CenterBar() {
           <div className="navbar-end flex w-full sm:w-[60%] justify-end d-sm-none">
             <div className="relative w-full aspect-[768/71] p">
               <Image
-                src="/images/advertisement.png"
+                src="/images/ads-768x71.webp"
                 alt="Ad banner"
                 fill
                 className="object-cover"

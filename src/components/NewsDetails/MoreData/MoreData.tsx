@@ -31,7 +31,6 @@ export default async function MoreData({ singelNewsItems }: Props) {
     ? json
     : json.data || json.news || [];
 
-  console.log(categoryItems, "categoryItemsName");
 
   return (
     <>

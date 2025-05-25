@@ -16,7 +16,6 @@ interface NewsItem {
 export default async function Page({ searchParams }: any) {
   const resolvedSearchParams = await searchParams;
   const categoryId = resolvedSearchParams.id;
-  console.log(resolvedSearchParams, "categoryName");
 
   const res = await fetch(
     `https://backoffice.ajkal.us/category-news/${categoryId}`,

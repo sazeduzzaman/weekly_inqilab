@@ -9,7 +9,6 @@ export default async function Page({ params }: any) {
 
   const newsId = resolvedParams.newsDetails;
 
-  console.log("Fetching news for ID:", newsId);
 
   const res = await fetch(`https://backoffice.ajkal.us/news-detail/${newsId}`, {
     next: { revalidate: 60 },
