@@ -3,7 +3,7 @@
 export interface CategoryData {
   name: string;
   id: number;
-  name_bangla: string;
+  bangla_name: string;
   category_name?: string;
 }
 

@@ -14,7 +14,7 @@ export default function CategoryData({ categoryItems }: CategoryListProps) {
               href={`/category/${item.name}?id=${item.id}`}
               className="dark:text-white cta-menus text-white"
             >
-              {item.name_bangla}
+             {item.bangla_name}
             </Link>
           </li>
         ))}

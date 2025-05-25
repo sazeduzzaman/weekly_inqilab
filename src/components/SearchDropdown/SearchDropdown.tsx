@@ -61,7 +61,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
                               className="hover:text-red-900"
                             >
                               <BsArrowRightCircle color="red" />
-                              {item.name_bangla}
+                              {item.bangla_name}
                             </Link>
                           </li>
                         ))}
