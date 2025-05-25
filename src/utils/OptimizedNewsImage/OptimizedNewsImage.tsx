@@ -29,7 +29,7 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
   const [hasError, setHasError] = useState(false);
 
   const newsImageSrc = `https://ajkal.us/img/news/${imageName}`;
-  const fallbackImageSrc = `https://ajkal.us/img/settings/placeholder.jpg`;
+  const fallbackImageSrc = `/public/images/placeholderImage.webp`;
 
   const baseClasses =
     "rounded-md object-cover transition duration-300 ease-in-out transform";

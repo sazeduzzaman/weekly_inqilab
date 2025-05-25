@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { LuDoorOpen } from "react-icons/lu";
+import FormsItems from "./FormItems/FormsItems";
 
 const Page = () => {
   return (
@@ -22,58 +23,7 @@ const Page = () => {
           নিবন্ধন করুন ।
         </h2>
 
-        <form className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              নাম
-            </label>
-            <input
-              type="text"
-              placeholder="আপনার পুরো নাম"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              ইমেইল
-            </label>
-            <input
-              type="email"
-              placeholder="আপনার ইমেইল লিখুন"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              ফোন নাম্বার
-            </label>
-            <input
-              type="tel"
-              placeholder="আপনার ফোন নাম্বার লিখুন"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              পাসওয়ার্ড
-            </label>
-            <input
-              type="password"
-              placeholder="একটি নিরাপদ পাসওয়ার্ড দিন"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="drawer-button btn btn-black px-5 py-5 search-menu w-100"
-          >
-            নিবন্ধন করুন <LuDoorOpen size={30} />
-          </button>
-        </form>
+        <FormsItems />
 
         <div className="text-center text-sm text-gray-600 mt-6">
           ইতিমধ্যে একাউন্ট আছে?
