@@ -5,7 +5,7 @@ import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Link from "next/link";
 import React from "react";
 
-export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
+export default function JatiyoNews({ rajnitiItems = [] }: RajnitiNewsListProps) {
   //   Filter is the data Featured Or Not
   const isFeatured = rajnitiItems.filter(
     // if date id 1 feature then add in isFeature

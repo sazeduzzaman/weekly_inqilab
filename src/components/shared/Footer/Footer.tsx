@@ -25,8 +25,12 @@ export default async function Footer() {
               <h1 className="text-1xl">সভাপতিঃ শাহ নেওয়াজ</h1>
               <h1 className="text-1xl">উপদেষ্টা সম্পাদকঃ পাভেল মাহমুদ</h1>
               <h1 className="text-1xl">ইংরেজি পাতার সম্পাদকঃ ফুহাদ হোসেন</h1>
-              <h1 className="text-1xl">ব্যবস্থাপনা সম্পাদকঃ মোঃ বদরুদ্দুজা সাগর</h1>
-              <h1 className="text-1xl">প্রকাশক ও সম্পাদকঃ মোহাম্মদ জাহিদ আলম</h1>
+              <h1 className="text-1xl">
+                ব্যবস্থাপনা সম্পাদকঃ মোঃ বদরুদ্দুজা সাগর
+              </h1>
+              <h1 className="text-1xl">
+                প্রকাশক ও সম্পাদকঃ মোহাম্মদ জাহিদ আলম
+              </h1>
             </div>
             <div className="flex justify-between items-center">
               <div className="my-5">
@@ -74,7 +78,7 @@ export default async function Footer() {
                 এই ওয়েবসাইটের কোনো লেখা, ছবি, অডিও, ভিডিও অনুমতি ছাড়া ব্যবহার
                 বেআইনী।
                 <br />
-                <p>
+                <span>
                   কপিরাইট ©{" "}
                   {new Date()
                     .getFullYear()
@@ -84,7 +88,7 @@ export default async function Footer() {
                       (d: string) => "০১২৩৪৫৬৭৮৯"[parseInt(d)]
                     )}{" "}
                   সাপ্তাহিক ইনকিলাব কর্তৃক সর্বসত্ব ® সংরক্ষিত
-                </p>
+                </span>
               </p>
               <div className="text-black">
                 <Link href={"https://flixzaglobal.com/"} target="_blank">

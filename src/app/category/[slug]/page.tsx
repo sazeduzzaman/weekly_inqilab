@@ -22,6 +22,7 @@ interface NewsItem {
   subCategory_name: string;
   author: string;
   subCategory_bangla_name: string;
+  bangla_name: string;
 }
 export default async function Page({ params }: any) {
   const { slug } =await params; // <-- no await here
@@ -40,7 +41,7 @@ export default async function Page({ params }: any) {
     <div className="container mx-auto">
       <div className="mt-4 flex justify-between border-b mb-4 ">
         <p className="font-semibold text-1xl ft-size">
-          {category.bangla_name} নিউজ
+          {category?.bangla_name ?? "Undifined"} নিউজ
         </p>
         <CurrentTimeShower />
       </div>
