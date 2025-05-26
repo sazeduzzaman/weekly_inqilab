@@ -33,9 +33,9 @@ function MarqueSliderItems({ breakingItems, }) {
           <div className="embla__container flex">
             {extendedBreakingItems.map((item, index) => (<div className="embla__slide min-w-0 flex-[0_0_auto] border-r-2 border-white px-2 flex items-center gap-2" key={index}>
                 <OptimizedNewsImage_1.default className="w-6 h-6 rounded-lg object-cover" 
-        // src={item.title_img || "no img"}
-        imageName={item.title_img || "no img"} altText={item.name} heightClass="h-6" widthClass="w-[30px]" priority/>
-                <link_1.default href={`/details/${item.slug}/${item.id}`}>
+        // src={item.thumbnail || "no img"}
+        imageName={item.thumbnail || "no img"} altText={item.name} heightClass="h-6" widthClass="w-[30px]" priority/>
+                <link_1.default href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}>
                   {item.title}
                 </link_1.default>
               </div>))}

@@ -24,8 +24,8 @@ export default function HeroSectionItems({
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                     <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
                       <OptimizedNewsImage
-                        imageName={items.title_img || "no img"}
-                        altText={`Thumbnail for ${items.title_img || "no img"}`}
+                        imageName={items.thumbnail || "no img"}
+                        altText={`Thumbnail for ${items.thumbnail || "no img"}`}
                         heightClass="h-[570px]"
                         widthClass="w-full"
                         priority
@@ -68,8 +68,8 @@ export default function HeroSectionItems({
                   <figure className="relative w-full h-73 transition-transform duration-500 ease-in-out group-hover:scale-105">
                     {/* Image */}
                     <OptimizedNewsImage
-                      imageName={items.title_img || "no image"}
-                      altText={`Thumbnail for ${items.title_img}`}
+                      imageName={items.thumbnail || "no image"}
+                      altText={`Thumbnail for ${items.thumbnail}`}
                       priority
                       widthClass="w-full"
                       heightClass="h-73"

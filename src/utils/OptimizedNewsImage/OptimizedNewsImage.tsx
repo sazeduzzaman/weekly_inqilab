@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 interface OptimizedNewsImageProps {
-  imageName: string;
+  imageName: string; // now expected to be full URL
   altText?: string;
   priority?: boolean;
   className?: string;
@@ -28,8 +28,8 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
 }) => {
   const [hasError, setHasError] = useState(false);
 
-  const newsImageSrc = `https://ajkal.us/img/news/${imageName}`;
-  const fallbackImageSrc = `/public/images/placeholderImage.webp`;
+  const newsImageSrc = imageName; // treat as full URL
+  const fallbackImageSrc = "/images/placeholderImage.webp";
 
   const baseClasses =
     "rounded-md object-cover transition duration-300 ease-in-out transform";
@@ -48,7 +48,7 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
       <Image
         src={hasError ? fallbackImageSrc : newsImageSrc}
         alt={altText}
-         fill
+        fill
         priority={priority}
         className={`${baseClasses} ${className} ${hoverClass}`}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

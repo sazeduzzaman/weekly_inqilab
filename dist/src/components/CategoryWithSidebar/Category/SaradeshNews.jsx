@@ -16,7 +16,7 @@ function SaradeshNews({ viewedItems }) {
       {viewedItemsFilterd.map((item, index) => (<link_1.default href={`/details/${item.slug}/${item.id}`} key={index}>
           <div className="card group rounded-none card-side shadow-sm items-center mb-3">
             <figure className="w-[140px] h-[140px] overflow-hidden rounded-lg flex-shrink-0">
-              <OptimizedNewsImage_1.default className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110" imageName={item.title_img || "no img"} altText={item.title} priority/>
+              <OptimizedNewsImage_1.default className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110" imageName={item.thumbnail || "no img"} altText={item.title} priority/>
             </figure>
             <div className="card-body justify-center">
               <h2 className="card-title">{item.title}</h2>

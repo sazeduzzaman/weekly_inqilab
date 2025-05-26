@@ -6,7 +6,7 @@ interface NewsItem {
   news_title: string;
   name: string;
   is_featured: number;
-  title_img: string;
+  thumbnail: string;
   news_time: string;
   category_name: string;
   category_name_bangla: string;

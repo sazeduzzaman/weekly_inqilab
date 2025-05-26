@@ -35,7 +35,7 @@ function HeroCenterSlider({ spotLightItems, }) {
                     <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       {/* Black gradient overlay on top of the image */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 "/>
-                      <OptimizedNewsImage_1.default imageName={items.title_img || "No image"} altText={`Thumbnail for ${items.title_img}`} heightClass="h-[507px]" widthClass="w-full" priority/>
+                      <OptimizedNewsImage_1.default imageName={items.thumbnail || "No image"} altText={`Thumbnail for ${items.thumbnail}`} heightClass="h-[507px]" widthClass="w-full" priority/>
                     </figure>
 
                     {/* Title section */}

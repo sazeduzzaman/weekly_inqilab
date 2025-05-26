@@ -5,6 +5,7 @@ export interface CategoryData {
   id: number;
   bangla_name: string;
   category_name?: string;
+  slug?: string;
 }
 
 export interface CategoryListProps {

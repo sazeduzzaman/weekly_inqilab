@@ -41,15 +41,15 @@ export default function MarqueSliderItems({
               >
                 <OptimizedNewsImage
                   className="w-6 h-6 rounded-lg object-cover"
-                  // src={item.title_img || "no img"}
-                  imageName={item.title_img || "no img"}
+                  // src={item.thumbnail || "no img"}
+                  imageName={item.thumbnail || "no img"}
                   altText={item.name}
                   heightClass="h-6"
                   widthClass="w-[30px]"
                   priority
                 />
                 <Link
-                  href={`/details/${item.slug}/${item.id}`}
+                  href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
                 >
                   {item.title}
                 </Link>

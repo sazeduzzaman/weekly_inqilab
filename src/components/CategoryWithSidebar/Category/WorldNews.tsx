@@ -21,7 +21,7 @@ export default function WorldNews({ wordNewsItems }: WordNewsListProps) {
                 <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage
                     className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                    imageName={item.title_img || "no img"}
+                    imageName={item.thumbnail || "no img"}
                     altText={item.name}
                     heightClass="h-full"
                     widthClass="w-full"

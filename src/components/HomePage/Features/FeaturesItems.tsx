@@ -1,6 +1,5 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { LatestNewsListProps } from "@/lib/types/LatestDataType";
-import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Image from "next/image";
@@ -9,11 +8,11 @@ import React from "react";
 
 export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
   const latestItemsData = latestItems.slice(0,6)
+  console.log(latestItems[0], "latestItems[0].category_id")
   return (
     <div className="container mx-auto mt-5 mb-6">
       <div className="flex justify-between items-center">
         <SectionTitle title="বৈশিষ্ট্য" />
-        <CurrentTimeShower />
       </div>
       <div className="grid grid-cols-6 gap-3">
         {latestItemsData.map((item) => (
@@ -23,7 +22,7 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
                 <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage
                     className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                    imageName={item.title_img || "no img"}
+                    imageName={item.thumbnail || "no img"}
                     altText={item.title}
                     heightClass="h-full"
                     widthClass="w-full"

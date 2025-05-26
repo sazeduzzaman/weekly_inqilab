@@ -40,8 +40,8 @@ export default function HeroCenterSlider({
                       {/* Black gradient overlay on top of the image */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 " />
                       <OptimizedNewsImage
-                        imageName={items.title_img || "No image"}
-                        altText={`Thumbnail for ${items.title_img}`}
+                        imageName={items.thumbnail || "No image"}
+                        altText={`Thumbnail for ${items.thumbnail}`}
                         heightClass="h-[507px]"
                         widthClass="w-full"
                         priority

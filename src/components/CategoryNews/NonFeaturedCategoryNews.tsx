@@ -9,10 +9,19 @@ interface NewsItem {
   title: string;
   news_title: string;
   is_featured: number;
-  title_img: string;
+  thumbnail: string;
   news_time: string;
-  news_short_brief: string;
   category_name: string;
+  news_short_brief: string;
+  bangla_title: string;
+  published_at: string;
+  summary: string;
+  name: string;
+  bangla_summary: string;
+  slug: string;
+  subCategory_name: string;
+  subCategory_bangla_name: string;
+  author: string;
 }
 
 interface Props {
@@ -20,12 +29,13 @@ interface Props {
 }
 
 export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
+  console.log(nonFeatureData, "nonFeatureData data");
   return (
     <>
       {/* <div className="divider divider-neutral">Non Featured</div> */}
       <div className="relative w-full aspect-[768/71] mt-20">
         <Image
-          src="/images/advertisement.png"
+          src="/images/ads-768x71.webp"
           alt="Ad banner"
           fill
           className="object-cover rounded-md"
@@ -41,7 +51,9 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
                 <div className="grid gap-4">
                   {nonFeatureData.map((item) => (
                     <Link
-                      href={`/details/${item.category_name}/${item.id}`}
+                      href={`/details/${item.category_name ?? "uncategory"}/${
+                        item.slug
+                      }`}
                       key={item.id}
                       className="group"
                     >
@@ -49,8 +61,8 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
                         <div className="card card-side bg-white flex items-center rounded-none">
                           <figure className="relative flex-shrink-0 h-[250px] w-[400px] overflow-hidden rounded-md">
                             <OptimizedNewsImage
-                              imageName={item.title_img || "No image"}
-                              altText={`Thumbnail for ${item.news_title}`}
+                              imageName={item.thumbnail || "No image"}
+                              altText={`Thumbnail for ${item.bangla_title}`}
                               heightClass="h-full"
                               widthClass="w-full"
                               priority
@@ -58,21 +70,37 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
                             />
                           </figure>
                           <div className="card-body">
-                            <h2 className="ft-size">{item.news_title}</h2>
+                            <h2 className="ft-size">{item.bangla_title}</h2>
                             <div
                               className="news-details-p"
                               dangerouslySetInnerHTML={{
-                                __html: item.news_short_brief,
+                                __html: item.bangla_summary,
                               }}
                             />
-                            <div>
-                              <small className="text-white block mt-4">
-                                <NewsTimeShower
-                                  newsTime={
-                                    item.news_time || new Date().toISOString()
-                                  }
+                            <div className="flex items-start space-x-4 mt-4">
+                              <div>
+                                <Image
+                                  className="border-b-1 bg-red-600 rounded-sm p-1"
+                                  src="/favicon.ico"
+                                  alt="Next.js logo"
+                                  width={30}
+                                  height={30}
+                                  priority
                                 />
-                              </small>
+                              </div>
+                              <div>
+                                <p>{item.author}</p>
+                                <div>
+                                  <small className="text-white block">
+                                    <NewsTimeShower
+                                      newsTime={
+                                        item.published_at ||
+                                        new Date().toISOString()
+                                      }
+                                    />
+                                  </small>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -82,7 +110,6 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
                 </div>
               )}
             </div>
-            {/* <div className="col-span-4">Sidebar</div> */}
           </div>
         </div>
       </div>

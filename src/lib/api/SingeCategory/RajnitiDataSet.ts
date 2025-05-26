@@ -6,7 +6,7 @@ interface RajnitiNewsData {
   category_id?: string; // optional now
   news_title?: string;
   image_url?: string;
-  title_img?: string;
+  thumbnail?: string;
   thumbnail_img?: string;
 }
 

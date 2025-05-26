@@ -22,7 +22,7 @@ function HeroSectionItems({ spotLightItems, }) {
                 <link_1.default href={`/details/${items.slug}/${items.id}`}>
                   <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                     <figure className=" transition-transform duration-500 ease-in-out group-hover:scale-130">
-                      <OptimizedNewsImage_1.default imageName={items.title_img || "no img"} altText={`Thumbnail for ${items.title_img || "no img"}`} heightClass="h-[570px]" widthClass="w-full" priority className="p-0 rounded-none"/>
+                      <OptimizedNewsImage_1.default imageName={items.thumbnail || "no img"} altText={`Thumbnail for ${items.thumbnail || "no img"}`} heightClass="h-[570px]" widthClass="w-full" priority className="p-0 rounded-none"/>
                     </figure>
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
                       <h2 className="text-white font-normal py-20">
@@ -50,7 +50,7 @@ function HeroSectionItems({ spotLightItems, }) {
                 <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                   <figure className="relative w-full h-73 transition-transform duration-500 ease-in-out group-hover:scale-105">
                     {/* Image */}
-                    <OptimizedNewsImage_1.default imageName={items.title_img || "no image"} altText={`Thumbnail for ${items.title_img}`} priority widthClass="w-full" heightClass="h-73" hoverEffect className="rounded-none"/>
+                    <OptimizedNewsImage_1.default imageName={items.thumbnail || "no image"} altText={`Thumbnail for ${items.thumbnail}`} priority widthClass="w-full" heightClass="h-73" hoverEffect className="rounded-none"/>
 
                     {/* Bottom Overlay with Title */}
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">

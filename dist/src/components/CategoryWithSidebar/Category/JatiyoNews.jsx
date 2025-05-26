@@ -26,7 +26,7 @@ function JatiyoNews({ rajnitiItems }) {
       {featureData.map((item, index) => (<div className="card rounded-none shadow-sm" key={index}>
           <link_1.default href={`/details/${item.slug}/${item.id}`}>
             <figure className="relative h-[440px] w-full">
-              <OptimizedNewsImage_1.default imageName={item.title_img || "no img"} altText={`Thumbnail for ${item.title || "no img"}`} heightClass="h-full" widthClass="w-full" priority className="p-0 rounded-md"/>
+              <OptimizedNewsImage_1.default imageName={item.thumbnail || "no img"} altText={`Thumbnail for ${item.title || "no img"}`} heightClass="h-full" widthClass="w-full" priority className="p-0 rounded-md"/>
             </figure>
             <div className="card-body justify-center">
               <h2 className="card-title">{item.title}</h2>
@@ -43,7 +43,7 @@ function JatiyoNews({ rajnitiItems }) {
             <link_1.default href={`/details/${item.slug}/${item.id}`}>
               <div className="card rounded-none shadow-sm group">
                 <figure className="relative h-[215px] overflow-hidden transition-transform duration-500 ease-in">
-                  <OptimizedNewsImage_1.default className="w-full h-full rounded-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" imageName={item.title_img || "no img"} altText={item.title} heightClass="h-full" widthClass="w-full" priority/>
+                  <OptimizedNewsImage_1.default className="w-full h-full rounded-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" imageName={item.thumbnail || "no img"} altText={item.title} heightClass="h-full" widthClass="w-full" priority/>
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title h-15">{item.title}</h2>

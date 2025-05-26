@@ -27,7 +27,7 @@ export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
           <Link href={`/details/${item.slug}/${item.id}`}>
             <figure className="relative h-[440px] w-full">
               <OptimizedNewsImage
-                imageName={item.title_img || "no img"}
+                imageName={item.thumbnail || "no img"}
                 altText={`Thumbnail for ${item.title || "no img"}`}
                 heightClass="h-full"
                 widthClass="w-full"
@@ -56,7 +56,7 @@ export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
                 <figure className="relative h-[215px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage
                     className="w-full h-full rounded-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                    imageName={item.title_img || "no img"}
+                    imageName={item.thumbnail || "no img"}
                     altText={item.title}
                     heightClass="h-full"
                     widthClass="w-full"

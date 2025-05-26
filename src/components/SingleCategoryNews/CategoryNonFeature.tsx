@@ -1,8 +1,8 @@
-import { CommonNewsTypes } from "@/lib/types/CommonNewsTypes";
+import { CommonNewsTypesOF } from "@/lib/types/CommonNewsTypesOF";
 import React from "react";
 
 interface NonFeatureProps {
-  nonFeatured: CommonNewsTypes[];
+  nonFeatured: CommonNewsTypesOF[];
 }
 
 const CategoryNonFeature = ({ nonFeatured }: NonFeatureProps) => {

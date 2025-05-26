@@ -11,7 +11,7 @@ export default function CategoryData({ categoryItems }: CategoryListProps) {
         {categoryDataItems.map((item, index) => (
           <li key={index} className="flex items-center px-8 pt-2">
             <Link
-              href={`/category/${item.name}?id=${item.id}`}
+              href={`/category/${item.slug}`}
               className="dark:text-white cta-menus text-white"
             >
              {item.bangla_name}

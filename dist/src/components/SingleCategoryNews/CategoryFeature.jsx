@@ -8,7 +8,7 @@ const react_1 = __importDefault(require("react"));
 const CategoryFeature = ({ isFeatured }) => {
     return (<div>
       {isFeatured.map((item, index) => (<link_1.default href='/' key={index}>
-          <p>{item.news_title}</p>
+          <p>{item.bangla_title}</p>
         </link_1.default>))}
     </div>);
 };

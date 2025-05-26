@@ -6,33 +6,35 @@ interface NewsItem {
   title: string;
   news_title: string;
   is_featured: number;
-  title_img: string;
+  thumbnail: string;
   news_time: string;
   news_short_brief: string;
   category_name: string;
-  // Add more fields if needed
+  bangla_title: string;
+  published_at: string;
+  summary: string;
+  name: string;
+  bangla_summary: string;
+  author: string;
+  slug: string;
+  subCategory_name: string;
+  subCategory_bangla_name: string;
 }
 
 interface Props {
-  categoryId: number;
+  categoryItems: NewsItem[];
 }
 
-export default async function CategoryNews({ categoryId }: Props) {
-  const res = await fetch(
-    `https://backoffice.ajkal.us/category-news/${categoryId}`,
-    {
-      next: { revalidate: 60 },
-    }
+export default function CategoryNews({ categoryItems }: Props) {
+  console.log(categoryItems, "categoryItems datas");
+  const isFeatured = categoryItems.filter(
+    // if date id 1 feature then add in isFeature
+    (item) => item.is_featured === 0
   );
+  const featureData = isFeatured;
 
-  const json = await res.json();
-
-  const categoryItems: NewsItem[] = Array.isArray(json)
-    ? json
-    : json.data || json.news || [];
-
-  const featureData = categoryItems.filter((item) => item.is_featured === 1);
-  const nonFeatureData = categoryItems.filter((item) => item.is_featured === 2);
+  const isnonFeatured = categoryItems.filter((item) => item.is_featured === 1);
+  const nonFeatureData = isnonFeatured;
 
   return (
     <div className="space-y-8">

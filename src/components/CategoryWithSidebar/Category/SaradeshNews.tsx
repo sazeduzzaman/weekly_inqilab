@@ -16,7 +16,7 @@ export default function SaradeshNews({ viewedItems }: ViewedNewsListProps) {
             <figure className="w-[140px] h-[140px] overflow-hidden rounded-lg flex-shrink-0">
               <OptimizedNewsImage
                 className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
-                imageName={item.title_img || "no img"}
+                imageName={item.thumbnail || "no img"}
                 altText={item.title}
                 priority
               />

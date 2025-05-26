@@ -1,25 +1,46 @@
-export interface CommonNewsTypes {
+export interface NewsDetails {
   id: number;
   category_id: number;
-  news_title: string;
-  news_short_brief: string;
-  thumbnail_img: string | null;
-  title_img: string | null;
-  news_detail: string;
-  detail_img_1: string | null;
-  detail_img_2: string | null;
-  detail_img_3: string | null;
+  sub_category_id: number | null;
+  sub_sub_category_id: number | null;
+  author_id: number | null;
+  title: string;
+  bangla_title?: string;
+  slug: string;
+  summary: string;
+  bangla_summary: string;
+  content: string;
+  bangla_content: string;
+  thumbnail: string;
+  banner_image: string;
   video_url: string | null;
-  news_author: string;
-  posted_by: number;
-  user_id: number | null;
-  news_time: string; // ISO date string, e.g. "2025-05-17 07:47:36"
-  status: number;
-  news_type: number;
+  tags: string;
+  meta_title: string;
+  meta_description: string;
+  meta_keywords: string;
+  type: string;
   is_featured: number;
+  is_most_read: number;
+  is_breaking: number;
+  is_trending: number;
+  show_on_homepage: number;
+  show_in_slider: number;
+  status: string;
+  published_at: string;
+  author: string;
   view_count: number;
-  meta_tags: string | null;
-  is_old_data: number;
-  category_name: string;
-  category_name_bangla: string;
+  share_count: number;
+  comment_count: number;
+  created_by: number;
+  updated_by: number;
+  created_at: string;
+  updated_at: string;
+  category_name: string | null;
+  category_bangla_name: string | null;
+  subCategory_name: string;
+  subCategory_bangla_name: string;
+}
+
+export interface NewsItem {
+  news_details: NewsDetails;
 }

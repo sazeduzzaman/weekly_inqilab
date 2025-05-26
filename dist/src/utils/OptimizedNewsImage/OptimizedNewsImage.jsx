@@ -41,8 +41,8 @@ const image_1 = __importDefault(require("next/image"));
 const react_1 = __importStar(require("react"));
 const OptimizedNewsImage = ({ imageName, altText = "News image", priority = false, className = "", hoverEffect = false, heightClass = "", heightStyle, widthClass = "", widthStyle, }) => {
     const [hasError, setHasError] = (0, react_1.useState)(false);
-    const newsImageSrc = `https://ajkal.us/img/news/${imageName}`;
-    const fallbackImageSrc = `https://ajkal.us/img/settings/placeholder.jpg`;
+    const newsImageSrc = imageName; // treat as full URL
+    const fallbackImageSrc = "/images/placeholderImage.webp";
     const baseClasses = "rounded-md object-cover transition duration-300 ease-in-out transform";
     const hoverClass = hoverEffect ? "hover:scale-105" : "";
     const containerStyle = {

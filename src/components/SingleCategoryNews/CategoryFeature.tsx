@@ -1,9 +1,9 @@
-import { CommonNewsTypes } from "@/lib/types/CommonNewsTypes";
+import { NewsItem } from "@/lib/types/CommonNewsTypes";
 import Link from "next/link";
 import React from "react";
 
 interface IsFeatureProps {
-  isFeatured: CommonNewsTypes[];
+  isFeatured: NewsItem[];
 }
 const CategoryFeature = ({ isFeatured }: IsFeatureProps) => {
   return (
@@ -13,7 +13,7 @@ const CategoryFeature = ({ isFeatured }: IsFeatureProps) => {
           href='/'
           key={index}
         >
-          <p>{item.news_title}</p>
+          <p>{(item as any).bangla_title}</p>
         </Link>
       ))}
     </div>

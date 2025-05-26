@@ -6,13 +6,15 @@ export const dynamic = "force-dynamic";
 
 export default async function Page({ params }: any) {
   const resolvedParams = await params;
-
   const newsId = resolvedParams.newsDetails;
+  console.log(newsId, "resolvedParams");
 
-
-  const res = await fetch(`https://backoffice.ajkal.us/news-detail/${newsId}`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    `https://v2.weeklyinqilab.com/api/v1/news-details/${newsId}`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
 
   if (!res.ok) {
     console.error("Failed to fetch news data");
@@ -20,7 +22,7 @@ export default async function Page({ params }: any) {
   }
 
   const data = await res.json();
-  const singelNewsItems = data.data;
+  const singelNewsItems = data;
 
   return (
     <div className="p-4">

@@ -8,7 +8,7 @@ interface NewsItem {
   news_title: string;
   name: string;
   is_featured: number;
-  title_img: string;
+  thumbnail: string;
   news_time: string;
   category_name: string;
   category_name_bangla: string;
@@ -43,7 +43,7 @@ export default async function MoreSingleData({ categoryItems }: Props) {
               <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                 <OptimizedNewsImage
                   className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                  imageName={item.title_img || "no img"}
+                  imageName={item.thumbnail || "no img"}
                   altText={item.name}
                   heightClass="h-full"
                   widthClass="w-full"

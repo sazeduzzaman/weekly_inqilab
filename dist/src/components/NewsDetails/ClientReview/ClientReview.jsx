@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const ClientReview = () => {
     return (<div>
-            Client Review
+            Client Review Here
         </div>);
 };
 exports.default = ClientReview;

@@ -33,8 +33,8 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-// File: F:\Projects\Newspaper\weekly_inqilab\src\app\category\[id]\page.tsx
-const entry = __importStar(require("../../../../../src/app/category/[id]/page.js"));
+// File: F:\Projects\Newspaper\weekly_inqilab\src\app\category\[slug]\page.tsx
+const entry = __importStar(require("../../../../../src/app/category/[slug]/page.js"));
 // Check that the entry is a valid entry
 checkFields();
 // Check the prop type of the entry function
