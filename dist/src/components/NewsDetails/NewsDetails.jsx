@@ -12,6 +12,7 @@ const bs_1 = require("react-icons/bs");
 const link_1 = __importDefault(require("next/link"));
 const image_1 = __importDefault(require("next/image"));
 const FontSizeAdjustment_1 = __importDefault(require("@/utils/FontSizeAdjustment]/FontSizeAdjustment"));
+const NewsTimeShower_1 = __importDefault(require("@/utils/NewsTimeShower/NewsTimeShower"));
 function NewsDetails({ singelNewsItems }) {
     const itemData = singelNewsItems.news_details;
     return (<div className="container mx-auto">
@@ -36,9 +37,9 @@ function NewsDetails({ singelNewsItems }) {
                   </div>
                   <div>
                     <p>{itemData.author}</p>
-                    <p className="text-sm text-gray-500">
-                      প্রকাশ:{" "}
-                      {new Date(itemData.published_at).toLocaleString("bn-BD")}
+                    <p className="text-sm text-gray-500 flex">
+                      <span className="pe-1">প্রকাশ:</span>
+                      <NewsTimeShower_1.default newsTime={itemData.published_at}/>
                     </p>
                   </div>
                 </div>

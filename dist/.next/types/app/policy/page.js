@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-// File: F:\Projects\Newspaper\weekly_inqilab\src\app\policy\page.tsx
+// File: H:\All Projects\Working Projects\Mern-Project\Inqilab NewsPaper\inqilab\src\app\policy\page.tsx
 const entry = __importStar(require("../../../../src/app/policy/page.js"));
 // Check that the entry is a valid entry
 checkFields();

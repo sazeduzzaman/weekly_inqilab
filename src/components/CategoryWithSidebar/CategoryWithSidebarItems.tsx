@@ -1,32 +1,30 @@
 import React from "react";
-import SaradeshNews from "./Category/SaradeshNews";
 import JatiyoNews from "./Category/JatiyoNews";
-import WorldNews from "./Category/WorldNews";
+// import WorldNews from "./Category/WorldNews";
 import { ViewedDataSet } from "@/lib/api/ViewedDataSet";
 import { RajnitiDataSet } from "@/lib/api/SingeCategory/RajnitiDataSet";
-import { WordNewsSet } from "@/lib/api/SingeCategory/WordNewsDataSet";
+import Sorbadhik from "./Category/Sorbadhik";
+// import { WordNewsSet } from "@/lib/api/SingeCategory/WordNewsDataSet";
 
 export default async function CategoryWithSidebarItems() {
   const viewedItems = await ViewedDataSet();
   const rajnitiItems = await RajnitiDataSet();
-  const wordNewsItems = await WordNewsSet();
+  // const wordNewsItems = await WordNewsSet();
   return (
     <div className="">
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-4 ">
           <div className="mt-4">
-            <SaradeshNews viewedItems={viewedItems} />
+            <Sorbadhik viewedItems={viewedItems} />
           </div>
         </div>
         <div className="col-span-8 ">
           <div className="mt-4">
-            <JatiyoNews rajnitiItems={rajnitiItems}/>
+            <JatiyoNews rajnitiItems={rajnitiItems} />
           </div>
         </div>
       </div>
-      <div className="">
-        <WorldNews wordNewsItems={wordNewsItems}/>
-      </div>
+      <div className="">{/* <WorldNews wordNewsItems={wordNewsItems}/> */}</div>
     </div>
   );
 }

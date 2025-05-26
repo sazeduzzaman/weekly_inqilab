@@ -14,6 +14,8 @@ export interface RajnitiNewsData {
   is_featured?: number;
   title?: string;
   slug?: string;
+  category_bangla_name?: string;
+  subCategory_bangla_name? :string;
 }
 
 export interface RajnitiNewsListProps {

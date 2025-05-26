@@ -33,6 +33,6 @@ const NewsTimeShower = ({ newsTime }) => {
             timeZone: "Asia/Dhaka",
         });
     };
-    return <p>{formatNewsTime(newsTime)}</p>;
+    return <>{formatNewsTime(newsTime)}</>;
 };
 exports.default = NewsTimeShower;

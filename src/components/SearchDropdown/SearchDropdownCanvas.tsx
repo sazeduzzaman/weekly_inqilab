@@ -1,56 +1,77 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
-const suggestions = [
-  {
-    title:
-      "What did Erik and Lyle Menendez do and when could they be released?",
-    image: "https://via.placeholder.com/40?text=A",
-  },
-  {
-    title: "Watch: Crowds cheer as Pope holds first Sunday address",
-    image: "https://via.placeholder.com/40?text=B",
-  },
-  {
-    title:
-      "Gaza parents desperate as children face starvation under Israeli blockade",
-    image: "https://via.placeholder.com/40?text=C",
-  },
-  {
-    title: "Military rulers in Mali dissolve all political parties",
-    image: "https://via.placeholder.com/40?text=D",
-  },
-  {
-    title: "Israeli strikes in northern Gaza kill at least 50, hospital says",
-    image: "https://via.placeholder.com/40?text=E",
-  },
-];
+interface Suggestion {
+  title: string;
+  image: string;
+  bangla_title: string;
+  slug: string;
+  category_name: string;
+  subCategory_name: string;
+  subCategory_bangla_name: string;
+}
 
 const SearchDropdownCanvas = () => {
   const [query, setQuery] = useState<string>("");
-  const [filteredSuggestions, setFilteredSuggestions] = useState<
-    { title: string; image: string }[]
-  >([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(
+    []
+  );
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      if (!query.trim()) {
+        setFilteredSuggestions([]);
+        return;
+      }
 
-    if (value.trim() === "") {
-      setFilteredSuggestions([]);
-    } else {
-      const filtered = suggestions.filter((item) =>
-        item.title.toLowerCase().includes(value.toLowerCase())
-      );
-      setFilteredSuggestions(filtered);
-    }
-  };
+      setLoading(true);
+      try {
+        const res = await fetch(
+          `https://v2.weeklyinqilab.com/api/v1/search?query=${encodeURIComponent(
+            query
+          )}`
+        );
+        const data = await res.json();
 
-  const handleSelect = (value: string) => {
-    // ✅ fix #2
-    setQuery(value);
+        const suggestions = Array.isArray(data?.data)
+          ? data.data.map((item: any) => ({
+              title: item?.title || "No title",
+              image: item?.thumbnail || "/images/placeholderImage.webp",
+              bangla_title: item?.bangla_title || "No Bangla Title",
+              slug: item?.slug || "",
+              category_name: item?.category_name || "uncategorized",
+              subCategory_name: item?.subCategory_name || "",
+              subCategory_bangla_name: item?.subCategory_bangla_name || "",
+            }))
+          : [];
+
+        setFilteredSuggestions(suggestions);
+      } catch (error) {
+        console.error("Error fetching suggestions:", error);
+        setFilteredSuggestions([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const delayDebounce = setTimeout(() => {
+      fetchSuggestions();
+    }, 300);
+
+    return () => clearTimeout(delayDebounce);
+  }, [query]);
+
+  const handleSelect = (item: Suggestion) => {
+    setQuery("");
     setFilteredSuggestions([]);
+    // Add drawer close logic here if you have a drawer state
+    router.push(
+      `/details/${item.category_name ?? "uncategorized"}/${item.slug}`
+    );
   };
 
   return (
@@ -78,30 +99,40 @@ const SearchDropdownCanvas = () => {
             className="grow bg-transparent outline-none"
             placeholder="Search"
             value={query}
-            onChange={handleChange}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </label>
 
-        {filteredSuggestions.length > 0 && (
+        {loading && (
+          <div className="mt-1 text-sm text-gray-500">Loading...</div>
+        )}
+
+        {(filteredSuggestions.length > 0 || (!loading && query.trim())) && (
           <ul className="absolute w-full mt-1 bg-white border-0 shadow-lg rounded z-50 max-h-60 overflow-auto">
-            {filteredSuggestions.map((item, index) => (
-              <li
-                key={index}
-                className="flex items-center gap-3 px-4 py-2 hover:bg-gray-200 cursor-pointer"
-                onClick={() => handleSelect(item.title)}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={50}
-                  height={50}
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-                <span className="text-[14px] hover:text-red-500">
-                  {item.title}
-                </span>
+            {filteredSuggestions.length > 0 ? (
+              filteredSuggestions.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleSelect(item)}
+                >
+                  <Image
+                    src={item.image ?? "/images/placeholderImage.webp"}
+                    alt={item.title}
+                    width={50}
+                    height={50}
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                  <span className="text-[14px] hover:text-red-500">
+                    {item.title}
+                  </span>
+                </li>
+              ))
+            ) : (
+              <li className="px-4 py-2 text-sm text-gray-500">
+                No results found
               </li>
-            ))}
+            )}
           </ul>
         )}
       </div>

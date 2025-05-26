@@ -20,11 +20,19 @@ export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
   return (
     <div>
       <div>
-        <SectionTitle title="রাজনীতি" />
+        <SectionTitle
+          title={
+            nonFeatureData[0]?.category_bangla_name ??
+            nonFeatureData[0]?.subCategory_bangla_name ??
+            "শিরোনাম নেই"
+          }
+        />
       </div>
       {featureData.map((item, index) => (
         <div className="card rounded-none shadow-sm" key={index}>
-          <Link href={`/details/${item.slug}/${item.id}`}>
+          <Link
+            href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
+          >
             <figure className="relative h-[440px] w-full">
               <OptimizedNewsImage
                 imageName={item.thumbnail || "no img"}
@@ -51,7 +59,11 @@ export default function JatiyoNews({ rajnitiItems }: RajnitiNewsListProps) {
       <div className="grid grid-cols-3 gap-3 mt-4">
         {nonFeatureData.map((item, index) => (
           <div className="" key={index}>
-            <Link href={`/details/${item.slug}/${item.id}`}>
+            <Link
+              href={`/details/${item.category_name ?? "uncategory"}/${
+                item.slug
+              }`}
+            >
               <div className="card rounded-none shadow-sm group">
                 <figure className="relative h-[215px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage

@@ -7,8 +7,8 @@ import Link from "next/link";
 import React from "react";
 
 export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
-  const latestItemsData = latestItems.slice(0,6)
-  console.log(latestItems[0], "latestItems[0].category_id")
+  const latestItemsData = latestItems.slice(0, 6);
+  console.log(latestItems[0], "latestItems[0].category_id");
   return (
     <div className="container mx-auto mt-5 mb-6">
       <div className="flex justify-between items-center">
@@ -17,7 +17,11 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
       <div className="grid grid-cols-6 gap-3">
         {latestItemsData.map((item) => (
           <div key={item.id}>
-            <Link href={`/details/${item.slug}/${item.id}`}>
+            <Link
+              href={`/details/${item.category_name ?? "uncategory"}/${
+                item.slug
+              }`}
+            >
               <div className="card rounded-none shadow-sm group">
                 <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage

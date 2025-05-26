@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
 import { NewsItem } from "@/lib/types/CommonNewsTypes";
+import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 
 // Add this Props interface here:
 interface Props {
@@ -46,9 +47,9 @@ export default function NewsDetails({ singelNewsItems }: Props) {
                   </div>
                   <div>
                     <p>{itemData.author}</p>
-                    <p className="text-sm text-gray-500">
-                      প্রকাশ:{" "}
-                      {new Date(itemData.published_at).toLocaleString("bn-BD")}
+                    <p className="text-sm text-gray-500 flex">
+                      <span className="pe-1">প্রকাশ:</span>
+                      <NewsTimeShower newsTime={itemData.published_at} />
                     </p>
                   </div>
                 </div>

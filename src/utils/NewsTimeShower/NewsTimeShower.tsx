@@ -39,7 +39,7 @@ const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
     });
   };
 
-  return <p>{formatNewsTime(newsTime)}</p>;
+  return <>{formatNewsTime(newsTime)}</>;
 };
 
 export default NewsTimeShower;

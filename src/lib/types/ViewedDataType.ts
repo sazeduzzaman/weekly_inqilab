@@ -13,6 +13,8 @@ export interface ViewedNewsData {
   category_name?: string;
   title?: string;
   slug?: string;
+  bangla_title?: string; 
+  published_at?: string; 
 }
 
 export interface ViewedNewsListProps {

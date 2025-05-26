@@ -2,7 +2,6 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { WordNewsListProps } from "@/lib/types/WordNewsDataType";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 

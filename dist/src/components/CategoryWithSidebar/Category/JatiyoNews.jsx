@@ -21,10 +21,12 @@ function JatiyoNews({ rajnitiItems }) {
     const nonFeatureData = isnonFeatured.slice(0, 3);
     return (<div>
       <div>
-        <SectionTitle_1.default title="রাজনীতি"/>
+        <SectionTitle_1.default title={nonFeatureData[0]?.category_bangla_name ??
+            nonFeatureData[0]?.subCategory_bangla_name ??
+            "শিরোনাম নেই"}/>
       </div>
       {featureData.map((item, index) => (<div className="card rounded-none shadow-sm" key={index}>
-          <link_1.default href={`/details/${item.slug}/${item.id}`}>
+          <link_1.default href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}>
             <figure className="relative h-[440px] w-full">
               <OptimizedNewsImage_1.default imageName={item.thumbnail || "no img"} altText={`Thumbnail for ${item.title || "no img"}`} heightClass="h-full" widthClass="w-full" priority className="p-0 rounded-md"/>
             </figure>
@@ -40,7 +42,7 @@ function JatiyoNews({ rajnitiItems }) {
       {/* adasdasd */}
       <div className="grid grid-cols-3 gap-3 mt-4">
         {nonFeatureData.map((item, index) => (<div className="" key={index}>
-            <link_1.default href={`/details/${item.slug}/${item.id}`}>
+            <link_1.default href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}>
               <div className="card rounded-none shadow-sm group">
                 <figure className="relative h-[215px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage_1.default className="w-full h-full rounded-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" imageName={item.thumbnail || "no img"} altText={item.title} heightClass="h-full" widthClass="w-full" priority/>
