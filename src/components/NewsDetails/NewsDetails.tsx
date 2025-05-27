@@ -46,7 +46,7 @@ export default function NewsDetails({ singelNewsItems }: Props) {
                     />
                   </div>
                   <div>
-                    <p>{itemData.author}</p>
+                    <p>{itemData.author ?? "ইনকিলাব"}</p>
                     <p className="text-sm text-gray-500 flex">
                       <span className="pe-1">প্রকাশ:</span>
                       <NewsTimeShower newsTime={itemData.published_at} />
