@@ -3,7 +3,6 @@ import MarqueSliderItems from "./MarqueSliderItems";
 
 export default async function MarqueSlider() {
   const breakingItems = await BreakingDataSet();
-  console.log(breakingItems, "breakingItems")
 
   return (
     <div>

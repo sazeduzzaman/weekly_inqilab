@@ -27,18 +27,18 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
                   <OptimizedNewsImage
                     className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                     imageName={item.thumbnail || "no img"}
-                    altText={item.title}
+                    altText={item.bangla_title}
                     heightClass="h-full"
                     widthClass="w-full"
                     priority
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title h-15">{item.title}</h2>
+                  <h2 className="card-title h-15">{item.bangla_title}</h2>
                   <small className="text-site-secondary opacity-70 block mt-1">
                     {/* {items.news_time} */}
                     <NewsTimeShower
-                      newsTime={item.news_time || new Date().toISOString()}
+                      newsTime={item.published_at || new Date().toISOString()}
                     />
                   </small>
                 </div>

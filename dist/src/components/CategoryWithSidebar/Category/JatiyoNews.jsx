@@ -9,7 +9,7 @@ const NewsTimeShower_1 = __importDefault(require("@/utils/NewsTimeShower/NewsTim
 const OptimizedNewsImage_1 = __importDefault(require("@/utils/OptimizedNewsImage/OptimizedNewsImage"));
 const link_1 = __importDefault(require("next/link"));
 const react_1 = __importDefault(require("react"));
-function JatiyoNews({ rajnitiItems }) {
+function JatiyoNews({ rajnitiItems = [] }) {
     //   Filter is the data Featured Or Not
     const isFeatured = rajnitiItems.filter(
     // if date id 1 feature then add in isFeature

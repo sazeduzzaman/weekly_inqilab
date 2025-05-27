@@ -12,6 +12,8 @@ export interface LatestNewsData {
   news_time?: string;
   category_name?: string;
   title?: string;
+  bangla_title?: string;
+  published_at?: string;
   slug?: string;
 }
 

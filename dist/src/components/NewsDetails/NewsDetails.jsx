@@ -51,7 +51,7 @@ function NewsDetails({ singelNewsItems }) {
                 </p>
               </div>
               <div>
-                <h2 className="text-1xl mb-5 font-semibold text-gray-800 leading-15">
+                <h2 className="text-1xl mb-5 font-semibold text-gray-800 leading-6 pt-3">
                   {itemData.bangla_summary}
                 </h2>
               </div>

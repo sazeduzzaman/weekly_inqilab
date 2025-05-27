@@ -49,7 +49,9 @@ export default function MarqueSliderItems({
                   priority
                 />
                 <Link
-                  href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
+                  href={`/details/${item.category_name ?? "uncategory"}/${
+                    item.slug
+                  }`}
                 >
                   {item.title}
                 </Link>
