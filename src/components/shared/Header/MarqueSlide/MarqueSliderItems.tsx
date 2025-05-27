@@ -53,7 +53,7 @@ export default function MarqueSliderItems({
                     item.slug
                   }`}
                 >
-                  {item.title}
+                  {item.bangla_title}
                 </Link>
               </div>
             ))}

@@ -8,6 +8,9 @@ import Image from "next/image";
 import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
 import { NewsItem } from "@/lib/types/CommonNewsTypes";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
+import { RiAdvertisementLine } from "react-icons/ri";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { MdConnectWithoutContact } from "react-icons/md";
 
 // Add this Props interface here:
 interface Props {
@@ -20,7 +23,35 @@ export default function NewsDetails({ singelNewsItems }: Props) {
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-9">
+        <div className="col-span-1"></div>
+        <div className="col-span-2">
+          <div className="card rounded-none shadow-sm mt-5">
+            <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+              গুরুত্বপূর্ণ
+            </div>
+            <div className="card-body">
+              <div>
+                <Link href="/ad-cost" className="flex items-center">
+                  <RiAdvertisementLine className="me-3" size={30} /> প্রিন্ট
+                  সংস্করণ
+                </Link>
+              </div>
+              <div>
+                <Link href="/epaper" className="flex items-center">
+                  <HiOutlineLightBulb className="me-3" size={30} /> অনলাইন
+                  সংস্করণ
+                </Link>
+              </div>
+              <div>
+                <Link href="/contact" className="flex items-center">
+                  <MdConnectWithoutContact className="me-3" size={30} />{" "}
+                  যোগাযোগের ঠিকানা
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-6">
           <div>
             <Link href={`/category/${itemData.category_name}`}>
               <h1 className="card-title inline-block border-b-2 border-current">

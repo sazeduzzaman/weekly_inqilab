@@ -8,7 +8,6 @@ import React from "react";
 
 export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
   const latestItemsData = latestItems.slice(0, 6);
-  console.log(latestItems[0], "latestItems[0].category_id");
   return (
     <div className="container mx-auto mt-5 mb-6">
       <div className="flex justify-between items-center">

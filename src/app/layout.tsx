@@ -1,18 +1,23 @@
-import { Tiro_Bangla, Roboto } from "next/font/google";
+import { Roboto, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/shared/Header/Header";
 import Footer from "@/components/shared/Footer/Footer";
 import { commonSiteMetadata } from "@/metadata/commonSiteMetadata";
 
-const tiroBangla = Tiro_Bangla({
-  variable: "--font-tiro-bangla",
-  subsets: ["bengali"],
-  weight: ["400"],
-});
+// const tiroBangla = Tiro_Bangla({
+//   variable: "--font-tiro-bangla",
+//   subsets: ["bengali"],
+//   weight: ["400"],
+// });
 const fontRobot = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["200","300","400", "500", "600", "700", "800"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+});
+const fontNotoBD = Noto_Sans_Bengali({
+  variable: "--font-notobd",
+  subsets: ["bengali"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 export default function RootLayout({
   children,
@@ -75,11 +80,13 @@ export default function RootLayout({
         />
         <title>{commonSiteMetadata.title}</title>
       </head>
-      <body className={`${tiroBangla.variable} ${fontRobot.variable} antialiased`}>
+      {/* <body className={`${tiroBangla.variable} ${fontRobot.variable} ${fontNotoBD} antialiased`}> */}
+      <body
+        className={`${fontRobot.variable} ${fontNotoBD.variable} antialiased`}
+      >
         <Header />
         {children}
         <Footer />
-        
       </body>
     </html>
   );

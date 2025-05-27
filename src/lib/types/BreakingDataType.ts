@@ -10,8 +10,9 @@ export interface BreakingNewsData {
   thumbnail?: string;
   thumbnail_img?: string;
   news_time?: string;
-  category_name?: string; 
+  category_name?: string;
   title?: string;
+  bangla_title?: string;
   slug?: string;
 }
 
