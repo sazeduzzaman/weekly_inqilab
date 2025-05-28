@@ -31,7 +31,6 @@ const EpaperItems = () => {
 
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
-    console.log("Selected Epaper Date:", date);
   };
 
   return (

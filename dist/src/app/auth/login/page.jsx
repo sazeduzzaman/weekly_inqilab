@@ -29,7 +29,6 @@ const FormsItems = () => {
                 body: JSON.stringify(payload),
             });
             const result = await res.json();
-            console.log("Registration result:", result);
             if (res.ok) {
                 alert("নিবন্ধন সফল হয়েছে!");
                 form.reset();

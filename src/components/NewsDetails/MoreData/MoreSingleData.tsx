@@ -97,7 +97,7 @@ export default function MoreSingleData({
               <div className="card-body">
                 <h2 className="card-title h-15">{item.bangla_title}</h2>
                 <small className="text-site-secondary opacity-70 block mt-1">
-                  <NewsTimeShower />
+                   <NewsTimeShower newsTime={item.published_at} />
                 </small>
               </div>
             </div>
