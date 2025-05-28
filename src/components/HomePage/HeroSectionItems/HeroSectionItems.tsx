@@ -38,12 +38,12 @@ export default function HeroSectionItems({
                     </figure>
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
                       <h2 className="text-white font-normal py-20">
-                        {items.title} <br />
+                        {items.bangla_title} <br />
                         <small className="text-site-secondary opacity-70 block mt-1">
                           {/* {items.news_time} */}
                           <NewsTimeShower
                             newsTime={
-                              items.news_time || new Date().toISOString()
+                              items.published_at || new Date().toISOString()
                             }
                           />
                         </small>
@@ -86,12 +86,12 @@ export default function HeroSectionItems({
                     {/* Bottom Overlay with Title */}
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
                       <h2 className="text-white font-normal">
-                        <span className="block">{items.title}</span>
+                        <span className="block">{items.bangla_title}</span>
                         <small className="text-site-secondary opacity-70 block mt-1">
                           {/* {items.news_time} */}
                           <NewsTimeShower
                             newsTime={
-                              items.news_time || new Date().toISOString()
+                              items.published_at || new Date().toISOString()
                             }
                           />
                         </small>
