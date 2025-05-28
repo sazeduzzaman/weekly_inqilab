@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 interface OptimizedNewsImageProps {
-  imageName: string; // now expected to be full URL
+  imageName: string; // expected to be a full URL or valid relative path
   altText?: string;
   priority?: boolean;
   className?: string;
@@ -28,8 +28,15 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
 }) => {
   const [hasError, setHasError] = useState(false);
 
-  const newsImageSrc = imageName; // treat as full URL
   const fallbackImageSrc = "/images/placeholderImage.webp";
+
+  // Helper to validate the src
+  const isValidImageSrc = (src: string | undefined): boolean => {
+    if (!src) return false;
+    return src.startsWith("/") || src.startsWith("http://") || src.startsWith("https://");
+  };
+
+  const resolvedImageSrc = isValidImageSrc(imageName) ? imageName : fallbackImageSrc;
 
   const baseClasses =
     "rounded-md object-cover transition duration-300 ease-in-out transform";
@@ -46,7 +53,7 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
       style={containerStyle}
     >
       <Image
-        src={hasError ? fallbackImageSrc : newsImageSrc}
+        src={hasError ? fallbackImageSrc : resolvedImageSrc}
         alt={altText}
         fill
         priority={priority}

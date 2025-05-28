@@ -52,8 +52,8 @@ export default function HeroCenterSlider({
 
                     {/* Title section */}
                     <div className="card-body relative flex items-center justify-center bg-black">
-                      <h1 className="card-title slider-title font-normal text-center text-white z-10">
-                        {items.title}
+                      <h1 className="slider-title font-normal text-center text-white z-10">
+                        {items.bangla_title?.slice(0, 50)}
                       </h1>
                     </div>
                   </div>
