@@ -36,7 +36,7 @@ function MarqueSliderItems({ breakingItems, }) {
         // src={item.thumbnail || "no img"}
         imageName={item.thumbnail || "no img"} altText={item.name} heightClass="h-6" widthClass="w-[30px]" priority/>
                 <link_1.default href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}>
-                  {item.title}
+                  {item.bangla_title}
                 </link_1.default>
               </div>))}
           </div>

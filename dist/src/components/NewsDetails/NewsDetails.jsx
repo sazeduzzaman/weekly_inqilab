@@ -13,11 +13,42 @@ const link_1 = __importDefault(require("next/link"));
 const image_1 = __importDefault(require("next/image"));
 const FontSizeAdjustment_1 = __importDefault(require("@/utils/FontSizeAdjustment]/FontSizeAdjustment"));
 const NewsTimeShower_1 = __importDefault(require("@/utils/NewsTimeShower/NewsTimeShower"));
+const ri_1 = require("react-icons/ri");
+const hi_1 = require("react-icons/hi");
+const md_1 = require("react-icons/md");
 function NewsDetails({ singelNewsItems }) {
     const itemData = singelNewsItems.news_details;
     return (<div className="container mx-auto">
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-9">
+        <div className="col-span-1"></div>
+        <div className="col-span-2">
+          <div className="card rounded-none shadow-sm mt-5">
+            <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+              গুরুত্বপূর্ণ
+            </div>
+            <div className="card-body">
+              <div>
+                <link_1.default href="/ad-cost" className="flex items-center">
+                  <ri_1.RiAdvertisementLine className="me-3" size={30}/> প্রিন্ট
+                  সংস্করণ
+                </link_1.default>
+              </div>
+              <div>
+                <link_1.default href="/epaper" className="flex items-center">
+                  <hi_1.HiOutlineLightBulb className="me-3" size={30}/> অনলাইন
+                  সংস্করণ
+                </link_1.default>
+              </div>
+              <div>
+                <link_1.default href="/contact" className="flex items-center">
+                  <md_1.MdConnectWithoutContact className="me-3" size={30}/>{" "}
+                  যোগাযোগের ঠিকানা
+                </link_1.default>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-6">
           <div>
             <link_1.default href={`/category/${itemData.category_name}`}>
               <h1 className="card-title inline-block border-b-2 border-current">
@@ -36,7 +67,7 @@ function NewsDetails({ singelNewsItems }) {
                     <image_1.default className="border-b-1 bg-red-600 rounded-full p-3" src="/favicon.ico" alt="Next.js logo" width={50} height={50} priority/>
                   </div>
                   <div>
-                    <p>{itemData.author}</p>
+                    <p>{itemData.author ?? "ইনকিলাব"}</p>
                     <p className="text-sm text-gray-500 flex">
                       <span className="pe-1">প্রকাশ:</span>
                       <NewsTimeShower_1.default newsTime={itemData.published_at}/>

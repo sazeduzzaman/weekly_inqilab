@@ -9,14 +9,19 @@ require("./globals.css");
 const Header_1 = __importDefault(require("@/components/shared/Header/Header"));
 const Footer_1 = __importDefault(require("@/components/shared/Footer/Footer"));
 const commonSiteMetadata_1 = require("@/metadata/commonSiteMetadata");
-const tiroBangla = (0, google_1.Tiro_Bangla)({
-    variable: "--font-tiro-bangla",
-    subsets: ["bengali"],
-    weight: ["400"],
-});
+// const tiroBangla = Tiro_Bangla({
+//   variable: "--font-tiro-bangla",
+//   subsets: ["bengali"],
+//   weight: ["400"],
+// });
 const fontRobot = (0, google_1.Roboto)({
     variable: "--font-roboto",
     subsets: ["latin"],
+    weight: ["200", "300", "400", "500", "600", "700", "800"],
+});
+const fontNotoBD = (0, google_1.Noto_Sans_Bengali)({
+    variable: "--font-notobd",
+    subsets: ["bengali"],
     weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 function RootLayout({ children, }) {
@@ -54,11 +59,11 @@ function RootLayout({ children, }) {
         <meta httpEquiv="Content-Language" content={commonSiteMetadata_1.commonSiteMetadata.language}/>
         <title>{commonSiteMetadata_1.commonSiteMetadata.title}</title>
       </head>
-      <body className={`${tiroBangla.variable} ${fontRobot.variable} antialiased`}>
+      {/* <body className={`${tiroBangla.variable} ${fontRobot.variable} ${fontNotoBD} antialiased`}> */}
+      <body className={`${fontRobot.variable} ${fontNotoBD.variable} antialiased`}>
         <Header_1.default />
         {children}
         <Footer_1.default />
-        
       </body>
     </html>);
 }
