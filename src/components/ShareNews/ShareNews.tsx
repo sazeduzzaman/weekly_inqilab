@@ -17,7 +17,7 @@ interface ShareNewsProps {
 const ShareNews: React.FC<ShareNewsProps> = ({ url, title }) => {
   return (
     <div className="flex items-center gap-3 ms-2">
-      <FacebookShareButton url={url} quote={title}>
+      <FacebookShareButton url={url} title={title}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
 

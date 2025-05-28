@@ -123,6 +123,7 @@ export default function NewsDetails({ singelNewsItems }: Props) {
                       <BsShare color="red" className="ml-2" />
                     </div>
                     <ShareNews
+                    title={itemData.bangla_title ?? "No Title"}
                       url={`https://weekly-inqilab.vercel.app/details/${
                         itemData.category_name ?? "uncategory"
                       }/${itemData.slug}`}
