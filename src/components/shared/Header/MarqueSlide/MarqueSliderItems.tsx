@@ -1,7 +1,7 @@
 "use client";
 
 import { BreakingNewsListProps } from "@/lib/types/BreakingDataType";
-import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
+// import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import AutoScroll from "embla-carousel-auto-scroll";
 import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default function MarqueSliderItems({
                 className="embla__slide min-w-0 flex-[0_0_auto] border-r-2 border-white px-2 flex items-center gap-2"
                 key={index}
               >
-                <OptimizedNewsImage
+                {/* <OptimizedNewsImage
                   className="w-6 h-6 rounded-lg object-cover"
                   // src={item.thumbnail || "no img"}
                   imageName={item.thumbnail || "no img"}
@@ -47,7 +47,7 @@ export default function MarqueSliderItems({
                   heightClass="h-6"
                   widthClass="w-[30px]"
                   priority
-                />
+                /> */}
                 <Link
                   href={`/details/${item.category_name ?? "uncategory"}/${
                     item.slug

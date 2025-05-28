@@ -44,17 +44,17 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
   const { news_details: itemData = {} } = singelNewsItems;
   return (
     <>
-    <Meta
-  title="ইনকিলাব | বিস্তারিত"
-  description="সর্বশেষ সংবাদ, বিশ্লেষণ ও রিপোর্ট পড়ুন ইনকিলাবে।"
-  image="https://weekly-inqilab.vercel.app/static/default-thumbnail.jpg"
-  url="https://weekly-inqilab.vercel.app"
-  type="website"
-/>
-      <div className="grid grid-cols-12 gap-4">
+      <Meta
+        title="ইনকিলাব | বিস্তারিত"
+        description="সর্বশেষ সংবাদ, বিশ্লেষণ ও রিপোর্ট পড়ুন ইনকিলাবে।"
+        image="https://weekly-inqilab.vercel.app/static/default-thumbnail.jpg"
+        url="https://weekly-inqilab.vercel.app"
+        type="website"
+      />
+      <div className="grid grid-cols-12 gap-6">
         <div className="col-span-3">
-          <div className="card rounded-none shadow-sm mt-5">
-            <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+          <div className="card rounded-none shadow-sm mt-5 px-5 mr-10">
+            <div className="card-header bg-black rounded-md text-start ps-5 py-3 text-white">
               গুরুত্বপূর্ণ
             </div>
             <div className="card-body">
@@ -93,7 +93,7 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
             <div className="my-10">
               <h2
                 className="mb-5 font-semibold text-gray-800 leading-12"
-                style={{ fontSize: "40px" }}
+                style={{ fontSize: "38px" }}
               >
                 {itemData.bangla_title ?? "No Title"}
               </h2>
@@ -136,7 +136,7 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
               </div>
 
               <div>
-                <h2 className="text-1xl mb-5 font-semibold text-gray-800 leading-6 pt-3">
+                <h2 className="text-1xl mb-5 text-gray-800 leading-8 pt-3">
                   {itemData.bangla_summary}
                 </h2>
               </div>
@@ -162,7 +162,7 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
 
               <div className="pt-15">
                 <div className="news-details-para pt-3">
-                  <div
+                  <div className=""
                     dangerouslySetInnerHTML={{
                       __html: itemData.bangla_content || "",
                     }}

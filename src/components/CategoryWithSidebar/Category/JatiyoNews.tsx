@@ -5,16 +5,18 @@ import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Link from "next/link";
 import React from "react";
 
-export default function JatiyoNews({ rajnitiItems = [] }: RajnitiNewsListProps) {
+export default function JatiyoNews({
+  rajnitiItems = [],
+}: RajnitiNewsListProps) {
   //   Filter is the data Featured Or Not
   const isFeatured = rajnitiItems.filter(
     // if date id 1 feature then add in isFeature
-    (item) => item.is_featured === 0
+    (item) => item.is_featured === 1
   );
   const featureData = isFeatured.slice(0, 1);
   const isnonFeatured = rajnitiItems.filter(
     // if date id 2 non feature then add in nonFeature
-    (item) => item.is_featured === 1
+    (item) => item.is_featured === 0
   );
   const nonFeatureData = isnonFeatured.slice(0, 3);
   return (
@@ -22,8 +24,8 @@ export default function JatiyoNews({ rajnitiItems = [] }: RajnitiNewsListProps) 
       <div>
         <SectionTitle
           title={
-            nonFeatureData[0]?.category_bangla_name ??
-            nonFeatureData[0]?.subCategory_bangla_name ??
+            rajnitiItems[0]?.category_bangla_name ??
+            rajnitiItems[0]?.subCategory_bangla_name ??
             "শিরোনাম নেই"
           }
         />
@@ -44,13 +46,13 @@ export default function JatiyoNews({ rajnitiItems = [] }: RajnitiNewsListProps) 
               />
             </figure>
             <div className="card-body justify-center">
-              <h2 className="card-title">{item.title}</h2>
-              <small className="text-site-secondary opacity-70 block mt-1">
+              <h2 className="text-5xl">{item.bangla_title}</h2>
+              <span className="text-site-secondary opacity-70 block mt-1">
                 {/* {items.news_time} */}
                 <NewsTimeShower
-                  newsTime={item.news_time || new Date().toISOString()}
+                  newsTime={item.published_at || new Date().toISOString()}
                 />
-              </small>
+              </span>
             </div>
           </Link>
         </div>
@@ -75,14 +77,19 @@ export default function JatiyoNews({ rajnitiItems = [] }: RajnitiNewsListProps) 
                     priority
                   />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title h-15">{item.title}</h2>
-                  <small className="text-site-secondary opacity-70 block mt-1">
+                <div className="card-body px-2">
+                  <h2 className="card-title h-15">
+                    {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
+                    {(item.bangla_title ?? "").split(" ").length > 6
+                      ? "..."
+                      : ""}
+                  </h2>
+                  <span className="text-site-secondary opacity-70 block mt-1">
                     {/* {items.news_time} */}
                     <NewsTimeShower
-                      newsTime={item.news_time || new Date().toISOString()}
+                      newsTime={item.published_at || new Date().toISOString()}
                     />
-                  </small>
+                  </span>
                 </div>
               </div>
             </Link>

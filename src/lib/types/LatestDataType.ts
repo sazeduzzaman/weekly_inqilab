@@ -15,6 +15,7 @@ export interface LatestNewsData {
   bangla_title?: string;
   published_at?: string;
   slug?: string;
+  category_bangla_name?: string;
 }
 
 export interface LatestNewsListProps {
