@@ -41,21 +41,6 @@ const MainSidebar = () => {
           <img src="/images/ads2-768x528.webp" alt="Shoes" />
         </figure>
       </div>
-      <div className="card rounded-none mt-5">
-        <figure>
-          <img src="/images/ads2-768x528.webp" alt="Shoes" />
-        </figure>
-      </div>
-      <div className="card rounded-none mt-5">
-        <figure>
-          <img src="/images/ads2-768x528.webp" alt="Shoes" />
-        </figure>
-      </div>
-      <div className="card rounded-none mt-5">
-        <figure>
-          <img src="/images/ads2-768x528.webp" alt="Shoes" />
-        </figure>
-      </div>
     </div>
   );
 };

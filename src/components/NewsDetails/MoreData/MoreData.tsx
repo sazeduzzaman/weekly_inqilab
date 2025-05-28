@@ -2,39 +2,39 @@ import React from "react";
 import MoreSingleData from "./MoreSingleData";
 
 interface NewsItem {
-  id: number;
-  news_title: string;
-  name: string;
-  is_featured: number;
-  thumbnail: string;
-  news_time: string;
-  category_name: string;
-  category_name_bangla: string;
-  news_short_brief: string;
-  news_detail: string;
-  category_id: string;
+  id?: number;
+  category_id?: number;
+  category_name?: string;
+  bangla_title?: string;
+  news_title?: string;
+  name?: string;
+  thumbnail?: string;
+  slug?: string;
 }
 
 interface Props {
-  singelNewsItems: NewsItem; // ❗ not an array
+  itemData: NewsItem;
 }
 
-export default async function MoreData({ singelNewsItems }: Props) {
-  const item = singelNewsItems.category_id;
+export default async function MoreData({ itemData }: Props) {
+  console.log(itemData.slug, "itemData.slug received in MoreData");
 
-  const res = await fetch(`https://backoffice.ajkal.us/category-news/${item}`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    `https://v2.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
 
   const json = await res.json();
+
   const categoryItems: NewsItem[] = Array.isArray(json)
     ? json
     : json.data || json.news || [];
 
-
   return (
     <>
-      <MoreSingleData categoryItems={categoryItems} />
+      <MoreSingleData categoryItems={categoryItems} slug={itemData.slug} />
     </>
   );
 }

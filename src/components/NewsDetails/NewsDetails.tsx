@@ -1,30 +1,55 @@
-import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import React from "react";
+import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import ClientReview from "./ClientReview/ClientReview";
 import MainSidebar from "../Sidebar/MainSidebar/MainSidebar";
-import { BsPerson } from "react-icons/bs";
+import { BsPerson, BsShare } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
 import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
-import { NewsItem } from "@/lib/types/CommonNewsTypes";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import { RiAdvertisementLine } from "react-icons/ri";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { MdConnectWithoutContact } from "react-icons/md";
+import MoreData from "./MoreData/MoreData";
+import ShareNews from "../ShareNews/ShareNews";
 
-// Add this Props interface here:
+interface NewsItem {
+  id?: number;
+  author_id?: number | null;
+  title?: string;
+  bangla_title?: string;
+  slug?: string;
+  bangla_summary?: string;
+  thumbnail?: string;
+  type?: string;
+  author?: string;
+  view_count?: number;
+  category_name?: string;
+  category_bangla_name?: string;
+  published_at?: string;
+  subCategory_bangla_name?: string;
+  bangla_content?: string;
+}
+
+interface NewsDetails {
+  category_bangla_name?: string;
+  news_details?: NewsItem; // nested news item object
+}
+
 interface Props {
-  singelNewsItems: NewsItem;
+  singelNewsItems: NewsDetails;
 }
 
 export default function NewsDetails({ singelNewsItems }: Props) {
-  const itemData = singelNewsItems.news_details;
+  // Destructure news_details safely with fallback to empty object
+  const { news_details: itemData = {} } = singelNewsItems;
+
+  console.log(itemData, "Destructured news_details");
 
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-1"></div>
-        <div className="col-span-2">
+        <div className="col-span-3">
           <div className="card rounded-none shadow-sm mt-5">
             <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
               গুরুত্বপূর্ণ
@@ -51,6 +76,7 @@ export default function NewsDetails({ singelNewsItems }: Props) {
             </div>
           </div>
         </div>
+
         <div className="col-span-6">
           <div>
             <Link href={`/category/${itemData.category_name}`}>
@@ -60,10 +86,15 @@ export default function NewsDetails({ singelNewsItems }: Props) {
                   "Inqilab"}
               </h1>
             </Link>
+
             <div className="my-10">
-              <h2 className="text-5xl mb-5 font-semibold text-gray-800 leading-15">
-                {itemData.bangla_title}
+              <h2
+                className="mb-5 font-semibold text-gray-800 leading-12"
+                style={{ fontSize: "40px" }}
+              >
+                {itemData.bangla_title ?? "No Title"}
               </h2>
+
               <div className="flex justify-between items-center border-b-1 pb-2">
                 <div className="flex items-start space-x-4">
                   <div>
@@ -85,17 +116,27 @@ export default function NewsDetails({ singelNewsItems }: Props) {
                   </div>
                 </div>
 
-                <p className="text-sm flex items-center text-gray-500">
-                  নিউজটি দেখেছেন:
-                  <BsPerson color="red" className="ml-2" />
-                  {itemData.view_count}
-                </p>
+                <div>
+                  <div className="text-sm flex items-center text-gray-500">
+                    <div className="flex items-center">
+                      <span>নিউজটি শেয়ার করুন:</span>
+                      <BsShare color="red" className="ml-2" />
+                    </div>
+                    <ShareNews
+                      url={`https://weekly-inqilab.vercel.app/details/${
+                        itemData.category_name ?? "uncategory"
+                      }/${itemData.slug}`}
+                    />
+                  </div>
+                </div>
               </div>
+
               <div>
                 <h2 className="text-1xl mb-5 font-semibold text-gray-800 leading-6 pt-3">
                   {itemData.bangla_summary}
                 </h2>
               </div>
+
               <div className="relative h-[600px] w-full mt-5">
                 <OptimizedNewsImage
                   imageName={itemData.thumbnail || "no-image.jpg"}
@@ -116,30 +157,19 @@ export default function NewsDetails({ singelNewsItems }: Props) {
               </div>
 
               <div className="pt-15">
-                {/* <div className="text-1xl font-semibold">
-                  {itemData.bangla_summary}
-                </div> */}
                 <div className="news-details-para pt-3">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: itemData.bangla_content,
+                      __html: itemData.bangla_content || "",
                     }}
                   />
                 </div>
               </div>
             </div>
           </div>
+
           <div className="mb-5">
             <ClientReview />
-          </div>
-
-          <div className="border-t-1 mb-5">
-            <div className="pt-5 pb-5">
-              <p className="font-semibold">
-                {itemData.category_bangla_name} নিয়ে আরও পড়ুন
-              </p>
-            </div>
-            {/* <MoreData singelNewsItems={singelNewsItems} /> */}
           </div>
         </div>
 
@@ -148,6 +178,21 @@ export default function NewsDetails({ singelNewsItems }: Props) {
             বিজ্ঞাপন কর্নার
           </h1>
           <MainSidebar />
+        </div>
+      </div>
+      <div>
+        <div className="pt-5 pb-5">
+          <Link
+            href={`/category/${itemData.category_name}`}
+            className="font-semibold"
+          >
+            {itemData.category_bangla_name} নিয়ে আরও পড়ুন
+          </Link>
+        </div>
+      </div>
+      <div className="border-t-1 mb-5">
+        <div className="pt-5">
+          <MoreData itemData={itemData} />
         </div>
       </div>
     </div>

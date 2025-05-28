@@ -1,11 +1,13 @@
 import React from "react";
 
 interface NewsTimeProps {
-  newsTime: string; // e.g., "2025-05-28 04:14:03"
+  newsTime?: string | null; // optional and possibly null
 }
 
 const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
-  const formatNewsTime = (rawDate: string): string => {
+  const formatNewsTime = (rawDate?: string | null): string => {
+    if (!rawDate || typeof rawDate !== "string") return "No date available";
+
     const timeZone = "Asia/Dhaka";
 
     // Convert "2025-05-28 04:14:03" to ISO with Dhaka offset
