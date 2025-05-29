@@ -17,7 +17,6 @@ interface Props {
 }
 
 export default async function MoreData({ itemData }: Props) {
-  console.log(itemData.slug, "itemData.slug received in MoreData");
 
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,

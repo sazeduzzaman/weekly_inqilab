@@ -26,7 +26,7 @@ export default async function Footer() {
               <h1 className="text-1xl">উপদেষ্টা সম্পাদকঃ পাভেল মাহমুদ</h1>
               <h1 className="text-1xl">ইংরেজি পাতার সম্পাদকঃ ফুহাদ হোসেন</h1>
               <h1 className="text-1xl">
-                ব্যবস্থাপনা সম্পাদকঃ মোঃ বদরুদ্দুজা সাগর
+                ব্যবস্থাপনা সম্পাদকঃ মোঃ বদরুদ্দোজা সাগর
               </h1>
               <h1 className="text-1xl">
                 প্রকাশক ও সম্পাদকঃ মোহাম্মদ জাহিদ আলম

@@ -11,9 +11,9 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
   return (
     <div className="container mx-auto mt-5 mb-6">
       <div className="flex justify-between items-center">
-        <SectionTitle title="বৈশিষ্ট্য" />
+        <SectionTitle title="সর্বশেষ" />
       </div>
-      <div className="grid grid-cols-6 gap-3">
+      <div className="grid grid-cols-6 gap-4">
         {latestItemsData.map((item) => (
           <div key={item.id}>
             <Link
@@ -32,14 +32,24 @@ export default function FeaturesItems({ latestItems }: LatestNewsListProps) {
                     priority
                   />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title h-15">{item.bangla_title}</h2>
-                  <small className="text-site-secondary opacity-70 block mt-1">
-                    {/* {items.news_time} */}
-                    <NewsTimeShower
-                      newsTime={item.published_at || new Date().toISOString()}
-                    />
-                  </small>
+                <div className="card-body px-2">
+                  <h2 className="card-title h-15">
+                    {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
+                    {(item.bangla_title ?? "").split(" ").length > 6
+                      ? "..."
+                      : ""}
+                  </h2>
+                  <div className="flex justify-between items-center">
+                    <span className="text-site-secondary font-bold opacity-70 block mt-1">
+                      {item.category_bangla_name}
+                    </span>
+                    <span className="text-mute opacity-70 block mt-1">
+                      {/* {items.news_time} */}
+                      <NewsTimeShower
+                        newsTime={item.published_at || new Date().toISOString()}
+                      />
+                    </span>
+                  </div>
                 </div>
               </div>
             </Link>

@@ -27,14 +27,19 @@ export default function WorldNews({ wordNewsItems }: WordNewsListProps) {
                     priority
                   />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title h-15">{item.news_title}</h2>
-                  <small className="text-site-secondary opacity-70 block mt-1">
+                <div className="card-body px-2">
+                  <h2 className="card-title h-15">
+                    {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
+                    {(item.bangla_title ?? "").split(" ").length > 6
+                      ? "..."
+                      : ""}
+                  </h2>
+                  <span className="text-site-secondary opacity-70 block mt-1">
                     {/* {items.news_time} */}
                     <NewsTimeShower
                       newsTime={item.news_time || new Date().toISOString()}
                     />
-                  </small>
+                  </span>
                 </div>
               </div>
             </Link>

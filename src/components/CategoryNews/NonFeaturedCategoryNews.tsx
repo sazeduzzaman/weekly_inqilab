@@ -29,7 +29,6 @@ interface Props {
 }
 
 export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
-  console.log(nonFeatureData, "nonFeatureData data");
   return (
     <>
       {/* <div className="divider divider-neutral">Non Featured</div> */}

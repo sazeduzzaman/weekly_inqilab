@@ -47,13 +47,14 @@ export default function HeroCenterSlider({
                         heightClass="h-[507px]"
                         widthClass="w-full"
                         priority
+                        className="object-cover"
                       />
                     </figure>
 
                     {/* Title section */}
                     <div className="card-body relative flex items-center justify-center bg-black">
-                      <h1 className="slider-title font-normal text-center text-white z-10">
-                        {items.bangla_title?.slice(0, 50)}
+                      <h1 className="slider-title font-normal text-start text-white leading-8 z-10">
+                        {items.bangla_title}
                       </h1>
                     </div>
                   </div>

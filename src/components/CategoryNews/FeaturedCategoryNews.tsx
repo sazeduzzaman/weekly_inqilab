@@ -27,10 +27,8 @@ interface Props {
 }
 
 export default function FeaturedCategoryNews({ featureData }: Props) {
-  console.log(featureData, "Category featureData");
   const featureMain = featureData.slice(0, 1);
   const featureOthers = featureData.slice(1, 5);
-  console.log(featureMain, "featureMain data");
 
   return (
     <div className="space-y-4">

@@ -69,8 +69,11 @@ abbr:where([title]) {
   color: var(--primary-color);
 }
 .cta-menus {
-  font-size: 15px;
+  font-size: 16px;
   overflow-x: auto;
+}
+h2 {
+  font-size: 22px;
 }
 /* Hide the default browser 'x' in search input */
 .hide-clear-icon::-webkit-search-cancel-button {
@@ -125,9 +128,12 @@ abbr:where([title]) {
   text-decoration: none;
   letter-spacing: -0.36px;
 }
+.card-body .slider-title {
+  margin-top: -40px;
+}
 .slider-title {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 35px;
   line-height: 40px;
   text-transform: none;
   text-decoration: none;
@@ -145,7 +151,7 @@ abbr:where([title]) {
 .card-body p {
   font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 16px;
   text-transform: none;
   text-decoration: none;
   letter-spacing: -0.12px;
@@ -181,6 +187,7 @@ abbr:where([title]) {
 }
 .ft-size {
   font-size: 28px;
+  font-weight: 500;
 }
 .ft-2-size {
   font-size: 20px;

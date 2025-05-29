@@ -66,7 +66,7 @@ function getRandomItems<T>(array: T[], count: number): T[] {
 export default function MoreSingleData({
   categoryItems,
   slug,
-  count = 4, // default to 4 items
+  count = 5, // default to 4 items
 }: MoreSingleDataProps) {
   const [randomItems, setRandomItems] = useState<NewsItem[]>([]);
 
@@ -77,7 +77,7 @@ export default function MoreSingleData({
   }, [categoryItems, slug, count]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 xl:grid-cols-5 gap-4">
       {randomItems.map((item) => (
         <div key={item.id}>
           <Link
@@ -94,15 +94,18 @@ export default function MoreSingleData({
                   priority
                 />
               </figure>
-              <div className="card-body">
-                <h2 className="card-title h-15">{item.bangla_title}</h2>
-                <small className="text-site-secondary opacity-70 block mt-1">
-                  <NewsTimeShower />
-                </small>
+              <div className="card-body px-2">
+                <h2 className="card-title h-15">
+                  {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
+                  {(item.bangla_title ?? "").split(" ").length > 6 ? "..." : ""}
+                </h2>
+                <span className="text-site-secondary opacity-70 block mt-1">
+                  <NewsTimeShower newsTime={item.published_at} />
+                </span>
               </div>
             </div>
           </Link>
-        </div>  
+        </div>
       ))}
     </div>
   );

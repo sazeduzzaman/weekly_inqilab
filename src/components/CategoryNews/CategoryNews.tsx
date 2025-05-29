@@ -26,7 +26,6 @@ interface Props {
 }
 
 export default function CategoryNews({ categoryItems }: Props) {
-  console.log(categoryItems, "categoryItems datas");
   const isFeatured = categoryItems.filter(
     // if date id 1 feature then add in isFeature
     (item) => item.is_featured === 0
