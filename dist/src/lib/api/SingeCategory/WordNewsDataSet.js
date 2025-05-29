@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WordNewsSet = void 0;
+const WordNewsSet = async () => {
+    try {
+        const response = await fetch("https://backoffice.ajkal.us/category-news/12");
+        const data = await response.json();
+        return data.data;
+    }
+    catch (error) {
+        console.error("Failed to fetch news categories:", error);
+        throw new Error("Something went wrong while fetching news categories.");
+    }
+};
+exports.WordNewsSet = WordNewsSet;
