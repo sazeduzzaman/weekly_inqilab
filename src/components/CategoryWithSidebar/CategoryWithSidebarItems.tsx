@@ -4,12 +4,14 @@ import JatiyoNews from "./Category/JatiyoNews";
 import { ViewedDataSet } from "@/lib/api/ViewedDataSet";
 import { RajnitiDataSet } from "@/lib/api/SingeCategory/RajnitiDataSet";
 import Sorbadhik from "./Category/Sorbadhik";
+import BusinessNews from "./Category/BusinessNews";
+import { BusinessNewsSet } from "@/lib/api/SingeCategory/BusinessNewsDataSet";
 // import { WordNewsSet } from "@/lib/api/SingeCategory/WordNewsDataSet";
 
 export default async function CategoryWithSidebarItems() {
   const viewedItems = await ViewedDataSet();
   const rajnitiItems = await RajnitiDataSet();
-  // const wordNewsItems = await WordNewsSet();
+  const businessNewsItems = await BusinessNewsSet();
   return (
     <div className="">
       <div className="grid grid-cols-12 gap-3">
@@ -24,7 +26,9 @@ export default async function CategoryWithSidebarItems() {
           </div>
         </div>
       </div>
-      <div className="">{/* <WorldNews wordNewsItems={wordNewsItems}/> */}</div>
+      <div className="">
+        <BusinessNews businessNewsItems={businessNewsItems} />
+      </div>
     </div>
   );
 }

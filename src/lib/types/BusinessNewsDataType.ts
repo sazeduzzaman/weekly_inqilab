@@ -1,6 +1,6 @@
 // app/types.ts
 
-export interface WordNewsData {
+export interface BusinessNewsData {
   id: number;
   name: string;
   name_bangla: string;
@@ -11,9 +11,14 @@ export interface WordNewsData {
   thumbnail_img?: string;
   news_time?: string;
   category_name?: string;
-  is_featured?: number;
+  title?: string;
+  bangla_title?: string;
+  slug?: string;
+  published_at?: string;
+  category_bangla_name?: string;
+  
 }
 
-export interface WordNewsListProps {
-  wordNewsItems: WordNewsData[];
+export interface BusinessNewsListProps {
+  businessNewsItems: BusinessNewsData[];
 }

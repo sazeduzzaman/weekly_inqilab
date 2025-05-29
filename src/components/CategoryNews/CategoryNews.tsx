@@ -28,11 +28,11 @@ interface Props {
 export default function CategoryNews({ categoryItems }: Props) {
   const isFeatured = categoryItems.filter(
     // if date id 1 feature then add in isFeature
-    (item) => item.is_featured === 0
+    (item) => item.is_featured === 1
   );
   const featureData = isFeatured;
 
-  const isnonFeatured = categoryItems.filter((item) => item.is_featured === 1);
+  const isnonFeatured = categoryItems.filter((item) => item.is_featured === 0);
   const nonFeatureData = isnonFeatured;
 
   return (

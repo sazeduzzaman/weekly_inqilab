@@ -88,9 +88,9 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
                                 />
                               </div>
                               <div>
-                                <p>{item.author}</p>
+                                <p>{item.author ?? "ইনকিলাব"}</p>
                                 <div>
-                                  <small className="text-white block">
+                                  <small className="text-black block">
                                     <NewsTimeShower
                                       newsTime={
                                         item.published_at ||

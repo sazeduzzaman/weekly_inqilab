@@ -40,11 +40,11 @@ export default function HeroCenterSlider({
                   <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
                     <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       {/* Black gradient overlay on top of the image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10 " />
+                      <div className="absolute inset-0 h-[510px] bg-gradient-to-t from-black/100 to-transparent z-10 " />
                       <OptimizedNewsImage
                         imageName={items.thumbnail || "No image"}
                         altText={`Thumbnail for ${items.thumbnail}`}
-                        heightClass="h-[507px]"
+                        heightClass="h-[510px]"
                         widthClass="w-full"
                         priority
                         className="object-cover"
@@ -54,7 +54,13 @@ export default function HeroCenterSlider({
                     {/* Title section */}
                     <div className="card-body relative flex items-center justify-center bg-black">
                       <h1 className="slider-title font-normal text-start text-white leading-8 z-10">
-                        {items.bangla_title}
+                        {(items.bangla_title ?? "")
+                          .split(" ")
+                          .slice(0, 6)
+                          .join(" ")}
+                        {(items.bangla_title ?? "").split(" ").length > 6
+                          ? "..."
+                          : ""}
                       </h1>
                     </div>
                   </div>

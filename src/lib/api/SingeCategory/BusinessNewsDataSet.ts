@@ -1,5 +1,5 @@
 // Define the CategoryData interface for the fetched data
-interface WordNewsData {
+interface BusinessNewsData {
   id: number;
   name: string;
   name_bangla: string;
@@ -10,15 +10,15 @@ interface WordNewsData {
   thumbnail_img?: string;
 }
 
-export const WordNewsSet = async (): Promise<WordNewsData[]> => {
+export const BusinessNewsSet = async (): Promise<BusinessNewsData[]> => {
   try {
     const response = await fetch(
-      "https://backoffice.ajkal.us/category-news/12"
+      "https://v2.weeklyinqilab.com/api/v1/category-news/business"
     );
     const data = await response.json();
     return data.data;
   } catch (error) {
     console.error("Failed to fetch news categories:", error);
     throw new Error("Something went wrong while fetching news categories.");
-  }
+  } 
 };

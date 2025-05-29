@@ -1,19 +1,22 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import { WordNewsListProps } from "@/lib/types/WordNewsDataType";
+import { BusinessNewsListProps } from "@/lib/types/BusinessNewsDataType";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Link from "next/link";
 import React from "react";
 
-export default function WorldNews({ wordNewsItems }: WordNewsListProps) {
-  const wordNewsData = wordNewsItems.slice(0, 4);
+export default function BusinessNews({
+  businessNewsItems,
+}: BusinessNewsListProps) {
+  const businessNewsData = businessNewsItems.slice(0, 4);
+  const categoryName = businessNewsData[0].category_bangla_name;
   return (
     <>
       <div>
-        <SectionTitle title="বিশ্ব সংবাদ" />
+        <SectionTitle title={(categoryName ?? "") + " সংবাদ"} />
       </div>
       <div className="grid grid-cols-4 gap-3 mt-5">
-        {wordNewsData.map((item, index) => (
+        {businessNewsData.map((item, index) => (
           <div key={index}>
             <Link href={`/details/${item.category_name}/${item.id}`}>
               <div className="card rounded-none shadow-sm group">
@@ -37,7 +40,7 @@ export default function WorldNews({ wordNewsItems }: WordNewsListProps) {
                   <span className="text-site-secondary opacity-70 block mt-1">
                     {/* {items.news_time} */}
                     <NewsTimeShower
-                      newsTime={item.news_time || new Date().toISOString()}
+                      newsTime={item.published_at || new Date().toISOString()}
                     />
                   </span>
                 </div>

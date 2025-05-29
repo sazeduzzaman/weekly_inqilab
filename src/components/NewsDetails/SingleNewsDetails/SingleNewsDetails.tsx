@@ -12,6 +12,7 @@ import MainSidebar from "@/components/Sidebar/MainSidebar/MainSidebar";
 import ClientReview from "../ClientReview/ClientReview";
 import ShareNews from "@/components/ShareNews/ShareNews";
 import Meta from "@/components/MetaData/Meta";
+import { LuPartyPopper } from "react-icons/lu";
 
 interface NewsItem {
   id?: number;
@@ -53,27 +54,33 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
       />
       <div className="grid grid-cols-12 gap-6">
         <div className="col-span-3">
-          <div className="card rounded-none shadow-sm mt-5 px-5 mr-10">
+          <div className="card rounded-none shadow-sm mt-5 mr-10">
             <div className="card-header bg-black rounded-md text-start ps-5 py-3 text-white">
               গুরুত্বপূর্ণ
             </div>
             <div className="card-body">
-              <div>
+              <div className="mb-3">
                 <Link href="/ad-cost" className="flex items-center">
                   <RiAdvertisementLine className="me-3" size={30} /> প্রিন্ট
                   সংস্করণ
                 </Link>
               </div>
-              <div>
+              <div className="mb-3">
                 <Link href="/epaper" className="flex items-center">
                   <HiOutlineLightBulb className="me-3" size={30} /> অনলাইন
                   সংস্করণ
                 </Link>
               </div>
-              <div>
+              <div className="mb-3">
                 <Link href="/contact" className="flex items-center">
                   <MdConnectWithoutContact className="me-3" size={30} />{" "}
                   যোগাযোগের ঠিকানা
+                </Link>
+              </div>
+              <div>
+                <Link href="/epaper" className="flex items-center">
+                  <LuPartyPopper className="me-3" size={30} />{" "}
+                   ইপেপার পড়ুন
                 </Link>
               </div>
             </div>
