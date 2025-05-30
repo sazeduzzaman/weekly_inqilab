@@ -13,7 +13,7 @@ import { SiteInformation } from "@/lib/api/SiteInformation";
 export default async function FirstSidebar() {
   const advertisementSidebarRandom = await Advertisment();
   const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(0, 2);
-   const siteInformationData = await SiteInformation();
+  const siteInformationData = await SiteInformation();
   return (
     <div className="mt-4">
       <SectionTitle title="আমাদের সম্পর্কে" />
@@ -63,7 +63,7 @@ export default async function FirstSidebar() {
               alt="Epaper Preview"
               width={400}
               height={300}
-              layout="responsive"
+              style={{ width: "100%", height: "auto" }} // ✅ Responsive layout via style
             />
           </figure>
         </Link>

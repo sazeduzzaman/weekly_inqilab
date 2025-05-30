@@ -37,7 +37,7 @@ export default async function MainSidebar({ siteInformationData }: Props) {
               alt="Epaper Preview"
               width={400}
               height={300}
-              layout="responsive"
+              style={{ width: "100%", height: "auto" }} // ✅ Responsive layout via style
             />
           </figure>
         </Link>

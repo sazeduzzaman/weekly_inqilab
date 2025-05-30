@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { LuDoorOpen } from "react-icons/lu";
-import { toast } from "react-hot-toast"; // Optional: for showing toast messages
 import type { Metadata } from "next";
+import FormItems from "./FormItems/FormItems";
 
 // ✅ Static metadata for home page
 export const metadata: Metadata = {
@@ -37,54 +36,6 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const password = (form.elements.namedItem("password") as HTMLInputElement)
-      .value;
-
-    const csrfToken = document
-      .querySelector('meta[name="csrf-token"]')
-      ?.getAttribute("content");
-
-    const payload = { email, password };
-
-    try {
-      const res = await fetch("https://v2.weeklyinqilab.com/api/v1/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json", // important!
-          "X-CSRF-TOKEN": csrfToken || "",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const text = await res.text();
-
-      try {
-        const result = JSON.parse(text);
-
-        if (res.ok) {
-          toast.success("লগইন সফল হয়েছে!");
-          form.reset();
-          // window.location.href = "/dashboard"; // optional redirect
-        } else {
-          toast.error("লগইন ব্যর্থ হয়েছে: " + result.message);
-        }
-      } catch {
-        console.error("Failed to parse JSON. Server returned:", text);
-        toast.error("সার্ভার থেকে অপ্রত্যাশিত উত্তর এসেছে।");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      toast.error("সার্ভার ত্রুটি হয়েছে। আবার চেষ্টা করুন।");
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
@@ -103,38 +54,7 @@ const Page = () => {
           লগইন করুন
         </h2>
 
-        <form className="space-y-5" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              ইমেইল
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="আপনার ইমেইল লিখুন"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              পাসওয়ার্ড
-            </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="আপনার পাসওয়ার্ড লিখুন"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="drawer-button btn btn-black px-5 py-5 search-menu w-100"
-          >
-            লগইন করুন <LuDoorOpen size={30} />
-          </button>
-        </form>
+        <FormItems />
 
         <div className="text-center text-sm text-gray-600 mt-6">
           একাউন্ট নেই?

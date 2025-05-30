@@ -97,7 +97,7 @@ const EpaperItems = () => {
             <Image
               src={imageList[selectedIndex]}
               alt={`Selected page ${selectedIndex + 1}`}
-              layout="fill"
+              style={{ width: "100%", height: "auto" }} // ✅ Responsive layout via style
               className="object-contain"
             />
             <button
