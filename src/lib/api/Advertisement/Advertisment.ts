@@ -21,7 +21,10 @@ interface AdvertismentData {
 export const Advertisment = async (): Promise<AdvertismentData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/advertisements"
+      "https://v2.weeklyinqilab.com/api/v1/advertisements",
+      {
+        cache: "no-store", // ensures fresh data every time
+      }
     );
     const data = await response.json();
     return data.data;

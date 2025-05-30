@@ -7,7 +7,12 @@ interface CategoryData {
 
 export const CategoryDataSet = async (): Promise<CategoryData[]> => {
   try {
-    const response = await fetch("https://v2.weeklyinqilab.com/api/v1/categories");
+    const response = await fetch(
+      "https://v2.weeklyinqilab.com/api/v1/categories",
+      {
+        cache: "no-store", // ensures fresh data every time
+      }
+    );
     const data = await response.json();
     return data.data;
   } catch (error) {

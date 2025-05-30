@@ -80,23 +80,13 @@ interface SiteInfoApiResponse {
   data: SiteInfo;
 }
 
-// export const SiteInfoDataSet = async (): Promise<SiteInfoData[]> => {
-//   try {
-//     const response = await fetch(
-//       "https://v2.weeklyinqilab.com/api/v1/site-informations"
-//     );
-//     const data = await response.json();
-//     return data.data;
-//   } catch (error) {
-//     console.error("Failed to fetch news categories:", error);
-//     throw new Error("Something went wrong while fetching news categories.");
-//   }
-// };
-
 export const SiteInformation = async (): Promise<SiteInfo> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/site-informations"
+      "https://v2.weeklyinqilab.com/api/v1/site-informations",
+      {
+        cache: "no-store", // ensures fresh data every time
+      }
     );
     const json: SiteInfoApiResponse = await response.json();
     return json.data;

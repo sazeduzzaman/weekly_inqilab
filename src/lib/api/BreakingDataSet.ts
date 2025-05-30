@@ -12,7 +12,12 @@ interface BreakingNewsData {
 
 export const BreakingDataSet = async (): Promise<BreakingNewsData[]> => {
   try {
-    const response = await fetch("https://v2.weeklyinqilab.com/api/v1/breaking-news");
+    const response = await fetch(
+      "https://v2.weeklyinqilab.com/api/v1/breaking-news",
+      {
+        cache: "no-store", // ensures fresh data every time
+      }
+    );
     const data = await response.json();
     return data.data;
   } catch (error) {
