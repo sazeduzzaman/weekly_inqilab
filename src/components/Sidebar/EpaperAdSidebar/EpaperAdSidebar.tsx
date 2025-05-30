@@ -4,8 +4,12 @@ import React from "react";
 import { RiAdvertisementLine } from "react-icons/ri";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { MdConnectWithoutContact } from "react-icons/md";
-
-const EpaperAdSidebar = () => {
+import { SiteInfo } from "@/lib/api/SiteInformation";
+interface Props {
+  siteInformationData: SiteInfo;
+}
+// export default async function MainSidebar() {
+export default function EpaperAdSidebar({ siteInformationData }: Props) {
   return (
     <div>
       <div className="mb-3">
@@ -16,7 +20,7 @@ const EpaperAdSidebar = () => {
           <div className="card-body flex justify-center items-center text-center">
             <h1>আর জানতে</h1>
             <div>
-              <SocialLinks />
+              <SocialLinks siteInformationData={siteInformationData} />
             </div>
           </div>
         </div>
@@ -77,6 +81,5 @@ const EpaperAdSidebar = () => {
       </div>
     </div>
   );
-};
+}
 
-export default EpaperAdSidebar;

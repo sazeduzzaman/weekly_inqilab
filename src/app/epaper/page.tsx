@@ -1,5 +1,6 @@
 import EpaperItems from "@/components/EpaperItems/EpaperItems";
 import EpaperAdSidebar from "@/components/Sidebar/EpaperAdSidebar/EpaperAdSidebar";
+import { SiteInformation } from "@/lib/api/SiteInformation";
 import type { Metadata } from "next";
 
 // ✅ Static metadata for ePaper page
@@ -39,7 +40,8 @@ export const metadata: Metadata = {
   },
 };
 
-const Page = () => {
+  export default async function Page() {
+  const siteInformationData = await SiteInformation();
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-12 gap-3">
@@ -50,7 +52,7 @@ const Page = () => {
             <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
               বিজ্ঞাপন
             </div>
-            <EpaperAdSidebar />
+            <EpaperAdSidebar siteInformationData={siteInformationData} />
           </div>
         </div>
       </div>
@@ -58,4 +60,3 @@ const Page = () => {
   );
 };
 
-export default Page;

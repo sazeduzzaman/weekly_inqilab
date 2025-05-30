@@ -53,7 +53,7 @@ export default function NewsDetails({ singelNewsItems }: Props) {
 
             <div className="border-t-1 mb-5">
               <div className="pt-5">
-                <MoreDaa itemData={itemData} />
+                <MoreData itemData={itemData} />
               </div>
             </div>
           </div>

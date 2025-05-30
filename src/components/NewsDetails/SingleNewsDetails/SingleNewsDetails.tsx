@@ -9,6 +9,7 @@ import MainSidebar from "@/components/Sidebar/MainSidebar/MainSidebar";
 import ClientReview from "../ClientReview/ClientReview";
 import ShareNews from "@/components/ShareNews/ShareNews";
 import RightSide from "./RightSide";
+import { SiteInformation } from "@/lib/api/SiteInformation";
 
 interface NewsItem {
   id?: number;
@@ -36,9 +37,10 @@ interface NewsDetails {
 interface Props {
   singelNewsItems: NewsDetails;
 }
-export default function SingleNewsDetails({ singelNewsItems }: Props) {
+export default async function SingleNewsDetails({ singelNewsItems }: Props) {
   // Destructure news_details safely with fallback to empty object
   const { news_details: itemData = {} } = singelNewsItems;
+  const siteInformationData = await SiteInformation();
   return (
     <>
       <div className="grid grid-cols-12 gap-6 mb-5">
@@ -150,7 +152,7 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
           <h1 className="card-title inline-block border-b-2 border-current">
             বিজ্ঞাপন কর্নার
           </h1>
-          <MainSidebar />
+          <MainSidebar siteInformationData={siteInformationData} />
         </div>
       </div>
     </>

@@ -1,11 +1,16 @@
 import Advertisement from "@/components/Advertisement/Advertisement";
 import SocialLinks from "@/components/SocialLinks/SocialLinks";
 import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
+import { SiteInfo } from "@/lib/api/SiteInformation";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default async function MainSidebar() {
+interface Props {
+  siteInformationData: SiteInfo;
+}
+// export default async function MainSidebar() {
+export default async function MainSidebar({ siteInformationData }: Props) {
   const advertisementSidebarRandom = await Advertisment();
   const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(3, 8);
   return (
@@ -17,7 +22,7 @@ export default async function MainSidebar() {
         <div className="card-body flex justify-center items-center text-center">
           <h1>আর জানতে</h1>
           <div>
-            <SocialLinks />
+            <SocialLinks siteInformationData={siteInformationData} />
           </div>
         </div>
       </div>
