@@ -17,7 +17,13 @@ export default async function MainSidebar({ siteInformationData }: Props) {
     <div className="mb-3">
       <div className="card rounded-none shadow-sm p-5">
         <figure>
-          <img src="/favicon.ico" alt="Shoes" />
+          <Image
+            src="/favicon.ico"
+            alt="Fab Icon" 
+            width={50}
+            height={50}
+            className="w-8 h-8 rounded-full object-cover"
+          />
         </figure>
         <div className="card-body flex justify-center items-center text-center">
           <h1>আর জানতে</h1>

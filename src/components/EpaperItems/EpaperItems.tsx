@@ -73,7 +73,8 @@ const EpaperItems = () => {
                     <Image
                       src={img}
                       alt={`Page ${index + 1}`}
-                      layout="fill"
+                      width={400}
+                      height={300}
                       className="object-cover"
                     />
                   </div>
@@ -97,6 +98,8 @@ const EpaperItems = () => {
             <Image
               src={imageList[selectedIndex]}
               alt={`Selected page ${selectedIndex + 1}`}
+              width={400}
+              height={300}
               style={{ width: "100%", height: "auto" }} // ✅ Responsive layout via style
               className="object-contain"
             />

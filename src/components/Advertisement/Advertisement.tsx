@@ -71,7 +71,6 @@ export default function Advertisement({
           height={height}
           priority
           style={{ objectFit: "cover" }}
-          layout="responsive"
         />
       </div>
     );
@@ -92,7 +91,6 @@ export default function Advertisement({
                     height={height}
                     priority
                     style={{ objectFit: "cover" }}
-                    layout="responsive"
                   />
                 </Link>
               ) : (
@@ -103,7 +101,6 @@ export default function Advertisement({
                   height={height}
                   priority
                   style={{ objectFit: "cover" }}
-                  layout="responsive"
                 />
               )}
             </>

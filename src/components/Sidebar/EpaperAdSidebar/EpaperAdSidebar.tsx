@@ -5,11 +5,15 @@ import { RiAdvertisementLine } from "react-icons/ri";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { SiteInfo } from "@/lib/api/SiteInformation";
+import Advertisement from "@/components/Advertisement/Advertisement";
+import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
 interface Props {
   siteInformationData: SiteInfo;
 }
 // export default async function MainSidebar() {
-export default function EpaperAdSidebar({ siteInformationData }: Props) {
+export default async function EpaperAdSidebar({ siteInformationData }: Props) {
+  const advertisementSidebarRandom = await Advertisment();
+  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(5, 10);
   return (
     <div>
       <div className="mb-3">
@@ -49,34 +53,12 @@ export default function EpaperAdSidebar({ siteInformationData }: Props) {
           </div>
         </div>
         <div className="card rounded-none mt-3 ">
-          <figure>
-            <img src="/images/side-ad.jfif" alt="Shoes" />
-          </figure>
-        </div>
-        <div className="card rounded-none mt-3">
-          <figure>
-            <img src="/images/side-ad-2.jpg" alt="Shoes" />
-          </figure>
-        </div>
-        <div className="card rounded-none mt-3">
-          <figure>
-            <img src="/images/side-ad-3.jfif" alt="Shoes" />
-          </figure>
-        </div>
-        <div className="card rounded-none mt-3">
-          <figure>
-            <img src="/images/ads2-768x528.webp" alt="Shoes" />
-          </figure>
-        </div>
-        <div className="card rounded-none mt-3">
-          <figure>
-            <img src="/images/ads2-768x528.webp" alt="Shoes" />
-          </figure>
-        </div>
-        <div className="card rounded-none mt-3">
-          <figure>
-            <img src="/images/ads2-768x528.webp" alt="Shoes" />
-          </figure>
+          <Advertisement
+            advertisements={AdvertisementSidebarRandom}
+            position="sidebar_random"
+            availability="available"
+            marginB={10} // <-- string here
+          />
         </div>
       </div>
     </div>
