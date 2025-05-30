@@ -49,7 +49,8 @@ export default async function Page({ params }: any) {
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/news-details/${newsId}`,
     {
-      next: { revalidate: 60 },
+      // next: { revalidate: 60 },
+      cache: 'no-store', // force no caching
     }
   );
 

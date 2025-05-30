@@ -11,7 +11,8 @@ export async function generateMetadata({ params }: any) {
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
-      next: { revalidate: 60 },
+      // next: { revalidate: 60 },
+      cache: 'no-store', // force no caching
     }
   );
 
@@ -88,7 +89,8 @@ export default async function Page({ params }: any) {
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
-      next: { revalidate: 60 },
+      // next: { revalidate: 60 },
+      cache: 'no-store', // force no caching
     }
   );
   const json = await res.json();
