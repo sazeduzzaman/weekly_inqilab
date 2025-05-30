@@ -1,6 +1,45 @@
 "use client";
 import React, { useState } from "react";
+import type { Metadata } from "next";
 
+// ✅ Static metadata for home page
+export const metadata: Metadata = {
+  title: "সাপ্তাহিক ইনকিলাব - সর্বশেষ বাংলা সংবাদ",
+  description:
+    "সাপ্তাহিক ইনকিলাব এ পড়ুন সর্বশেষ বাংলা খবর, রাজনীতি, খেলাধুলা, বিনোদন ও আরও অনেক কিছু। বাংলাদেশ ও বিশ্বের আপডেট সংবাদ সবার আগে।",
+  keywords: [
+    "সাপ্তাহিক ইনকিলাব",
+    "বাংলা খবর",
+    "নিউজ",
+    "বাংলাদেশ",
+    "খেলা",
+    "রাজনীতি",
+    "বিনোদন",
+  ],
+  metadataBase: new URL("https://weeklyinqilab.com"), // Optional but helps for og/twitter
+  openGraph: {
+    title: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
+    description:
+      "বাংলাদেশ ও বিশ্বের সর্বশেষ সংবাদ পড়ুন সাপ্তাহিক ইনকিলাবে। সব সময় আপডেট থাকুন।",
+    url: "https://weeklyinqilab.com",
+    siteName: "সাপ্তাহিক ইনকিলাব",
+    type: "website",
+    images: [
+      {
+        // url: "https://v2.weeklyinqilab.com/images/inqilab-og-image.jpg",
+        url: "/images/placeholderImage.webp",
+        alt: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "সাপ্তাহিক ইনকিলাব - বাংলা সংবাদ",
+    description:
+      "সাপ্তাহিক ইনকিলাব এ সর্বশেষ সংবাদ, রাজনীতি, খেলাধুলা ও বিনোদনের খবর পড়ুন।",
+    images: ["/images/placeholderImage.webp"],
+  },
+};
 const Page = () => {
   const [activeTab, setActiveTab] = useState("bangla");
 
@@ -54,7 +93,8 @@ const Page = () => {
           </h2>
           <p className="mb-4">
             ওয়েবসাইটের সকল কন্টেন্ট (লেখা, ছবি, ভিডিও ইত্যাদি) ইনকিলাবের
-            সম্পত্তি এবং অনুমতি ছাড়া কপি বা ব্যবহার নিষিদ্ধ। আপনি এই কন্টেন্ট বাণিজ্যিকভাবে ব্যবহার করতে পারবেন না।
+            সম্পত্তি এবং অনুমতি ছাড়া কপি বা ব্যবহার নিষিদ্ধ। আপনি এই কন্টেন্ট
+            বাণিজ্যিকভাবে ব্যবহার করতে পারবেন না।
           </p>
 
           <h2 className="text-xl font-semibold mt-6 mb-2">
@@ -62,7 +102,8 @@ const Page = () => {
           </h2>
           <p className="mb-4">
             ওয়েবসাইটে তৃতীয় পক্ষের ওয়েবসাইটের লিঙ্ক থাকতে পারে, যেগুলোর উপর
-            ইনকিলাবের কোনো নিয়ন্ত্রণ নেই এবং তাদের বিষয়বস্তুর জন্য ইনকিলাব দায়ী নয়।
+            ইনকিলাবের কোনো নিয়ন্ত্রণ নেই এবং তাদের বিষয়বস্তুর জন্য ইনকিলাব
+            দায়ী নয়।
           </p>
 
           <h2 className="text-xl font-semibold mt-6 mb-2">৪. পরিবর্তন</h2>
@@ -73,12 +114,14 @@ const Page = () => {
 
           <h2 className="text-xl font-semibold mt-6 mb-2">৫. ব্যবহার বিধি</h2>
           <p className="mb-4">
-            আপনি ওয়েবসাইটে অবৈধ কার্যক্রম পরিচালনা করতে পারবেন না যেমন: হ্যাকিং, স্প্যামিং, বা অন্য ব্যবহারকারীর ব্যক্তিগত তথ্য সংগ্রহ।
+            আপনি ওয়েবসাইটে অবৈধ কার্যক্রম পরিচালনা করতে পারবেন না যেমন:
+            হ্যাকিং, স্প্যামিং, বা অন্য ব্যবহারকারীর ব্যক্তিগত তথ্য সংগ্রহ।
           </p>
 
           <h2 className="text-xl font-semibold mt-6 mb-2">৬. দায়মুক্তি</h2>
           <p className="mb-4">
-            ওয়েবসাইট ব্যবহারে আপনার কোন ক্ষতি হলে ইনকিলাব তার জন্য দায়ী থাকবে না। ওয়েবসাইটটি "যেমন আছে" ভিত্তিতে প্রদান করা হয়।
+            ওয়েবসাইট ব্যবহারে আপনার কোন ক্ষতি হলে ইনকিলাব তার জন্য দায়ী থাকবে
+            না। ওয়েবসাইটটি যেমন আছে ভিত্তিতে প্রদান করা হয়।
           </p>
         </div>
       )}
@@ -98,7 +141,8 @@ const Page = () => {
           </h2>
           <p className="mb-4">
             You are responsible for the accuracy and relevance of all
-            information you provide while using our services. Providing false or misleading data may result in termination.
+            information you provide while using our services. Providing false or
+            misleading data may result in termination.
           </p>
 
           <h2 className="text-xl font-semibold mt-6 mb-2">
@@ -121,17 +165,20 @@ const Page = () => {
           <h2 className="text-xl font-semibold mt-6 mb-2">4. Changes</h2>
           <p className="mb-4">
             Inqilab reserves the right to change these terms at any time.
-            Updates will be posted on this page and you are responsible for reviewing them.
+            Updates will be posted on this page and you are responsible for
+            reviewing them.
           </p>
 
           <h2 className="text-xl font-semibold mt-6 mb-2">5. Acceptable Use</h2>
           <p className="mb-4">
-            You may not use this site for any unlawful purposes such as hacking, spamming, or collecting personal data of other users.
+            You may not use this site for any unlawful purposes such as hacking,
+            spamming, or collecting personal data of other users.
           </p>
 
           <h2 className="text-xl font-semibold mt-6 mb-2">6. Disclaimer</h2>
           <p className="mb-4">
-            Inqilab is not liable for any damages resulting from the use of this website. All content is provided "as is."
+            Inqilab is not liable for any damages resulting from the use of this
+            website. All content is provided as is.
           </p>
         </div>
       )}

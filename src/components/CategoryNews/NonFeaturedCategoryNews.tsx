@@ -41,7 +41,7 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
         />
       </div>
       <div className="space-y-4">
-        <div className="container w-[70%] mx-auto mt-20">
+        <div className="container w-[70%] mx-auto my-20">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12">
               {nonFeatureData.length === 0 ? (

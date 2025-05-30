@@ -6,8 +6,14 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import { RiAdvertisementLine } from "react-icons/ri";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { MdConnectWithoutContact } from "react-icons/md";
+import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
+import Advertisement from "../Advertisement/Advertisement";
+import { SiteInformation } from "@/lib/api/SiteInformation";
 
-const FirstSidebar = () => {
+export default async function FirstSidebar() {
+  const advertisementSidebarRandom = await Advertisment();
+  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(0, 2);
+   const siteInformationData = await SiteInformation();
   return (
     <div className="mt-4">
       <SectionTitle title="আমাদের সম্পর্কে" />
@@ -18,7 +24,7 @@ const FirstSidebar = () => {
         <div className="card-body flex justify-center items-center text-center">
           <h1>আর জানতে</h1>
           <div>
-            <SocialLinks />
+            <SocialLinks siteInformationData={siteInformationData} />
           </div>
         </div>
       </div>
@@ -47,7 +53,7 @@ const FirstSidebar = () => {
       </div>
 
       <div className="card rounded-none shadow-sm mt-5">
-        <Link href="#">
+        <Link href="/epaper">
           <h1 className="text-center text-3xl site-text-secondary ">
             আমাদের ইপেপার
           </h1>
@@ -63,17 +69,13 @@ const FirstSidebar = () => {
         </Link>
       </div>
       <div className="card rounded-none mt-3 ">
-        <figure>
-          <img src="/images/side-ad.jfif" alt="Shoes" />
-        </figure>
+        <Advertisement
+          advertisements={AdvertisementSidebarRandom}
+          position="sidebar_random"
+          availability="available"
+          marginB={10} // <-- string here
+        />
       </div>
-      {/* <div className="card rounded-none mt-3">
-        <figure>
-          <img src="/images/side-ad-2.jpg" alt="Shoes" />
-        </figure>
-      </div> */}
     </div>
   );
-};
-
-export default FirstSidebar;
+}

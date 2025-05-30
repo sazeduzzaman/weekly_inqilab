@@ -5,12 +5,13 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['ajkal.us', 'v2.weeklyinqilab.com'],
+    // ✅ You can remove this if using remotePatterns instead
+    // domains: ['ajkal.us', 'v2.weeklyinqilab.com'],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // matches all hostnames
-        pathname: "**", // matches all paths
+        hostname: "**", // ❌ invalid
+        pathname: "**", // ❌ invalid
       },
     ],
   },

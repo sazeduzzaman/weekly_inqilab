@@ -1,9 +1,11 @@
 import SocialLinks from "@/components/SocialLinks/SocialLinks";
+import { SiteInformation } from "@/lib/api/SiteInformation";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 export default async function Footer() {
+  const siteInformationData = await SiteInformation();
   return (
     <>
       <div className="bg-gray-200 border-t-1 border-red-200">
@@ -12,7 +14,7 @@ export default async function Footer() {
             {/* Mobile Logo */}
             <Link href="/">
               <Image
-                src="/images/logo.png"
+                src={siteInformationData.site_logo_black}
                 alt="Logo"
                 width={250}
                 height={100}
@@ -67,7 +69,7 @@ export default async function Footer() {
               </div>
               <div className="text-center">
                 <span>অনুসরণ করুন</span>
-                <SocialLinks />
+                <SocialLinks siteInformationData={siteInformationData} />
               </div>
             </div>
           </div>
@@ -79,15 +81,7 @@ export default async function Footer() {
                 বেআইনী।
                 <br />
                 <span>
-                  কপিরাইট ©{" "}
-                  {new Date()
-                    .getFullYear()
-                    .toString()
-                    .replace(
-                      /\d/g,
-                      (d: string) => "০১২৩৪৫৬৭৮৯"[parseInt(d)]
-                    )}{" "}
-                  সাপ্তাহিক ইনকিলাব কর্তৃক সর্বসত্ব ® সংরক্ষিত
+                  {siteInformationData.copyright_title}
                 </span>
               </p>
               <div className="text-black">
@@ -95,8 +89,8 @@ export default async function Footer() {
                   <p className="text-end flex items-center">
                     <small className="pt-1 pe-1">Developed With Love By</small>
                     <Image
-                      className="w-[60px]  bg-red-500 p-1 rounded-2xl"
-                      src="https://control.ajkal.us/flixzaglobal.webp"
+                      className="w-[60px] p-1"
+                      src="/images/logo-color-resized.png"
                       alt="Next.js logo"
                       width={180}
                       height={38}

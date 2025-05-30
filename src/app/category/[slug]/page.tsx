@@ -5,6 +5,63 @@ import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
+export async function generateMetadata({ params }: any) {
+  const { slug } = await params; // <-- no await here
+
+  const res = await fetch(
+    `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
+
+  console.log(slug);
+  console.log(`https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`);
+  if (!res.ok) {
+    return {
+      title: "সংবাদ বিস্তারিত - Error",
+      description: "সংবাদ ডেটা পাওয়া যায়নি।",
+    };
+  }
+
+  const data = await res.json();
+  const metaData = data.category || {};
+
+  return {
+    title:
+      metaData.bangla_name +
+        " || " +
+        "সাপ্তাহিক ইনকিলাব - সর্বশেষ বাংলা খবর এবং নিউজ" || "",
+    description:
+      "সাপ্তাহিক ইনকিলাব এ সর্বশেষ বাংলা সংবাদ, রাজনীতি, খেলাধুলা, বিনোদন, এবং আরও অনেক বিষয় পড়ুন। সর্বদা আপডেট থাকুন।",
+    keywords: [
+      "সাপ্তাহিক ইনকিলাব",
+      "বাংলা সংবাদ",
+      "নিউজ",
+      "বাংলাদেশ",
+      "খেলা",
+      "বিনোদন",
+    ],
+    openGraph: {
+      title:
+        metaData.bangla_name +
+          " || " +
+          "সাপ্তাহিক ইনকিলাব - সর্বশেষ বাংলা খবর এবং নিউজ" || "",
+      description:
+        "সাপ্তাহিক ইনকিলাব এ সর্বশেষ বাংলা সংবাদ, রাজনীতি, খেলাধুলা, বিনোদন, এবং আরও অনেক বিষয় পড়ুন। সর্বদা আপডেট থাকুন।",
+      images: [
+        {
+          url: "/images/placeholderImage.webp",
+          alt:
+            metaData.bangla_name +
+              " || " +
+              "সাপ্তাহিক ইনকিলাব - সর্বশেষ বাংলা খবর এবং নিউজ" || "",
+        },
+      ],
+    },
+  };
+}
+
 interface NewsItem {
   id: number;
   title: string;

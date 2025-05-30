@@ -1,9 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { LuDoorOpen } from "react-icons/lu";
 import FormsItems from "./FormItems/FormsItems";
+import type { Metadata } from "next";
 
+// ✅ Static metadata for home page
+export const metadata: Metadata = {
+  title: "নিবন্ধন করুন | সাপ্তাহিক ইনকিলাব",
+  description:
+    "সাপ্তাহিক ইনকিলাব-এ নতুন একাউন্ট তৈরি করুন। বাংলা সংবাদ পড়তে এবং আরও অনেক ফিচার উপভোগ করতে রেজিস্টার করুন।",
+  keywords: ["নিবন্ধন", "রেজিস্টার", "ইনকিলাব", "বাংলা নিউজ", "একাউন্ট তৈরি"],
+  metadataBase: new URL("https://weeklyinqilab.com"), // Optional but helps for og/twitter
+  openGraph: {
+    title: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
+    description:
+      "বাংলাদেশ ও বিশ্বের সর্বশেষ সংবাদ পড়ুন সাপ্তাহিক ইনকিলাবে। সব সময় আপডেট থাকুন।",
+    url: "https://weeklyinqilab.com",
+    siteName: "সাপ্তাহিক ইনকিলাব",
+    type: "website",
+    images: [
+      {
+        // url: "https://v2.weeklyinqilab.com/images/inqilab-og-image.jpg",
+        url: "/images/placeholderImage.webp",
+        alt: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "সাপ্তাহিক ইনকিলাব - বাংলা সংবাদ",
+    description:
+      "সাপ্তাহিক ইনকিলাব এ সর্বশেষ সংবাদ, রাজনীতি, খেলাধুলা ও বিনোদনের খবর পড়ুন।",
+    images: ["/images/placeholderImage.webp"],
+  },
+};
 const Page = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">

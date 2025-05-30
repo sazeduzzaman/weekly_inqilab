@@ -56,9 +56,9 @@ export default function HeroCenterSlider({
                       <h1 className="slider-title font-normal text-start text-white leading-8 z-10">
                         {(items.bangla_title ?? "")
                           .split(" ")
-                          .slice(0, 6)
+                          .slice(0, 5)
                           .join(" ")}
-                        {(items.bangla_title ?? "").split(" ").length > 6
+                        {(items.bangla_title ?? "").split(" ").length > 5
                           ? "..."
                           : ""}
                       </h1>

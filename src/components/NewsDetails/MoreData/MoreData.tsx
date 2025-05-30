@@ -17,7 +17,6 @@ interface Props {
 }
 
 export default async function MoreData({ itemData }: Props) {
-
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,
     {
@@ -33,7 +32,13 @@ export default async function MoreData({ itemData }: Props) {
 
   return (
     <>
-      <MoreSingleData categoryItems={categoryItems} slug={itemData.slug} />
+      {categoryItems.length === 0 ? (
+        <p className="text-center text-gray-500 my-10">
+          কোনো সংবাদ পাওয়া যায়নি
+        </p>
+      ) : (
+        <MoreSingleData categoryItems={categoryItems} slug={itemData.slug} />
+      )}
     </>
   );
 }

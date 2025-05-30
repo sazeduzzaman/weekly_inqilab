@@ -5,14 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
-import { RiAdvertisementLine } from "react-icons/ri";
-import { HiOutlineLightBulb } from "react-icons/hi";
-import { MdConnectWithoutContact } from "react-icons/md";
 import MainSidebar from "@/components/Sidebar/MainSidebar/MainSidebar";
 import ClientReview from "../ClientReview/ClientReview";
 import ShareNews from "@/components/ShareNews/ShareNews";
-import Meta from "@/components/MetaData/Meta";
-import { LuPartyPopper } from "react-icons/lu";
+import RightSide from "./RightSide";
 
 interface NewsItem {
   id?: number;
@@ -45,45 +41,10 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
   const { news_details: itemData = {} } = singelNewsItems;
   return (
     <>
-      <Meta
-        title="ইনকিলাব | বিস্তারিত"
-        description="সর্বশেষ সংবাদ, বিশ্লেষণ ও রিপোর্ট পড়ুন ইনকিলাবে।"
-        image="https://weekly-inqilab.vercel.app/static/default-thumbnail.jpg"
-        url="https://weekly-inqilab.vercel.app"
-        type="website"
-      />
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-6 mb-5">
         <div className="col-span-3">
-          <div className="card rounded-none shadow-sm mt-5 mr-10">
-            <div className="card-header bg-black rounded-md text-start ps-5 py-3 text-white">
-              গুরুত্বপূর্ণ
-            </div>
-            <div className="card-body">
-              <div className="mb-3">
-                <Link href="/ad-cost" className="flex items-center">
-                  <RiAdvertisementLine className="me-3" size={30} /> প্রিন্ট
-                  সংস্করণ
-                </Link>
-              </div>
-              <div className="mb-3">
-                <Link href="/epaper" className="flex items-center">
-                  <HiOutlineLightBulb className="me-3" size={30} /> অনলাইন
-                  সংস্করণ
-                </Link>
-              </div>
-              <div className="mb-3">
-                <Link href="/contact" className="flex items-center">
-                  <MdConnectWithoutContact className="me-3" size={30} />{" "}
-                  যোগাযোগের ঠিকানা
-                </Link>
-              </div>
-              <div>
-                <Link href="/epaper" className="flex items-center">
-                  <LuPartyPopper className="me-3" size={30} />{" "}
-                   ইপেপার পড়ুন
-                </Link>
-              </div>
-            </div>
+          <div className="border-r-1">
+            <RightSide singelNewsItems={singelNewsItems} slug={itemData.slug} />
           </div>
         </div>
 
@@ -99,7 +60,7 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
 
             <div className="my-10">
               <h2
-                className="mb-5 font-semibold text-gray-800 leading-12"
+                className="mb-8 font-semibold text-gray-800 leading-12"
                 style={{ fontSize: "38px" }}
               >
                 {itemData.bangla_title ?? "No Title"}
@@ -169,7 +130,8 @@ export default function SingleNewsDetails({ singelNewsItems }: Props) {
 
               <div className="pt-15">
                 <div className="news-details-para pt-3">
-                  <div className=""
+                  <div
+                    className=""
                     dangerouslySetInnerHTML={{
                       __html: itemData.bangla_content || "",
                     }}

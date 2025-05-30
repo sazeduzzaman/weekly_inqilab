@@ -1,8 +1,13 @@
+import Advertisement from "@/components/Advertisement/Advertisement";
 import SocialLinks from "@/components/SocialLinks/SocialLinks";
+import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const MainSidebar = () => {
+export default async function MainSidebar() {
+  const advertisementSidebarRandom = await Advertisment();
+  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(3, 8);
   return (
     <div className="mb-3">
       <div className="card rounded-none shadow-sm p-5">
@@ -17,32 +22,29 @@ const MainSidebar = () => {
         </div>
       </div>
       <div className="card rounded-none shadow-sm mt-5">
-        <Link href="#" className="">
-          <h1 className="text-center pt-4 text-3xl site-text-secondary">
+        <Link href="/epaper">
+          <h1 className="text-center text-3xl site-text-secondary ">
             আমাদের ইপেপার
           </h1>
-          <figure>
-            <img src="/images/side-ad.jfif" alt="Shoes" />
+          <figure className="border border-red-700">
+            <Image
+              src="/images/epaper/1.jpg"
+              alt="Epaper Preview"
+              width={400}
+              height={300}
+              layout="responsive"
+            />
           </figure>
         </Link>
       </div>
       <div className="card rounded-none mt-5">
-        <figure>
-          <img src="/images/side-ad-2.jpg" alt="Shoes" />
-        </figure>
-      </div>
-      <div className="card rounded-none mt-5">
-        <figure>
-          <img src="/images/side-ad-3.jfif" alt="Shoes" />
-        </figure>
-      </div>
-      <div className="card rounded-none mt-5">
-        <figure>
-          <img src="/images/ads2-768x528.webp" alt="Shoes" />
-        </figure>
+        <Advertisement
+          advertisements={AdvertisementSidebarRandom}
+          position="sidebar_random"
+          availability="available"
+          marginB={10} // <-- string here
+        />
       </div>
     </div>
   );
-};
-
-export default MainSidebar;
+}

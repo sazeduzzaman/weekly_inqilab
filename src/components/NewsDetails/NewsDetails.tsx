@@ -32,22 +32,6 @@ interface Props {
   singelNewsItems: NewsDetails;
 }
 
-export const metadata: Metadata = {
-  title: "সংবাদ বিস্তারিত",
-  description: "বাংলা সংবাদ বিস্তারিত পড়ুন এবং আপডেট থাকুন।",
-  keywords: ["সংবাদ", "বাংলা", "নিউজ", "বাংলাদেশ"],
-  openGraph: {
-    title: "সংবাদ বিস্তারিত",
-    description: "বাংলা সংবাদ বিস্তারিত পড়ুন এবং আপডেট থাকুন।",
-    images: [
-      {
-        url: "/default-thumbnail.jpg",
-        alt: "সংবাদ",
-      },
-    ],
-  },
-};
-
 export default function NewsDetails({ singelNewsItems }: Props) {
   // Destructure news_details safely with fallback to empty object
   const { news_details: itemData = {} } = singelNewsItems;
@@ -56,21 +40,28 @@ export default function NewsDetails({ singelNewsItems }: Props) {
     <>
       <div className="container mx-auto">
         <SingleNewsDetails singelNewsItems={singelNewsItems} />
-        <div>
-          <div className="pt-5 pb-5">
-            <Link
-              href={`/category/${itemData.category_name}`}
-              className="font-semibold"
-            >
-              {itemData.category_bangla_name} নিয়ে আরও পড়ুন
-            </Link>
+        {itemData.category_name ? (
+          <div>
+            <div className="pt-5 pb-5">
+              <Link
+                href={`/category/${itemData.category_name}`}
+                className="font-semibold"
+              >
+                {itemData.category_bangla_name} নিয়ে আরও পড়ুন
+              </Link>
+            </div>
+
+            <div className="border-t-1 mb-5">
+              <div className="pt-5">
+                <MoreDaa itemData={itemData} />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="border-t-1 mb-5">
-          <div className="pt-5">
-            <MoreData itemData={itemData} />
-          </div>
-        </div>
+        ) : (
+          <p className="text-center text-gray-500 mt-10">
+            আর কোনো সম্পর্কিত তথ্য পাওয়া যায়নি।
+          </p>
+        )}
       </div>
     </>
   );

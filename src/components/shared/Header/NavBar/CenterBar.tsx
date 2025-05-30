@@ -4,9 +4,15 @@ import Link from "next/link";
 import SearchDropdown from "@/components/SearchDropdown/SearchDropdown";
 import { RiFilePaper2Line } from "react-icons/ri";
 import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
+import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
+import Advertisement from "@/components/Advertisement/Advertisement";
+import { SiteInformation } from "@/lib/api/SiteInformation";
 
 export default async function CenterBar() {
   const categoryItems = await CategoryDataSet();
+  const advertisementTopRight = await Advertisment();
+  const siteInformationData = await SiteInformation();
+
   return (
     <div className=" bg-white shadow-sm">
       <div className="container mx-auto">
@@ -68,7 +74,7 @@ export default async function CenterBar() {
               {/* Mobile Logo */}
               <Link href="/">
                 <Image
-                  src="/images/logo.png"
+                  src={siteInformationData.site_logo_black}
                   alt="Logo"
                   width={250}
                   height={100}
@@ -93,14 +99,12 @@ export default async function CenterBar() {
 
           {/* Right Section: Ad */}
           <div className="navbar-end flex w-full sm:w-[60%] justify-end d-sm-none">
-            <div className="relative w-full aspect-[768/71] p">
-              <Image
-                src="/images/ads-768x71.webp"
-                alt="Ad banner"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Advertisement
+              advertisements={advertisementTopRight}
+              position="header_right"
+              availability="available"
+              width={915}
+            />
           </div>
         </div>
       </div>
