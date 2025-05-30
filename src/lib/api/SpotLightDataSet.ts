@@ -10,7 +10,7 @@ export const SpotLightDataSet = async (): Promise<SpotLightNewsData[]> => {
     const response = await fetch(
       "https://v2.weeklyinqilab.com/api/v1/slider-news",
       {
-        cache: "no-store", // ensures fresh data every time
+        next: { revalidate: 0 }
       }
     );
     const data = await response.json();

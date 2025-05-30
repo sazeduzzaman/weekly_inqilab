@@ -23,7 +23,7 @@ export const Advertisment = async (): Promise<AdvertismentData[]> => {
     const response = await fetch(
       "https://v2.weeklyinqilab.com/api/v1/advertisements",
       {
-        cache: "no-store", // ensures fresh data every time
+        next: { revalidate: 0 }
       }
     );
     const data = await response.json();

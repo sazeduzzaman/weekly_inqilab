@@ -10,7 +10,7 @@ export const CategoryDataSet = async (): Promise<CategoryData[]> => {
     const response = await fetch(
       "https://v2.weeklyinqilab.com/api/v1/categories",
       {
-        cache: "no-store", // ensures fresh data every time
+        next: { revalidate: 0 }
       }
     );
     const data = await response.json();

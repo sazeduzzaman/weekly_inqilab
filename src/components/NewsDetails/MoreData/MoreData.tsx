@@ -20,8 +20,8 @@ export default async function MoreData({ itemData }: Props) {
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,
     {
-      // next: { revalidate: 60 },
-      cache: "no-store", // force no caching
+      // next: { revalidate: 0 },
+      next: { revalidate: 0 },
     }
   );
 

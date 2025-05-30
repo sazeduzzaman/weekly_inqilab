@@ -15,7 +15,7 @@ export const BreakingDataSet = async (): Promise<BreakingNewsData[]> => {
     const response = await fetch(
       "https://v2.weeklyinqilab.com/api/v1/breaking-news",
       {
-        cache: "no-store", // ensures fresh data every time
+        next: { revalidate: 0 }
       }
     );
     const data = await response.json();
