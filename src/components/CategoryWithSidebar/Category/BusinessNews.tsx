@@ -18,7 +18,11 @@ export default function BusinessNews({
       <div className="grid grid-cols-4 gap-3 mt-5">
         {businessNewsData.map((item, index) => (
           <div key={index}>
-            <Link href={`/details/${item.category_name}/${item.id}`}>
+            <Link
+              href={`/details/${item.category_name ?? "uncategory"}/${
+                item.slug
+              }`}
+            >
               <div className="card rounded-none shadow-sm group">
                 <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                   <OptimizedNewsImage
