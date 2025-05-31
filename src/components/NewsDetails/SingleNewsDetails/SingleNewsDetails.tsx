@@ -29,7 +29,7 @@ interface NewsDetails {
 
 interface Props {
   singelNewsItems: NewsDetails;
-  itemData: NewsDetails;
+  itemData?: NewsDetails;
 }
 export default async function SingleNewsDetails({ singelNewsItems }: Props) {
   // Destructure news_details safely with fallback to empty object

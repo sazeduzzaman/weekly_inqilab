@@ -9,17 +9,46 @@ import { BsShare } from "react-icons/bs";
 import ClientReview from "../ClientReview/ClientReview";
 import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
 
+// News item interface representing a single news article
+interface NewsItem {
+  id?: number;
+  author_id?: number | null;
+  title?: string;
+  bangla_title?: string;
+  slug?: string;
+  bangla_summary?: string;
+  thumbnail?: string;
+  type?: string;
+  author?: string;
+  view_count?: number;
+  category_name?: string;
+  category_bangla_name?: string;
+  published_at?: string;
+  subCategory_bangla_name?: string;
+  bangla_content?: string;
+}
+
+// Props for your component
+interface Props {
+  singelNewsItems?: any; // if unused, you may remove it from props
+  itemData?: NewsItem;
+}
+
 export default function NewsDetailsContent({ itemData }: Props) {
-  console.log(itemData, "itemDataitemData");
   const [fontSize, setFontSize] = useState(16); // Default font size
 
   const handleIncrease = () => setFontSize((prev) => Math.min(prev + 5, 48));
   const handleDecrease = () => setFontSize((prev) => Math.max(prev - 5, 10));
   const handleReset = () => setFontSize(16);
+
+  if (!itemData) {
+    return <div>No news data available.</div>;
+  }
+
   return (
     <div className="col-span-6" style={{ fontSize: `${fontSize}px` }}>
       <div>
-        <Link href={`/category/${itemData.category_name}`}>
+        <Link href={`/category/${itemData.category_name ?? "uncategory"}`}>
           <h1 className="card-title inline-block border-b-2 border-current">
             {itemData.category_bangla_name ??
               itemData.subCategory_bangla_name ??
@@ -35,11 +64,11 @@ export default function NewsDetailsContent({ itemData }: Props) {
             {itemData.bangla_title ?? "No Title"}
           </h2>
 
-          <div className="flex justify-between items-center border-b-1 pb-2">
+          <div className="flex justify-between items-center border-b border-gray-300 pb-2">
             <div className="flex items-start space-x-4">
               <div>
                 <Image
-                  className="border-b-1 bg-red-600 rounded-full p-3"
+                  className="bg-red-600 rounded-full p-3"
                   src="/favicon.ico"
                   alt="Next.js logo"
                   width={50}
@@ -57,11 +86,9 @@ export default function NewsDetailsContent({ itemData }: Props) {
             </div>
 
             <div>
-              <div className="text-sm flex items-center text-gray-500">
-                <div className="flex items-center">
-                  <span>নিউজটি শেয়ার করুন:</span>
-                  <BsShare color="red" className="ml-2" />
-                </div>
+              <div className="text-sm flex items-center text-gray-500 space-x-2">
+                <span>নিউজটি শেয়ার করুন:</span>
+                <BsShare color="red" />
                 <ShareNews
                   title={itemData.bangla_title ?? "No Title"}
                   url={`https://weekly-inqilab.vercel.app/details/${
@@ -73,15 +100,15 @@ export default function NewsDetailsContent({ itemData }: Props) {
           </div>
 
           <div>
-            <h2 className="text-1xl mb-5 text-gray-800 leading-8 pt-3">
-              {itemData.bangla_summary}
+            <h2 className="text-lg mb-5 text-gray-800 leading-8 pt-3">
+              {itemData.bangla_summary ?? ""}
             </h2>
           </div>
 
           <div className="relative h-[600px] w-full mt-5">
             <OptimizedNewsImage
               imageName={itemData.thumbnail || "no-image.jpg"}
-              altText={`Thumbnail for ${itemData.bangla_title}`}
+              altText={`Thumbnail for ${itemData.bangla_title ?? "news"}`}
               heightClass="h-full"
               widthClass="w-full"
               priority
@@ -105,9 +132,8 @@ export default function NewsDetailsContent({ itemData }: Props) {
           <div className="pt-15">
             <div className="news-details-para pt-3">
               <div
-                className=""
                 dangerouslySetInnerHTML={{
-                  __html: itemData.bangla_content || "",
+                  __html: itemData.bangla_content ?? "",
                 }}
               />
             </div>
@@ -116,7 +142,6 @@ export default function NewsDetailsContent({ itemData }: Props) {
       </div>
 
       <div className="mb-5">
-        {/* <ClientReview  /> */}
         <ClientReview slug={itemData.slug} title={itemData.bangla_title} />
       </div>
     </div>
