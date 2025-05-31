@@ -99,12 +99,27 @@ export default async function CenterBar() {
 
           {/* Right Section: Ad */}
           <div className="navbar-end flex w-full sm:w-[60%] justify-end d-sm-none">
-            <Advertisement
-              advertisements={advertisementTopRight}
-              position="header_right"
-              availability="available"
-              width={915}
-            />
+            {advertisementTopRight &&
+            advertisementTopRight.length > 0 &&
+            advertisementTopRight.some(
+              (ad) => ad.position === "header_right"
+            ) ? (
+              <Advertisement
+                advertisements={advertisementTopRight}
+                position="header_right"
+                availability="available"
+                marginB={10}
+              />
+            ) : (
+              <div>
+                <Image
+                  src="/images/ads-768x71.webp"
+                  alt="Inqilab Logo"
+                  width={915}
+                  height={400}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

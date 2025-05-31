@@ -15,7 +15,9 @@ export default function SocialLinks({ siteInformationData }: Props) {
       {siteInformationData?.facebook_url && (
         <Link
           type="button"
-          href={siteInformationData?.facebook_url ?? "Facebook"}
+          href={`https://${
+            siteInformationData?.facebook_url ?? "www.facebook.com"
+          }`}
           className="me-2"
           target="_blank"
         >
@@ -27,7 +29,9 @@ export default function SocialLinks({ siteInformationData }: Props) {
       {siteInformationData?.instagram_url && (
         <Link
           type="button"
-          href={siteInformationData?.instagram_url ?? "Facebook"}
+          href={`https://${
+            siteInformationData?.instagram_url ?? "www.instagram.com"
+          }`}
           className="me-2"
           target="_blank"
         >
@@ -39,7 +43,9 @@ export default function SocialLinks({ siteInformationData }: Props) {
       {siteInformationData?.whatsapp_url && (
         <Link
           type="button"
-          href={siteInformationData?.whatsapp_url ?? "Facebook"}
+          href={`https://${
+            siteInformationData?.whatsapp_url ?? "www.what'sapp.com"
+          }`}
           className="me-2"
           target="_blank"
         >
@@ -51,7 +57,9 @@ export default function SocialLinks({ siteInformationData }: Props) {
       {siteInformationData?.youtube_url && (
         <Link
           type="button"
-          href={siteInformationData.youtube_url}
+          href={`https://${
+            siteInformationData?.youtube_url ?? "www.youtube.com"
+          }`}
           className="me-2"
           target="_blank"
         >

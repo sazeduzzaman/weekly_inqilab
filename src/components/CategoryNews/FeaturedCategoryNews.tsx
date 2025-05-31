@@ -18,7 +18,7 @@ interface NewsItem {
   name: string;
   bangla_summary: string;
   slug: string;
-   subCategory_name: string;
+  subCategory_name: string;
   subCategory_bangla_name: string;
 }
 
@@ -35,12 +35,14 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
       {featureMain.length === 0 ? (
         <p>No featured news available.</p>
       ) : (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4 items-center">
           {/* Main Featured */}
           <div className="col-span-2">
             {featureMain.map((item) => (
               <Link
-                href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
+                href={`/details/${item.category_name ?? "uncategory"}/${
+                  item.slug
+                }`}
                 key={item.id}
               >
                 <div
@@ -61,13 +63,15 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
                   </figure>
 
                   <div className="card-body bg-black rounded-b-md">
-                    <h2 className="text-3xl text-white">{item.bangla_title}</h2>
-                    <small className="block mt-4">
+                    <h1 className=" text-4xl text-white">
+                      {item.bangla_title}
+                    </h1>
+                    <small className="block mt-4 text-red-500">
                       <NewsTimeShower
                         newsTime={item.published_at || new Date().toISOString()}
                       />
                     </small>
-                    <p className="text-primary">{item.category_name}</p>
+                    <span className="text-white">{item.category_name}</span>
                   </div>
                 </div>
               </Link>
@@ -79,7 +83,9 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
             <div className="grid grid-cols-1 gap-2">
               {featureOthers.map((item) => (
                 <Link
-                  href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
+                  href={`/details/${item.category_name ?? "uncategory"}/${
+                    item.slug
+                  }`}
                   key={item.id}
                   className="group"
                 >

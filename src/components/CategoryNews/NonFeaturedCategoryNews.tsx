@@ -1,8 +1,10 @@
+import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Advertisement from "../Advertisement/Advertisement";
 
 interface NewsItem {
   id: number;
@@ -28,18 +30,40 @@ interface Props {
   nonFeatureData: NewsItem[];
 }
 
-export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
+export default async function NonFeaturedCategoryNews({
+  nonFeatureData,
+}: Props) {
+  const advertisementSidebarRandom = await Advertisment();
+  const AdvertisementSidebarRandom = advertisementSidebarRandom;
   return (
     <>
       {/* <div className="divider divider-neutral">Non Featured</div> */}
-      <div className="relative w-full aspect-[768/71] mt-20">
-        <Image
-          src="/images/ads-768x71.webp"
-          alt="Ad banner"
-          fill
-          className="object-cover rounded-md"
-        />
+      <div className="flex justify-center items-center">
+        <div className="relative aspect-[768/71] mt-20 mx-auto">
+          {AdvertisementSidebarRandom &&
+          AdvertisementSidebarRandom.length > 0 &&
+          AdvertisementSidebarRandom.some(
+            (ad) => ad.position === "category_featured"
+          ) ? (
+            <Advertisement
+              advertisements={AdvertisementSidebarRandom}
+              position="category_featured"
+              availability="available"
+              marginB={10}
+            />
+          ) : (
+            <div>
+              <Image
+                src="/images/ads-768x71.webp"
+                alt="Inqilab Logo"
+                width={1000}
+                height={400}
+              />
+            </div>
+          )}
+        </div>
       </div>
+
       <div className="space-y-4">
         <div className="container w-[70%] mx-auto my-20">
           <div className="grid grid-cols-12 gap-4">
@@ -110,6 +134,31 @@ export default function NonFeaturedCategoryNews({ nonFeatureData }: Props) {
               )}
             </div>
           </div>
+        </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <div className="relative aspect-[768/71] mb-10 mx-auto">
+          {AdvertisementSidebarRandom &&
+          AdvertisementSidebarRandom.length > 0 &&
+          AdvertisementSidebarRandom.some(
+            (ad) => ad.position === "category_middle"
+          ) ? (
+            <Advertisement
+              advertisements={AdvertisementSidebarRandom}
+              position="category_middle"
+              availability="available"
+              marginB={10}
+            />
+          ) : (
+            <div>
+              <Image
+                src="/images/ads-768x71.webp"
+                alt="Inqilab Logo"
+                width={1000}
+                height={400}
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
