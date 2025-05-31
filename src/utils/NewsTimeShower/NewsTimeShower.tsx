@@ -37,11 +37,11 @@ const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
     const formattedYesterday = formatDate(yesterday);
 
     if (formattedNow === formattedDate) {
-      if (diffMins < 60) return `${diffMins} মিনিট আগে এর নিউজ`;
-      return `${diffHours} ঘন্টা আগের নিউজ`;
+      if (diffMins < 60) return `${diffMins} মিনিট আগে`;
+      return `${diffHours} ঘন্টা আগে`;
     }
 
-    if (formattedDate === formattedYesterday) return "গতকাল এর নিউজ";
+    if (formattedDate === formattedYesterday) return "গতকাল";
 
     return new Intl.DateTimeFormat("bn-BD", {
       timeZone,

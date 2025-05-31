@@ -93,29 +93,27 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
 
       {/* Related News Section */}
       <div className="card rounded-none shadow-sm mt-5 mr-10">
-        <div className="card-header  border rounded-md text-start ps-5 py-3 text-black">
+        <div className="card-header  bg-black rounded-md text-start ps-5 py-3 text-white">
           সম্পর্কিত আরও খবর...
         </div>
-        <div className="card-body">
-          {shuffledData.slice(0, 5).map((item, index) => (
-            <div className="mb-5" key={index}>
+        <div className="card-body px-1 py-0">
+          {shuffledData.slice(0, 10).map((item, index) => (
+            <div className="" key={index}>
               <Link
                 href={`/details/${item.category_name ?? "uncategory"}/${
                   item.slug
                 }`}
               >
-                <div className="card rounded-none shadow-sm group">
-                  <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
+                <div className="card p-0 group rounded-none card-side shadow-none items-center">
+                  <figure className="w-[80px] h-[80px] overflow-hidden rounded-lg flex-shrink-0">
                     <OptimizedNewsImage
-                      className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
                       imageName={item.thumbnail || "no img"}
                       altText={item.bangla_title}
-                      heightClass="h-full"
-                      widthClass="w-full"
                       priority
                     />
                   </figure>
-                  <div className="card-body px-2">
+                  <div className="card-body p-2 py-0">
                     <h2 className="card-title h-15">
                       {(item.bangla_title ?? "")
                         .split(" ")
@@ -125,18 +123,11 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
                         ? "..."
                         : ""}
                     </h2>
-                    <div className="flex flex-col justify-start items-start">
-                      <span className="text-site-secondary font-bold opacity-70 block mt-1">
-                        {item.category_bangla_name}
-                      </span>
-                      <span className="text-mute opacity-70 block mt-1">
-                        <NewsTimeShower
-                          newsTime={
-                            item.published_at || new Date().toISOString()
-                          }
-                        />
-                      </span>
-                    </div>
+                    <span className="text-site-secondary opacity-70 block">
+                      <NewsTimeShower
+                        newsTime={item.published_at || new Date().toISOString()}
+                      />
+                    </span>
                   </div>
                 </div>
               </Link>

@@ -3,7 +3,7 @@ import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import { BsShare } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
-import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
+// import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import MainSidebar from "@/components/Sidebar/MainSidebar/MainSidebar";
 import ClientReview from "../ClientReview/ClientReview";
@@ -124,9 +124,9 @@ export default async function SingleNewsDetails({ singelNewsItems }: Props) {
                   <p className="pt-3 text-center text-site-secondary">
                     ফাইল ছবি | ইনকিলাব
                   </p>
-                  <div>
+                  {/* <div>
                     <FontSizeAdjustment />
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
