@@ -19,6 +19,7 @@ interface NewsItem {
   bangla_summary: string;
   slug: string;
   subCategory_name: string;
+  category_bangla_name: string;
   subCategory_bangla_name: string;
 }
 
@@ -71,7 +72,7 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
                         newsTime={item.published_at || new Date().toISOString()}
                       />
                     </small>
-                    <span className="text-white">{item.category_name}</span>
+                    <span className="text-white">{item.category_bangla_name}</span>
                   </div>
                 </div>
               </Link>

@@ -39,7 +39,7 @@ export default async function SingleNewsDetails({ singelNewsItems }: Props) {
     <>
       <div className="grid grid-cols-12 gap-6 mb-5">
         <div className="col-span-3">
-          <div className="border-r-1">
+          <div className="">
             <RightSide singelNewsItems={singelNewsItems} slug={itemData.slug} />
           </div>
         </div>
