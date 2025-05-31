@@ -12,14 +12,14 @@ interface Props {
 // export default async function MainSidebar() {
 export default async function MainSidebar({ siteInformationData }: Props) {
   const advertisementSidebarRandom = await Advertisment();
-  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(3, 8);
+  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(3, 6);
   return (
     <div className="mb-3">
       <div className="card rounded-none shadow-sm p-5">
         <figure>
           <Image
             src="/favicon.ico"
-            alt="Fab Icon" 
+            alt="Fab Icon"
             width={50}
             height={50}
             className="w-8 h-8 rounded-full object-cover"

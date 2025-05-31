@@ -7,19 +7,26 @@ import { MdConnectWithoutContact } from "react-icons/md";
 import { SiteInfo } from "@/lib/api/SiteInformation";
 import Advertisement from "@/components/Advertisement/Advertisement";
 import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
+import Image from "next/image";
 interface Props {
   siteInformationData: SiteInfo;
 }
 // export default async function MainSidebar() {
 export default async function EpaperAdSidebar({ siteInformationData }: Props) {
   const advertisementSidebarRandom = await Advertisment();
-  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(5, 10);
+  const AdvertisementSidebarRandom = advertisementSidebarRandom;
   return (
     <div>
       <div className="mb-3">
         <div className="card rounded-none shadow-sm p-5">
-          <figure>
-            <img src="/favicon.ico" alt="Shoes" />
+          <figure className="">
+            <Image
+              src="/favicon.ico"
+              alt="Epaper Preview"
+              width={400}
+              height={300}
+              style={{ width: "100%", height: "auto" }} // ✅ Responsive layout via style
+            />
           </figure>
           <div className="card-body flex justify-center items-center text-center">
             <h1>আর জানতে</h1>

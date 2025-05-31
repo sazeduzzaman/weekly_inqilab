@@ -2,11 +2,13 @@
 
 import NewsDetails from "@/components/NewsDetails/NewsDetails";
 import { Metadata } from "next";
+import NotFoundPage from "@/app/_not-found/page";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const newsId = await params.newsDetails;
+  const resolvedParams = await params;
+  const newsId = resolvedParams.newsDetails;
 
   const res = await fetch(
     `https://v2.weeklyinqilab.com/api/v1/news-details/${newsId}`
@@ -50,13 +52,13 @@ export default async function Page({ params }: any) {
     `https://v2.weeklyinqilab.com/api/v1/news-details/${newsId}`,
     {
       // next: { revalidate: 60 },
-      cache: 'no-store', // force no caching
+      cache: "no-store", // force no caching
     }
   );
 
   if (!res.ok) {
     console.error("Failed to fetch news data");
-    return <p>Failed to fetch news data</p>;
+    return <NotFoundPage />;
   }
 
   const data = await res.json();

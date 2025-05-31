@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import MoreData from "./MoreData/MoreData";
 import SingleNewsDetails from "./SingleNewsDetails/SingleNewsDetails";
-import Head from "next/head";
-import { Metadata } from "next";
+// import Head from "next/head";
+// import { Metadata } from "next";
 
 interface NewsItem {
   id?: number;
