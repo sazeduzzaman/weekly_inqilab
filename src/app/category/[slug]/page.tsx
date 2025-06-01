@@ -80,6 +80,7 @@ interface NewsItem {
   slug: string;
   subCategory_name: string;
   author: string;
+  category_bangla_name: string;
   subCategory_bangla_name: string;
   bangla_name: string;
 }
