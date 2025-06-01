@@ -54,12 +54,12 @@ export default async function FirstSidebar() {
 
       <div className="card rounded-none shadow-sm mt-5">
         <Link href="/epaper">
-          <h1 className="text-center text-3xl site-text-secondary ">
+          <h1 className="text-center text-3xl site-text-secondary p-3">
             আমাদের ইপেপার
           </h1>
           <figure className="border border-red-700">
             <Image
-              src="/images/epaper/1.jpg"
+              src="/images/epaper/FrontPage.jpg"
               alt="Epaper Preview"
               width={400}
               height={300}

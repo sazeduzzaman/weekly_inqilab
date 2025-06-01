@@ -4,29 +4,39 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-const imageList = [
-  "/images/epaper/1.jpg",
-  "/images/epaper/2.jpg",
-  "/images/epaper/3.jpg",
-  "/images/epaper/4.jpg",
-  "/images/epaper/5.jpg",
-  "/images/epaper/6.jpg",
-];
+type EpaperData = {
+  id: number;
+  epaper_image: string;
+  epaper_image_alt?: string;
+  page_number?: number;
+};
 
-const EpaperItems = () => {
+type Props = {
+  epapersData: EpaperData[];
+};
+
+const EpaperItems = ({ epapersData }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const sortedEpapers = [...epapersData].sort((a, b) => {
+    return (a.page_number || 0) - (b.page_number || 0);
+  });
 
   const handleImageClick = (index: number) => {
     setSelectedIndex(index);
   };
 
   const goToPrevious = () => {
-    setSelectedIndex((prev) => (prev > 0 ? prev - 1 : imageList.length - 1));
+    setSelectedIndex((prev) =>
+      prev > 0 ? prev - 1 : sortedEpapers.length - 1
+    );
   };
 
   const goToNext = () => {
-    setSelectedIndex((prev) => (prev < imageList.length - 1 ? prev + 1 : 0));
+    setSelectedIndex((prev) =>
+      prev < sortedEpapers.length - 1 ? prev + 1 : 0
+    );
   };
 
   const handleDateChange = (date: Date) => {
@@ -38,7 +48,7 @@ const EpaperItems = () => {
       {/* Left Sidebar */}
       <div className="col-span-2">
         <div className="card rounded-none shadow-sm mt-5">
-          <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+          <div className="card-header bg-black rounded-md text-center py-3 text-white">
             অনুসন্ধান করুন
           </div>
           <div className="card-body p-0 border-none">
@@ -51,30 +61,35 @@ const EpaperItems = () => {
 
         {/* All Pages Section */}
         <div className="card rounded-none shadow-sm mt-5">
-          <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+          <div className="card-header bg-black rounded-md text-center py-3 text-white">
             সকল পাতা
           </div>
           <div className="card-body p-2">
             <div className="overflow-auto h-[1250px] epaper-all-page space-y-4">
-              {imageList.map((img, index) => (
+              {sortedEpapers.map((item, index) => (
                 <div
-                  key={index}
+                  key={item.id}
                   onClick={() => handleImageClick(index)}
                   className="cursor-pointer"
                 >
-                  <div className="text-center">Page {index + 1}</div>
+                  <div className="text-center">
+                    Page {item.page_number || index + 1}
+                  </div>
                   <div
-                    className={`w-full relative p-3 h-[400px] rounded overflow-hidden ${
+                    className={`w-full flex items-center relative h-[350px] rounded overflow-hidden ${
                       selectedIndex === index
                         ? "border-4 border-red-500"
                         : "border border-gray-200"
                     }`}
                   >
                     <Image
-                      src={img}
-                      alt={`Page ${index + 1}`}
-                      width={400}
-                      height={300}
+                      src={item.epaper_image}
+                      alt={
+                        item.epaper_image_alt ||
+                        `Page ${item.page_number || index + 1}`
+                      }
+                      width={350}
+                      height={500}
                       className="object-cover"
                     />
                   </div>
@@ -89,18 +104,22 @@ const EpaperItems = () => {
       <div className="col-span-8">
         <div className="mt-5 text-center">
           <div className="card-header bg-black rounded-md text-center py-3 text-white">
-            ইপেপার পেইজ: {selectedIndex + "" + "" + 1}
+            ইপেপার পেইজ:{" "}
+            {sortedEpapers[selectedIndex]?.page_number || selectedIndex + 1}
           </div>
           <div
-            className="relative w-full h-[1640px] border"
+            className="relative w-full h-[1685px] shadow-sm"
             style={{ marginTop: "-5px" }}
           >
             <Image
-              src={imageList[selectedIndex]}
-              alt={`Selected page ${selectedIndex + 1}`}
-              width={400}
+              src={sortedEpapers[selectedIndex]?.epaper_image}
+              alt={
+                sortedEpapers[selectedIndex]?.epaper_image_alt ||
+                `Selected page ${selectedIndex + 1}`
+              }
+              width={1640}
               height={300}
-              style={{ width: "100%", height: "auto" }} // ✅ Responsive layout via style
+              style={{ width: "100%", height: "auto" }}
               className="object-contain"
             />
             <button

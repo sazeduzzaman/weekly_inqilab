@@ -1,5 +1,6 @@
 import EpaperItems from "@/components/EpaperItems/EpaperItems";
 import EpaperAdSidebar from "@/components/Sidebar/EpaperAdSidebar/EpaperAdSidebar";
+import { EpaperDataSet } from "@/lib/api/Epaper/EpaperDataSet";
 import { SiteInformation } from "@/lib/api/SiteInformation";
 import type { Metadata } from "next";
 
@@ -40,13 +41,15 @@ export const metadata: Metadata = {
   },
 };
 
-  export default async function Page() {
+export default async function Page() {
   const siteInformationData = await SiteInformation();
+  const epapersData = await EpaperDataSet();
+  console.log(epapersData[0].epaper_image, "epapersData ");
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-12 gap-3">
         {/* Right Sidebar */}
-        <EpaperItems />
+        <EpaperItems epapersData={epapersData}/>
         <div className="col-span-2">
           <div className="mt-5">
             <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
@@ -58,5 +61,4 @@ export const metadata: Metadata = {
       </div>
     </div>
   );
-};
-
+}

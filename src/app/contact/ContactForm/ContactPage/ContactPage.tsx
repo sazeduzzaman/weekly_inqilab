@@ -318,7 +318,7 @@ const ContactPage = () => {
       {activeTab === "english" && (
         <div className="grid grid-cols-2">
           <div className="space-y-8">
-            <h1 className="text-3xl font-bold mb-6 text-center">
+            <h1 className="text-3xl font-bold mb-6 text-start">
               Inqilab Newspaper Contact Information
             </h1>
 
