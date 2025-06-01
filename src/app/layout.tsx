@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="bn">
       <body
-        className={`${fontRobot.variable} ${fontNotoBD.variable} antialiased`}
+        className={`${fontRobot.variable} ${fontNotoBD.variable} antialiased overflow-x-hidden`}
       >
         <Toaster position="top-center" reverseOrder={false} />
         <Header />

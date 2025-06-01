@@ -6,7 +6,7 @@ export default function CategoryData({ categoryItems }: CategoryListProps) {
   const categoryDataItems = categoryItems.slice(0, 13);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto hidden md:block">
       <ul className="flex items-center justify-center py-2 overflow-x-auto whitespace-nowrap">
         {categoryDataItems.map((item, index) => (
           <li key={index} className="flex items-center px-8 pt-2">
@@ -14,7 +14,7 @@ export default function CategoryData({ categoryItems }: CategoryListProps) {
               href={`/category/${item.slug}`}
               className="dark:text-white cta-menus text-white"
             >
-             {item.bangla_name}
+              {item.bangla_name}
             </Link>
           </li>
         ))}

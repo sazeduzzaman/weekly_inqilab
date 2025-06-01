@@ -21,6 +21,7 @@ body {
   line-height: 1.5;
   color: var(--primary-color);
   transition: background-color 0.3s ease;
+  overflow-x: hidden;
 }
 
 .epaper-all-page::-webkit-scrollbar {
@@ -189,7 +190,26 @@ h2 {
 .ft-2-size {
   font-size: 20px;
 }
+.desktop-triger {
+  display: none;
+}
+.for-mobile {
+    display: none;
+  }
 @media only screen and (max-width: 600px) {
+  .not-mobile {
+    display: none;
+  }
+  .for-mobile {
+    display: block;
+  }
+  .desktop-triger {
+    display: none;
+  }
+  .mobile-triger {
+    display: block;
+  }
+
   .d-sm-none {
     display: none;
   }
@@ -205,5 +225,18 @@ h2 {
   .header-logo {
     display: flex;
     justify-content: end;
+  }
+  .home-page {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .slider-title {
+    text-transform: none;
+    letter-spacing: -0.36px;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 30px;
+    text-decoration: none;
   }
 }

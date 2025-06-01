@@ -13,20 +13,21 @@ export default async function CategoryWithSidebarItems() {
   const rajnitiItems = await RajnitiDataSet();
   const businessNewsItems = await BusinessNewsSet();
   return (
-    <div className="">
+    <div className="container">
       <div className="grid grid-cols-12 gap-3">
-        <div className="col-span-4 ">
+        <div className="col-span-12 md:col-span-4">
           <div className="mt-4">
             <Sorbadhik viewedItems={viewedItems} />
           </div>
         </div>
-        <div className="col-span-8 ">
+        <div className="col-span-12 md:col-span-8">
           <div className="mt-4">
             <JatiyoNews rajnitiItems={rajnitiItems} />
           </div>
         </div>
       </div>
-      <div className="">
+
+      <div className="mt-6">
         <BusinessNews businessNewsItems={businessNewsItems} />
       </div>
     </div>

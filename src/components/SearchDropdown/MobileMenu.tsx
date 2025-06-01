@@ -8,14 +8,15 @@ import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import { BsArrowRightCircle } from "react-icons/bs";
 import { CategoryListProps } from "@/lib/types/CategoryDataType";
 
-export default function SearchDropdown({ categoryItems }: CategoryListProps) {
+export default function MobileMenu({ categoryItems }: CategoryListProps) {
   const categoryDataItems = categoryItems.slice(0);
   return (
     <div>
       <div className="drawer drawer-end z-50 ">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
-          {/* Page content here */}
+        {/* Visible on desktop and tablets, hidden on mobile */}
+        {/* First label: hidden on mobile, visible on md and above */}
+        <div className="drawer-content hidden md:block desktop-triger">
           <label
             htmlFor="my-drawer-4"
             className="drawer-button bg-black btn btn-black px-5 py-3 search-menu"
@@ -24,6 +25,17 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
             আরও দেখুন...
           </label>
         </div>
+
+        {/* Second label: visible only on mobile (below md) */}
+        <div className="block md:hidden mobile-triger">
+          <label
+            htmlFor="my-drawer-4"
+            className="drawer-button bg-black btn btn-black px-3 py-3 rounded-2"
+          >
+            <RiMenuSearchLine color="red" size={20} />
+          </label>
+        </div>
+
         <div className="drawer-side">
           <label
             htmlFor="my-drawer-4"

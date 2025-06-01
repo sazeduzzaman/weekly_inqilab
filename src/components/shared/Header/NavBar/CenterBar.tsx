@@ -7,6 +7,7 @@ import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
 import Advertisement from "@/components/Advertisement/Advertisement";
 import { SiteInformation } from "@/lib/api/SiteInformation";
+import MobileMenu from "@/components/SearchDropdown/MobileMenu";
 
 export default async function CenterBar() {
   const categoryItems = await CategoryDataSet();
@@ -14,13 +15,13 @@ export default async function CenterBar() {
   const siteInformationData = await SiteInformation();
 
   return (
-    <div className=" bg-white shadow-sm">
+    <div className=" bg-white shadow-sm w-full">
       <div className="container mx-auto">
         <div className="navbar flex w-full flex-wrap">
           {/* Left Section: Logo */}
           <div className="navbar-start flex w-full sm:w-[20%]">
             <div className="dropdown">
-              <div
+              {/* <div
                 tabIndex={0}
                 role="button"
                 className="btn border-0 bg-site-secondary lg:hidden"
@@ -39,7 +40,8 @@ export default async function CenterBar() {
                     d="M4 6h16M4 12h8m-8 6h16"
                   />
                 </svg>
-              </div>
+              </div> */}
+              
               {/* mobile  Menu */}
               <ul
                 tabIndex={0}
@@ -69,6 +71,7 @@ export default async function CenterBar() {
                 ))}
               </ul>
             </div>
+            <MobileMenu categoryItems={categoryItems}/>
 
             <div className="relative w-full header-logo">
               {/* Mobile Logo */}
@@ -89,7 +92,7 @@ export default async function CenterBar() {
             <div className="ms-3">
               <Link
                 href="/epaper"
-                className="btn btn-black px-5 py-3 search-menu"
+                className="btn btn-black bg-black px-5 py-3 search-menu"
               >
                 <RiFilePaper2Line color="red" size={18} />
                 <span>ইপেপার পড়ুন</span>
