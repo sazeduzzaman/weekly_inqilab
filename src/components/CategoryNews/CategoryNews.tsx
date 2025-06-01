@@ -17,6 +17,7 @@ interface NewsItem {
   bangla_summary: string;
   author: string;
   slug: string;
+  category_bangla_name: string;
   subCategory_name: string;
   subCategory_bangla_name: string;
 }

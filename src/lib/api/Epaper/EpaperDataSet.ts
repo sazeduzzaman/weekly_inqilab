@@ -15,17 +15,17 @@ interface EpaperData {
 }
 
 export const EpaperDataSet = async (): Promise<EpaperData[]> => {
-  try {
-    const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/epapers",
-      {
-        next: { revalidate: 2 },
-      }
-    );
-    const data = await response.json();
-    return data.data;
-  } catch (error) {
-    console.error("Failed to fetch news categories:", error);
-    throw new Error("Something went wrong while fetching news categories.");
-  }
+  const res = await fetch("https://v2.weeklyinqilab.com/api/v1/epapers", {
+    next: { revalidate: 2 },
+  });
+
+  const json = await res.json();
+
+  return json.data.map((item: any) => ({
+    id: item.id,
+    epaper_image: item.epaper_image || "/images/default-epaper.webp", // Fallback string here
+    epaper_image_alt:
+      item.epaper_image_alt || `Page ${item.page_number || "unknown"}`,
+    page_number: item.page_number,
+  }));
 };

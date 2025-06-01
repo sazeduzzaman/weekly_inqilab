@@ -3,8 +3,8 @@ import EpaperAdSidebar from "@/components/Sidebar/EpaperAdSidebar/EpaperAdSideba
 import { EpaperDataSet } from "@/lib/api/Epaper/EpaperDataSet";
 import { SiteInformation } from "@/lib/api/SiteInformation";
 import type { Metadata } from "next";
+// ✅ Define the interface here, matching what's used in EpaperItems
 
-// ✅ Static metadata for ePaper page
 export const metadata: Metadata = {
   title: "ই-পেপার | সাপ্তাহিক ইনকিলাব - ডিজিটাল পত্রিকা",
   description:
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const siteInformationData = await SiteInformation();
+  // Fetch data from API & process
   const epapersData = await EpaperDataSet();
-  console.log(epapersData[0].epaper_image, "epapersData ");
+
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-12 gap-3">
-        {/* Right Sidebar */}
-        <EpaperItems epapersData={epapersData}/>
+        <EpaperItems epapersData={epapersData} />
         <div className="col-span-2">
           <div className="mt-5">
             <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
