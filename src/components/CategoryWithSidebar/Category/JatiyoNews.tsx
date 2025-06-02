@@ -1,20 +1,18 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import { RajnitiNewsListProps } from "@/lib/types/RajnitiDataType";
+import { JatioNewsListProps } from "@/lib/types/JatioDataType";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Link from "next/link";
 import React from "react";
 
-export default function JatiyoNews({
-  rajnitiItems = [],
-}: RajnitiNewsListProps) {
+export default function JatiyoNews({ jatioItems = [] }: JatioNewsListProps) {
   //   Filter is the data Featured Or Not
-  const isFeatured = rajnitiItems.filter(
+  const isFeatured = jatioItems.filter(
     // if date id 1 feature then add in isFeature
     (item) => item.is_featured === 1
   );
   const featureData = isFeatured.slice(0, 1);
-  const isnonFeatured = rajnitiItems.filter(
+  const isnonFeatured = jatioItems.filter(
     // if date id 2 non feature then add in nonFeature
     (item) => item.is_featured === 0
   );
@@ -24,15 +22,15 @@ export default function JatiyoNews({
       <div>
         <SectionTitle
           title={
-            rajnitiItems[0]?.category_bangla_name ??
-            rajnitiItems[0]?.subCategory_bangla_name ??
+            jatioItems[0]?.category_bangla_name ??
+            jatioItems[0]?.subCategory_bangla_name ??
             "শিরোনাম নেই"
           }
         />
       </div>
 
       {featureData.map((item, index) => (
-        <div className="card rounded-none shadow-sm mb-6" key={index}>
+        <div className="card rounded-none shadow-sm mb-3" key={index}>
           <Link
             href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
           >
@@ -62,7 +60,7 @@ export default function JatiyoNews({
         </div>
       ))}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-2">
         {nonFeatureData.map((item, index) => (
           <div key={index}>
             <Link
@@ -72,11 +70,11 @@ export default function JatiyoNews({
             >
               <div className="block cursor-pointer">
                 <div className="card rounded-none shadow-sm group">
-                  <figure className="relative h-[180px] sm:h-[200px] md:h-[215px] overflow-hidden rounded-md transition-transform duration-500 ease-in-out group-hover:scale-110">
+                  <figure className="relative w-full h-55 sm:h-56 md:h-55 lg:h-40 xl:h-55 overflow-hidden transition-transform duration-500 ease-in">
                     <OptimizedNewsImage
-                      className="object-cover w-full h-full rounded-md"
+                      className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                       imageName={item.thumbnail || "no img"}
-                      altText={item.title}
+                      altText={item.bangla_title}
                       heightClass="h-full"
                       widthClass="w-full"
                       priority

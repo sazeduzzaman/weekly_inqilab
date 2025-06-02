@@ -1,8 +1,11 @@
 import React from "react";
 import CategoryWithSidebarItems from "./CategoryWithSidebarItems";
 import FirstSidebar from "../Sidebar/FirstSidebar";
+import EconomicsNews from "./Category/EconomicsNews";
+import { EconomicsDataSet } from "@/lib/api/SingeCategory/EconomicsDataSet";
 
-const CategoryWithSidebar = () => {
+export default async function CategoryWithSidebar() {
+  const economicsItems = await EconomicsDataSet();
   return (
     <div className="container mx-auto mt-5 mb-6">
       <div className="grid grid-cols-12 gap-3">
@@ -13,8 +16,9 @@ const CategoryWithSidebar = () => {
           <FirstSidebar />
         </div>
       </div>
+      <div>
+        <EconomicsNews economicsItems={economicsItems} />
+      </div>
     </div>
   );
-};
-
-export default CategoryWithSidebar;
+}

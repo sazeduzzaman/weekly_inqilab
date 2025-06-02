@@ -123,7 +123,7 @@ const SearchDropdownCanvas = () => {
                     height={50}
                     className="w-8 h-8 rounded-full object-cover"
                   />
-                  <span className="text-[14px] hover:text-red-500">
+                  <span className="text-[14px] hover:text-red-700">
                     {item.title}
                   </span>
                 </li>

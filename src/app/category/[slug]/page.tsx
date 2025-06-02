@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: any) {
     `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
       // next: { revalidate: 60 },
-      cache: 'no-store', // force no caching
+      cache: "no-store", // force no caching
     }
   );
 
@@ -91,7 +91,7 @@ export default async function Page({ params }: any) {
     `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
       // next: { revalidate: 60 },
-      cache: 'no-store', // force no caching
+      cache: "no-store", // force no caching
     }
   );
   const json = await res.json();
@@ -100,7 +100,7 @@ export default async function Page({ params }: any) {
   const categoryItems: NewsItem[] = Array.isArray(data) ? data : [];
   return (
     <div className="container mx-auto">
-      <div className="mt-4 flex justify-between border-b mb-4">
+      <div className="mt-4 mb-4 px-10 md:px-0 border-b flex flex-col md:flex-row justify-between">
         <p className="font-semibold text-1xl ft-size">
           {category?.bangla_name ?? "অনির্ধারিত"} নিউজ
         </p>

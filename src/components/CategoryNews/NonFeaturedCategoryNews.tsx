@@ -37,12 +37,10 @@ export default async function NonFeaturedCategoryNews({
   const AdvertisementSidebarRandom = advertisementSidebarRandom;
   return (
     <>
-      {/* <div className="divider divider-neutral">Non Featured</div> */}
+      {/* Top Advertisement */}
       <div className="flex justify-center items-center">
-        <div className="relative aspect-[768/71] mt-20 mx-auto">
-          {AdvertisementSidebarRandom &&
-          AdvertisementSidebarRandom.length > 0 &&
-          AdvertisementSidebarRandom.some(
+        <div className="relative w-full max-w-[768px] aspect-[768/71] mt-10 mx-auto">
+          {AdvertisementSidebarRandom?.some(
             (ad) => ad.position === "category_featured"
           ) ? (
             <Advertisement
@@ -52,95 +50,90 @@ export default async function NonFeaturedCategoryNews({
               marginB={10}
             />
           ) : (
-            <div>
-              <Image
-                src="/images/ads-768x71.webp"
-                alt="Inqilab Logo"
-                width={1000}
-                height={400}
-              />
-            </div>
+            <Image
+              src="/images/ads-768x71.webp"
+              alt="Inqilab Logo"
+              width={1000}
+              height={400}
+              className="w-full h-auto object-contain"
+            />
           )}
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="container w-[70%] mx-auto my-20">
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12">
-              {nonFeatureData.length === 0 ? (
-                <p>No featured news available.</p>
-              ) : (
-                <div className="grid gap-4">
-                  {nonFeatureData.map((item) => (
-                    <Link
-                      href={`/details/${item.category_name ?? "uncategory"}/${
-                        item.slug
-                      }`}
-                      key={item.id}
-                      className="group"
-                    >
-                      <div className="border-b pb-4" key={item.id}>
-                        <div className="card card-side bg-white flex items-center rounded-none">
-                          <figure className="relative flex-shrink-0 h-[250px] w-[400px] overflow-hidden rounded-md">
-                            <OptimizedNewsImage
-                              imageName={item.thumbnail || "No image"}
-                              altText={`Thumbnail for ${item.bangla_title}`}
-                              heightClass="h-full"
-                              widthClass="w-full"
-                              priority
-                              className="rounded-t-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+      {/* News Items */}
+      <div className="space-y-8 px-4 md:px-10 max-w-7xl mx-auto my-10">
+        {nonFeatureData.length === 0 ? (
+          <p>No featured news available.</p>
+        ) : (
+          <div className="space-y-6">
+            {nonFeatureData.map((item) => (
+              <Link
+                href={`/details/${item.category_name ?? "uncategory"}/${
+                  item.slug
+                }`}
+                key={item.id}
+                className="group block"
+              >
+                <div className="border-b pb-4">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 bg-white rounded-md shadow-sm overflow-hidden">
+                    {/* Image */}
+                    <figure className="w-full md:w-[400px] h-[250px] flex-shrink-0 relative overflow-hidden">
+                      <OptimizedNewsImage
+                        imageName={item.thumbnail || "No image"}
+                        altText={`Thumbnail for ${item.bangla_title}`}
+                        heightClass="h-full"
+                        widthClass="w-full"
+                        priority
+                        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                      />
+                    </figure>
+
+                    {/* Content */}
+                    <div className="flex-1 px-2">
+                      <h2 className="text-lg md:text-xl font-semibold mb-2">
+                        {item.bangla_title}
+                      </h2>
+                      <div
+                        className="text-sm text-gray-700 mb-2"
+                        dangerouslySetInnerHTML={{
+                          __html: item.bangla_summary,
+                        }}
+                      />
+                      <div className="flex items-start gap-3 mt-4">
+                        <Image
+                          src="/favicon.ico"
+                          alt="Author"
+                          width={30}
+                          height={30}
+                          className="rounded-sm bg-red-600 p-1"
+                        />
+                        <div>
+                          <p className="text-sm font-medium">
+                            {item.author ?? "ইনকিলাব"}
+                          </p>
+                          <small className="text-black block">
+                            <NewsTimeShower
+                              newsTime={
+                                item.published_at || new Date().toISOString()
+                              }
                             />
-                          </figure>
-                          <div className="card-body">
-                            <h2 className="ft-size">{item.bangla_title}</h2>
-                            <div
-                              className="news-details-p"
-                              dangerouslySetInnerHTML={{
-                                __html: item.bangla_summary,
-                              }}
-                            />
-                            <div className="flex items-start space-x-4 mt-4">
-                              <div>
-                                <Image
-                                  className="border-b-1 bg-red-600 rounded-sm p-1"
-                                  src="/favicon.ico"
-                                  alt="Next.js logo"
-                                  width={30}
-                                  height={30}
-                                  priority
-                                />
-                              </div>
-                              <div>
-                                <p>{item.author ?? "ইনকিলাব"}</p>
-                                <div>
-                                  <small className="text-black block">
-                                    <NewsTimeShower
-                                      newsTime={
-                                        item.published_at ||
-                                        new Date().toISOString()
-                                      }
-                                    />
-                                  </small>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          </small>
                         </div>
                       </div>
-                    </Link>
-                  ))}
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
+              </Link>
+            ))}
           </div>
-        </div>
+        )}
       </div>
+
+      {/* Bottom Advertisement */}
       <div className="flex justify-center items-center">
-        <div className="relative aspect-[768/71] mb-10 mx-auto">
-          {AdvertisementSidebarRandom &&
-          AdvertisementSidebarRandom.length > 0 &&
-          AdvertisementSidebarRandom.some(
+        <div className="relative w-full max-w-[768px] aspect-[768/71] mb-10 mx-auto">
+          {AdvertisementSidebarRandom?.some(
             (ad) => ad.position === "category_middle"
           ) ? (
             <Advertisement
@@ -150,14 +143,13 @@ export default async function NonFeaturedCategoryNews({
               marginB={10}
             />
           ) : (
-            <div>
-              <Image
-                src="/images/ads-768x71.webp"
-                alt="Inqilab Logo"
-                width={1000}
-                height={400}
-              />
-            </div>
+            <Image
+              src="/images/ads-768x71.webp"
+              alt="Inqilab Logo"
+              width={1000}
+              height={400}
+              className="w-full h-auto object-contain"
+            />
           )}
         </div>
       </div>

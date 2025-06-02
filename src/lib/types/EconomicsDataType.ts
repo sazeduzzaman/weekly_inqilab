@@ -1,6 +1,6 @@
 // app/types.ts
 
-export interface ViewedNewsData {
+export interface EconomicsNewsData {
   id: number;
   name: string;
   name_bangla: string;
@@ -11,13 +11,15 @@ export interface ViewedNewsData {
   thumbnail_img?: string;
   news_time?: string;
   category_name?: string;
+  is_featured?: number;
   title?: string;
+  bangla_title?: string;
   slug?: string;
-  bangla_title?: string; 
-  category_bangla_name?: string; 
-  published_at?: string; 
+  published_at?: string;
+  category_bangla_name?: string;
+  subCategory_bangla_name? :string;
 }
 
-export interface ViewedNewsListProps {
-  viewedItems: ViewedNewsData[];
+export interface EconomicsNewsListProps {
+  economicsItems: EconomicsNewsData[];
 }

@@ -21,7 +21,7 @@ export default function SocialLinks({ siteInformationData }: Props) {
           className="me-2"
           target="_blank"
         >
-          <button className="btn btn-circle bg-red-500 shadow-none hover:bg-black border-0 text-white btn-sm">
+          <button className="btn btn-circle bg-red-700 shadow-none hover:bg-black border-0 text-white btn-sm">
             <FaFacebookF className="text-[16px]" />
           </button>
         </Link>
@@ -35,7 +35,7 @@ export default function SocialLinks({ siteInformationData }: Props) {
           className="me-2"
           target="_blank"
         >
-          <button className="btn btn-circle bg-red-500 shadow-none hover:bg-black border-0 text-white btn-sm">
+          <button className="btn btn-circle bg-red-700 shadow-none hover:bg-black border-0 text-white btn-sm">
             <AiFillInstagram className="text-[16px]" />
           </button>
         </Link>
@@ -49,7 +49,7 @@ export default function SocialLinks({ siteInformationData }: Props) {
           className="me-2"
           target="_blank"
         >
-          <button className="btn btn-circle bg-red-500 shadow-none hover:bg-black border-0 text-white btn-sm">
+          <button className="btn btn-circle bg-red-700 shadow-none hover:bg-black border-0 text-white btn-sm">
             <IoLogoWhatsapp className="text-[16px]" />
           </button>
         </Link>
@@ -63,13 +63,13 @@ export default function SocialLinks({ siteInformationData }: Props) {
           className="me-2"
           target="_blank"
         >
-          <button className="btn btn-circle bg-red-500 shadow-none hover:bg-black border-0 text-white btn-sm">
+          <button className="btn btn-circle bg-red-700 shadow-none hover:bg-black border-0 text-white btn-sm">
             <FaYoutube className="text-[16px]" />
           </button>
         </Link>
       )}
       <Link type="button" href="/auth/login" className="">
-        <button className="btn btn-circle bg-red-500 shadow-none hover:bg-black border-0 text-white btn-sm">
+        <button className="btn btn-circle bg-red-700 shadow-none hover:bg-black border-0 text-white btn-sm">
           <FaUser className="text-[16px]" />
         </button>
       </Link>

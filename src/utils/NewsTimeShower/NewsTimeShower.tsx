@@ -1,21 +1,25 @@
 import React from "react";
 
 interface NewsTimeProps {
-  newsTime?: string | null; // optional and possibly null
+  newsTime?: string | null;
 }
 
 const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
+  const toBengaliDigits = (input: number | string): string => {
+    return input
+      .toString()
+      .replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[parseInt(digit)]);
+  };
+
   const formatNewsTime = (rawDate?: string | null): string => {
-    if (!rawDate || typeof rawDate !== "string") return "No date available";
+    if (!rawDate || typeof rawDate !== "string") return "তারিখ পাওয়া যায়নি";
 
     const timeZone = "Asia/Dhaka";
-
-    // Convert "2025-05-28 04:14:03" to ISO with Dhaka offset
     const isoString = rawDate.replace(" ", "T") + "+06:00";
     const date = new Date(isoString);
     const now = new Date();
 
-    if (isNaN(date.getTime())) return "Invalid Date";
+    if (isNaN(date.getTime())) return "অবৈধ তারিখ";
 
     const diffMs = now.getTime() - date.getTime();
     const diffMins = Math.floor(diffMs / (1000 * 60));
@@ -37,11 +41,12 @@ const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
     const formattedYesterday = formatDate(yesterday);
 
     if (formattedNow === formattedDate) {
-      if (diffMins < 60) return `${diffMins} মিনিট আগে`;
-      return `${diffHours} ঘন্টা আগে`;
+      if (diffMins < 60) return `${toBengaliDigits(diffMins)} মিনিট আগে`;
+      if (diffHours <= 5) return `${toBengaliDigits(diffHours)} ঘন্টা আগে`;
+      return "১ দিন আগে";
     }
 
-    if (formattedDate === formattedYesterday) return "গতকাল";
+    if (formattedDate === formattedYesterday) return "দিন আগে";
 
     return new Intl.DateTimeFormat("bn-BD", {
       timeZone,

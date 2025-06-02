@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="home-page">
+    <div className="home-page"> 
       <HeroSection />
       <Features />
       <CategoryWithSidebar />

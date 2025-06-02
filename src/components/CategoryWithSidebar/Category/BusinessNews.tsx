@@ -25,14 +25,14 @@ export default function BusinessNews({
             >
               <div className="block cursor-pointer">
                 <div className="card rounded-none shadow-sm group">
-                  <figure className="relative h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-110 rounded-lg">
+                  <figure className="relative w-full h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden rounded-md">
                     <OptimizedNewsImage
-                      className="w-full h-full object-cover rounded-lg"
                       imageName={item.thumbnail || "no img"}
-                      altText={item.name}
+                      altText={`Thumbnail for ${item.title || "no img"}`}
                       heightClass="h-full"
                       widthClass="w-full"
                       priority
+                      className="object-cover w-full h-full transition-transform duration-500 ease-in-out hover:scale-105"
                     />
                   </figure>
                   <div className="card-body px-3 py-2">

@@ -36,43 +36,36 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
       {featureMain.length === 0 ? (
         <p>No featured news available.</p>
       ) : (
-        <div className="grid grid-cols-3 gap-4 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
           {/* Main Featured */}
-          <div className="col-span-2">
+          <div className="md:col-span-2">
             {featureMain.map((item) => (
               <Link
-                href={`/details/${item.category_name ?? "uncategory"}/${
-                  item.slug
-                }`}
+                href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
                 key={item.id}
               >
-                <div
-                  className="card rounded-none shadow-sm group"
-                  key={item.id}
-                >
-                  <figure className="relative h-full w-full overflow-hidden">
+                <div className="card rounded-none shadow-sm group">
+                  <figure className="relative w-full overflow-hidden h-[300px] sm:h-[400px] md:h-[495px]">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10" />
-
                     <OptimizedNewsImage
                       imageName={item.thumbnail || "No image"}
                       altText={`Thumbnail for ${item.bangla_title}`}
-                      heightClass="h-[495px]"
+                      heightClass="h-full"
                       widthClass="w-full"
                       priority
-                      className="rounded-t-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                      className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                     />
                   </figure>
-
-                  <div className="card-body bg-black rounded-b-md">
-                    <h1 className=" text-4xl text-white">
+                  <div className="card-body bg-black text-white rounded-b-md">
+                    <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
                       {item.bangla_title}
                     </h1>
-                    <small className="block mt-4 text-red-500">
+                    <small className="block mt-4 text-red-700">
                       <NewsTimeShower
                         newsTime={item.published_at || new Date().toISOString()}
                       />
                     </small>
-                    <span className="text-white">{item.category_bangla_name}</span>
+                    <span>{item.category_bangla_name}</span>
                   </div>
                 </div>
               </Link>
@@ -80,43 +73,36 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
           </div>
 
           {/* Sidebar - Other Featured */}
-          <div className="col-span-1">
-            <div className="grid grid-cols-1 gap-2">
-              {featureOthers.map((item) => (
-                <Link
-                  href={`/details/${item.category_name ?? "uncategory"}/${
-                    item.slug
-                  }`}
-                  key={item.id}
-                  className="group"
-                >
-                  <div className="flex gap-4 items-center justify-center shadow-sm">
-                    <div className="w-1/3 overflow-hidden">
-                      <OptimizedNewsImage
-                        imageName={item.thumbnail || "No image"}
-                        altText={`Thumbnail for ${item.bangla_title}`}
-                        heightClass="h-[150px]"
-                        widthClass="w-full"
-                        priority={false}
-                        className="rounded-t-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="w-2/3 text-sm font-medium p-3">
-                      <h1 className="ft-2-size font-semibold mb-2 ">
-                        {item.bangla_title}
-                      </h1>
-                      <small className="text-gray-500 opacity-95 block mt-4">
-                        <NewsTimeShower
-                          newsTime={
-                            item.published_at || new Date().toISOString()
-                          }
-                        />
-                      </small>
-                    </div>
+          <div className="md:col-span-1 space-y-3">
+            {featureOthers.map((item) => (
+              <Link
+                href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
+                key={item.id}
+                className="group block"
+              >
+                <div className="flex gap-3 items-center shadow-sm">
+                  <div className="w-1/3 min-w-[90px] h-[90px] sm:h-[110px] md:h-[150px] overflow-hidden">
+                    <OptimizedNewsImage
+                      imageName={item.thumbnail || "No image"}
+                      altText={`Thumbnail for ${item.bangla_title}`}
+                      heightClass="h-full"
+                      widthClass="w-full"
+                      className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
+                    />
                   </div>
-                </Link>
-              ))}
-            </div>
+                  <div className="w-2/3 text-sm font-medium">
+                    <h1 className="font-semibold mb-1 h-15 line-clamp-3">
+                      {item.bangla_title}
+                    </h1>
+                    <small className="text-gray-500 block mt-2">
+                      <NewsTimeShower
+                        newsTime={item.published_at || new Date().toISOString()}
+                      />
+                    </small>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       )}

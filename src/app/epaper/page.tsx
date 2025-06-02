@@ -47,12 +47,12 @@ export default async function Page() {
   const epapersData = await EpaperDataSet();
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-12 gap-3">
+    <div className="container mx-auto px-8 md:px-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         <EpaperItems epapersData={epapersData} />
-        <div className="col-span-2">
+        <div className="order-3 lg:order-3 col-span-12 lg:col-span-2">
           <div className="mt-5">
-            <div className="card-header bg-red-500 rounded-md text-center py-3 text-white">
+            <div className="card-header bg-red-700 rounded-md text-center py-3 text-white">
               বিজ্ঞাপন
             </div>
             <EpaperAdSidebar siteInformationData={siteInformationData} />

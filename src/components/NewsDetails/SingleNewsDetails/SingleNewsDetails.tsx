@@ -24,35 +24,37 @@ interface NewsItem {
 
 interface NewsDetails {
   category_bangla_name?: string;
-  news_details?: NewsItem; // nested news item object
+  news_details?: NewsItem;
 }
 
 interface Props {
   singelNewsItems: NewsDetails;
   itemData?: NewsDetails;
 }
+
 export default async function SingleNewsDetails({ singelNewsItems }: Props) {
-  // Destructure news_details safely with fallback to empty object
   const { news_details: itemData = {} } = singelNewsItems;
   const siteInformationData = await SiteInformation();
+
   return (
-    <>
-      <div className="grid grid-cols-12 gap-6 mb-5">
-        <div className="col-span-3">
-          <div className="">
-            <RightSide singelNewsItems={singelNewsItems} slug={itemData.slug} />
-          </div>
-        </div>
-
-        <NewsDetailsContent itemData={itemData} />
-
-        <div className="col-span-3">
-          <h1 className="card-title inline-block border-b-2 border-current">
-            বিজ্ঞাপন কর্নার
-          </h1>
-          <MainSidebar siteInformationData={siteInformationData} />
-        </div>
+    <div className="grid grid-cols-12 gap-6 mb-5">
+      {/* Left Sidebar */}
+      <div className="col-span-12 md:col-span-3 order-3 md:order-1">
+        <RightSide singelNewsItems={singelNewsItems} slug={itemData.slug} />
       </div>
-    </>
+
+      {/* Main Content */}
+      <div className="col-span-12 md:col-span-6 order-1 md:order-2">
+        <NewsDetailsContent itemData={itemData} />
+      </div>
+
+      {/* Right Sidebar */}
+      <div className="col-span-12 md:col-span-3 order-2 md:order-3">
+        <h1 className="card-title inline-block border-b-2 border-current">
+          বিজ্ঞাপন কর্নার
+        </h1>
+        <MainSidebar siteInformationData={siteInformationData} />
+      </div>
+    </div>
   );
 }

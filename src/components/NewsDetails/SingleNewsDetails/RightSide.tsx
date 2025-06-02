@@ -96,7 +96,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
         <div className="card-header  bg-black rounded-md text-start ps-5 py-3 text-white">
           সম্পর্কিত আরও খবর...
         </div>
-        <div className="card-body px-1 py-0">
+        <div className="card-body px-1 py-0 pt-4">
           {shuffledData.slice(0, 10).map((item, index) => (
             <div className="" key={index}>
               <Link
@@ -117,9 +117,9 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
                     <h2 className="card-title h-15">
                       {(item.bangla_title ?? "")
                         .split(" ")
-                        .slice(0, 6)
+                        .slice(0, 4)
                         .join(" ")}
-                      {(item.bangla_title ?? "").split(" ").length > 6
+                      {(item.bangla_title ?? "").split(" ").length > 4
                         ? "..."
                         : ""}
                     </h2>

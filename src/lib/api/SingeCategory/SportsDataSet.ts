@@ -1,5 +1,5 @@
 // Define the CategoryData interface for the fetched data
-interface RajnitiNewsData {
+interface SportsNewsData {
   id: number;
   name: string;
   name_bangla: string;
@@ -10,10 +10,10 @@ interface RajnitiNewsData {
   thumbnail_img?: string;
 }
 
-export const RajnitiDataSet = async (): Promise<RajnitiNewsData[]> => {
+export const SportsDataSet = async (): Promise<SportsNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/category-news/politics",
+      "https://v2.weeklyinqilab.com/api/v1/category-news/sports",
       {
         next: { revalidate: 2 },
       }

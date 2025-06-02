@@ -60,8 +60,8 @@ const EpaperItems = ({ epapersData }: Props) => {
   return (
     <>
       {/* Left Sidebar */}
-      <div className="col-span-2">
-        <div className="card rounded-none shadow-sm mt-5">
+      <div className="order-2 lg:order-1 col-span-12 lg:col-span-2">
+        <div className="card rounded-none shadow-sm mt-15 md:mt-5">
           <div className="card-header bg-black rounded-md text-center py-3 text-white">
             অনুসন্ধান করুন
           </div>
@@ -91,9 +91,9 @@ const EpaperItems = ({ epapersData }: Props) => {
                     Page {item.page_number || index + 1}
                   </div>
                   <div
-                    className={`w-full flex items-center relative h-[350px] rounded overflow-hidden ${
+                    className={`w-full flex items-center relative h-[550px] md:h-[350px] rounded overflow-hidden ${
                       selectedIndex === index
-                        ? "border-4 border-red-500"
+                        ? "border-4 border-red-700"
                         : "border border-gray-200"
                     }`}
                   >
@@ -116,14 +116,14 @@ const EpaperItems = ({ epapersData }: Props) => {
       </div>
 
       {/* Center Preview */}
-      <div className="col-span-8">
+      <div className="order-1 lg:order-2 col-span-12 lg:col-span-8">
         <div className="mt-5 text-center">
           <div className="card-header bg-black rounded-md text-center py-3 text-white">
             ইপেপার পেইজ:{" "}
             {sortedEpapers[selectedIndex]?.page_number || selectedIndex + 1}
           </div>
           <div
-            className="relative w-full h-[1685px] shadow-sm"
+            className="relative w-full h-[500px] md:h-[1685px] shadow-sm"
             style={{ marginTop: "-5px" }}
           >
             <Image
@@ -140,6 +140,7 @@ const EpaperItems = ({ epapersData }: Props) => {
               style={{ width: "100%", height: "auto" }}
               className="object-contain"
             />
+
             <button
               onClick={goToPrevious}
               className="absolute left-0 cursor-grab rounded-full top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-red-600 px-3 py-2"

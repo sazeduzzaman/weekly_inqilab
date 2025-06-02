@@ -38,7 +38,7 @@ export default function CategoryNews({ categoryItems }: Props) {
 
   return (
     <div className="space-y-8">
-      <div>
+      <div className="px-10 md:px-0">
         <FeaturedCategoryNews featureData={featureData} />
         <NonFeaturedCategoryNews nonFeatureData={nonFeatureData} />
       </div>
