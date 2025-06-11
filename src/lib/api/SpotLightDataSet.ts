@@ -8,7 +8,7 @@ interface SpotLightNewsData {
 export const SpotLightDataSet = async (): Promise<SpotLightNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/slider-news",
+      "https://admin.weeklyinqilab.com/api/v1/slider-news",
       {
         next: { revalidate: 2}
       }

@@ -21,7 +21,7 @@ interface AdvertismentData {
 export const Advertisment = async (): Promise<AdvertismentData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/advertisements",
+      "https://admin.weeklyinqilab.com/api/v1/advertisements",
       {
         next: { revalidate: 2}
       }

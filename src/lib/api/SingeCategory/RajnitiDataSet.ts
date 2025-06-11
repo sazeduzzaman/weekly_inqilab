@@ -13,9 +13,9 @@ interface RajnitiNewsData {
 export const RajnitiDataSet = async (): Promise<RajnitiNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/category-news/politics",
+      "https://admin.weeklyinqilab.com/api/v1/category-news/politics",
       {
-        next: { revalidate: 2 },
+        next: { revalidate: 0 },
       }
     );
     const data = await response.json();

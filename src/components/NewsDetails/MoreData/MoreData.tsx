@@ -18,7 +18,7 @@ interface Props {
 
 export default async function MoreData({ itemData }: Props) {
   const res = await fetch(
-    `https://v2.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,
+    `https://admin.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,
     {
       // next: { revalidate: 2},
       next: { revalidate: 2},

@@ -8,7 +8,7 @@ interface CategoryData {
 export const CategoryDataSet = async (): Promise<CategoryData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/categories",
+      "https://admin.weeklyinqilab.com/api/v1/categories",
       {
         next: { revalidate: 2}
       }

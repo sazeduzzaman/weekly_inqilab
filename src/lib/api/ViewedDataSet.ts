@@ -14,7 +14,7 @@ interface ViewedNewsData {
 export const ViewedDataSet = async (): Promise<ViewedNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/viewed-news",
+      "https://admin.weeklyinqilab.com/api/v1/viewed-news",
       {
         next: { revalidate: 2}
       }

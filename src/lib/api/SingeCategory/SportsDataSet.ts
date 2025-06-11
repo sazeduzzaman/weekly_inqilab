@@ -13,9 +13,9 @@ interface SportsNewsData {
 export const SportsDataSet = async (): Promise<SportsNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/category-news/sports",
+      "https://admin.weeklyinqilab.com/api/v1/category-news/sports",
       {
-        next: { revalidate: 2 },
+        next: { revalidate: 0 },
       }
     );
     const data = await response.json();

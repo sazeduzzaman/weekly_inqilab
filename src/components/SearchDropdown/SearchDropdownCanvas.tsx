@@ -31,7 +31,7 @@ const SearchDropdownCanvas = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://v2.weeklyinqilab.com/api/v1/search?query=${encodeURIComponent(
+          `https://admin.weeklyinqilab.com/api/v1/search?query=${encodeURIComponent(
             query
           )}`
         );

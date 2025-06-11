@@ -16,7 +16,7 @@ interface LatestNewsData {
 export const LatestDataSet = async (): Promise<LatestNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/latest-news",
+      "https://admin.weeklyinqilab.com/api/v1/latest-news",
       {
         next: { revalidate: 2}
       }

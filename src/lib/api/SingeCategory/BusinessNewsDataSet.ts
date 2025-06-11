@@ -13,7 +13,7 @@ interface BusinessNewsData {
 export const BusinessNewsSet = async (): Promise<BusinessNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/category-news/business",
+      "https://admin.weeklyinqilab.com/api/v1/category-news/business",
       {
         next: { revalidate: 2}
       }

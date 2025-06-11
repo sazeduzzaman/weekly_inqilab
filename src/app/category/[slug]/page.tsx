@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: any) {
   const { slug } = await params; // <-- no await here
 
   const res = await fetch(
-    `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
+    `https://admin.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
       // next: { revalidate: 60 },
       cache: "no-store", // force no caching
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: any) {
   );
 
   console.log(slug);
-  console.log(`https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`);
+  console.log(`https://admin.weeklyinqilab.com/api/v1/category-news/${slug}`);
   if (!res.ok) {
     return {
       title: "সংবাদ বিস্তারিত - Error",
@@ -88,7 +88,7 @@ export default async function Page({ params }: any) {
   const { slug } = await params; // <-- no await here
 
   const res = await fetch(
-    `https://v2.weeklyinqilab.com/api/v1/category-news/${slug}`,
+    `https://admin.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
       // next: { revalidate: 60 },
       cache: "no-store", // force no caching

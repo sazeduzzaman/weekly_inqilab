@@ -83,7 +83,7 @@ interface SiteInfoApiResponse {
 export const SiteInformation = async (): Promise<SiteInfo> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/site-informations",
+      "https://admin.weeklyinqilab.com/api/v1/site-informations",
       {
         next: { revalidate: 2}
       }

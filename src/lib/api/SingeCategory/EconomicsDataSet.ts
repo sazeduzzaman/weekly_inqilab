@@ -13,9 +13,9 @@ interface EconomicsData {
 export const EconomicsDataSet = async (): Promise<EconomicsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/category-news/economics",
+      "https://admin.weeklyinqilab.com/api/v1/category-news/economics",
       {
-        next: { revalidate: 2 },
+        next: { revalidate: 0 },
       }
     );
     const data = await response.json();

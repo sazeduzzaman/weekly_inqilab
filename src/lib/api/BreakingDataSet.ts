@@ -13,7 +13,7 @@ interface BreakingNewsData {
 export const BreakingDataSet = async (): Promise<BreakingNewsData[]> => {
   try {
     const response = await fetch(
-      "https://v2.weeklyinqilab.com/api/v1/breaking-news",
+      "https://admin.weeklyinqilab.com/api/v1/breaking-news",
       {
         next: { revalidate: 2}
       }

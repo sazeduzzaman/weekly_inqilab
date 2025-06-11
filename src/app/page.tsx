@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        // url: "https://v2.weeklyinqilab.com/images/inqilab-og-image.jpg",
+        // url: "https://admin.weeklyinqilab.com/images/inqilab-og-image.jpg",
         url: "/images/placeholderImage.webp",
         alt: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
       },

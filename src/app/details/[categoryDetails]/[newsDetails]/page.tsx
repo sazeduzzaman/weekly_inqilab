@@ -2,7 +2,7 @@
 
 import NewsDetails from "@/components/NewsDetails/NewsDetails";
 import { Metadata } from "next";
-import NotFoundPage from "@/app/_not-found/page";
+import NotFoundPage from "@/app/not-found";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const newsId = resolvedParams.newsDetails;
 
   const res = await fetch(
-    `https://v2.weeklyinqilab.com/api/v1/news-details/${newsId}`
+    `https://admin.weeklyinqilab.com/api/v1/news-details/${newsId}`
   );
 
   if (!res.ok) {
@@ -49,7 +49,7 @@ export default async function Page({ params }: any) {
   const newsId = resolvedParams.newsDetails;
 
   const res = await fetch(
-    `https://v2.weeklyinqilab.com/api/v1/news-details/${newsId}`,
+    `https://admin.weeklyinqilab.com/api/v1/news-details/${newsId}`,
     {
       // next: { revalidate: 60 },
       cache: "no-store", // force no caching

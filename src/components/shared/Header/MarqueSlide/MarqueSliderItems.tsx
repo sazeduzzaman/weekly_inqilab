@@ -1,7 +1,5 @@
-"use client";
-
+"use client"
 import { BreakingNewsListProps } from "@/lib/types/BreakingDataType";
-// import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import AutoScroll from "embla-carousel-auto-scroll";
 import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
