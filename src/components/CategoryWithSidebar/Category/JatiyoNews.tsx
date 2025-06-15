@@ -6,17 +6,20 @@ import Link from "next/link";
 import React from "react";
 
 export default function JatiyoNews({ jatioItems = [] }: JatioNewsListProps) {
-  //   Filter is the data Featured Or Not
-  const isFeatured = jatioItems.filter(
-    // if date id 1 feature then add in isFeature
-    (item) => item.is_featured === 1
-  );
+  const normalizedItems = jatioItems.map((item) => ({
+    ...item,
+    is_featured: Number(item.is_featured),
+  }));
+
+  // Filter after normalization
+  const isFeatured = normalizedItems.filter((item) => item.is_featured === 1);
   const featureData = isFeatured.slice(0, 1);
-  const isnonFeatured = jatioItems.filter(
-    // if date id 2 non feature then add in nonFeature
+
+  const isnonFeatured = normalizedItems.filter(
     (item) => item.is_featured === 0
   );
   const nonFeatureData = isnonFeatured.slice(0, 3);
+
   return (
     <div>
       <div>

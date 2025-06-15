@@ -58,7 +58,7 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
                   </figure>
                   <div className="card-body bg-black text-white rounded-b-md">
                     <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
-                      {item.bangla_title}
+                      {item.bangla_title.split(" ").slice(0, 8).join(" ")}...
                     </h1>
                     <small className="block mt-4 text-red-700">
                       <NewsTimeShower
@@ -91,8 +91,8 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
                     />
                   </div>
                   <div className="w-2/3 text-sm font-medium">
-                    <h1 className="font-semibold mb-1 h-15 line-clamp-3">
-                      {item.bangla_title}
+                    <h1 className="text-lg md:text-xl mb-1 h-15 line-clamp-3">
+                       {item.bangla_title.split(" ").slice(0, 8).join(" ")}...
                     </h1>
                     <small className="text-gray-500 block mt-2">
                       <NewsTimeShower

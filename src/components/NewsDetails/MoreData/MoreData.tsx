@@ -17,11 +17,15 @@ interface Props {
 }
 
 export default async function MoreData({ itemData }: Props) {
+  const formattedCategory = itemData?.category_name
+    ? itemData.category_name.toLowerCase().split(" ").join("-")
+    : "";
+
   const res = await fetch(
-    `https://admin.weeklyinqilab.com/api/v1/category-news/${itemData.category_name}`,
+    `https://admin.weeklyinqilab.com/api/v1/category-news/${formattedCategory}`,
     {
       // next: { revalidate: 1},
-      next: { revalidate: 1},
+      next: { revalidate: 1 },
     }
   );
 
@@ -30,7 +34,7 @@ export default async function MoreData({ itemData }: Props) {
   const categoryItems: NewsItem[] = Array.isArray(json)
     ? json
     : json.data || json.news || [];
-
+  console.log(categoryItems);
   return (
     <>
       {categoryItems.length === 0 ? (

@@ -10,17 +10,19 @@ import React from "react";
 export default async function EconomicsNews({
   economicsItems = [],
 }: EconomicsNewsListProps) {
-  //   Filter is the data Featured Or Not
-  const isFeatured = economicsItems.filter(
-    // if date id 1 feature then add in isFeature
-    (item) => item.is_featured === 1
-  );
+  const normalizedItems = economicsItems.map((item) => ({
+    ...item,
+    is_featured: Number(item.is_featured),
+  }));
+
+  const isFeatured = normalizedItems.filter((item) => item.is_featured === 1);
   const featureData = isFeatured.slice(0, 1);
-  const isnonFeatured = economicsItems.filter(
-    // if date id 2 non feature then add in nonFeature
+
+  const isnonFeatured = normalizedItems.filter(
     (item) => item.is_featured === 0
   );
   const nonFeatureData = isnonFeatured.slice(0, 6);
+
   const advertisementSidebarRandom = await Advertisment();
   const AdvertisementSidebarRandom = advertisementSidebarRandom;
   return (

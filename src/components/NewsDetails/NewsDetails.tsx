@@ -36,6 +36,7 @@ interface Props {
 export default function NewsDetails({ singelNewsItems }: Props) {
   // Destructure news_details safely with fallback to empty object
   const { news_details: itemData = {} } = singelNewsItems;
+  console.log(singelNewsItems, "singelNewsItems")
 
   return (
     <>

@@ -15,9 +15,6 @@ export async function generateMetadata({ params }: any) {
       cache: "no-store", // force no caching
     }
   );
-
-  console.log(slug);
-  console.log(`https://admin.weeklyinqilab.com/api/v1/category-news/${slug}`);
   if (!res.ok) {
     return {
       title: "সংবাদ বিস্তারিত - Error",

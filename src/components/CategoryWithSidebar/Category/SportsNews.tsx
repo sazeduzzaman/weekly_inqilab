@@ -7,12 +7,17 @@ import React from "react";
 
 export default function SportsNews({ sportsItems = [] }: SportsNewsListProps) {
   //   Filter is the data Featured Or Not
-  const isFeatured = sportsItems.filter(
+
+  const normalizedItems = sportsItems.map((item) => ({
+    ...item,
+    is_featured: Number(item.is_featured),
+  }));
+  const isFeatured = normalizedItems.filter(
     // if date id 1 feature then add in isFeature
     (item) => item.is_featured === 1
   );
   const featureData = isFeatured.slice(0, 1);
-  const isnonFeatured = sportsItems.filter(
+  const isnonFeatured = normalizedItems.filter(
     // if date id 2 non feature then add in nonFeature
     (item) => item.is_featured === 0
   );
