@@ -85,7 +85,7 @@ export const SiteInformation = async (): Promise<SiteInfo> => {
     const response = await fetch(
       "https://admin.weeklyinqilab.com/api/v1/site-informations",
       {
-        next: { revalidate: 2}
+        next: { revalidate: 1}
       }
     );
     const json: SiteInfoApiResponse = await response.json();

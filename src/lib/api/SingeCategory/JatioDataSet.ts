@@ -15,7 +15,7 @@ export const JatioDataSet = async (): Promise<JatioNewsData[]> => {
     const response = await fetch(
       "https://admin.weeklyinqilab.com/api/v1/category-news/national",
       {
-        next: { revalidate: 0 },
+        next: { revalidate: 1 },
       }
     );
     const data = await response.json();

@@ -16,7 +16,7 @@ interface EpaperData {
 
 export const EpaperDataSet = async (): Promise<EpaperData[]> => {
   const res = await fetch("https://admin.weeklyinqilab.com/api/v1/epapers", {
-    next: { revalidate: 0 },
+    next: { revalidate: 1 },
   });
 
   const json = await res.json();

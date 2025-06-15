@@ -10,7 +10,7 @@ export const CategoryDataSet = async (): Promise<CategoryData[]> => {
     const response = await fetch(
       "https://admin.weeklyinqilab.com/api/v1/categories",
       {
-        next: { revalidate: 2}
+        next: { revalidate: 1}
       }
     );
     const data = await response.json();
