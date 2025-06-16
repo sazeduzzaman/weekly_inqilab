@@ -16,7 +16,7 @@ export const ViewedDataSet = async (): Promise<ViewedNewsData[]> => {
     const response = await fetch(
       "https://admin.weeklyinqilab.com/api/v1/viewed-news",
       {
-        next: { revalidate: 1}
+        next: { revalidate: 1 },
       }
     );
     const data = await response.json();

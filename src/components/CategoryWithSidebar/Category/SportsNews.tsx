@@ -45,9 +45,9 @@ export default function SportsNews({ sportsItems = [] }: SportsNewsListProps) {
                 >
                   <div className="block cursor-pointer">
                     <div className="card rounded-none shadow-sm group">
-                      <figure className="relative h-[180px] sm:h-[200px] md:h-[215px] overflow-hidden rounded-md">
+                      <figure className="relative h-[180px] sm:h-[200px] md:h-[215px] overflow-hidden rounded-none">
                         <OptimizedNewsImage
-                          className="object-cover rounded-md w-full h-full transition-transform duration-500 ease-in-out hover:scale-105"
+                          className="object-cover rounded-none w-full h-full transition-transform duration-500 ease-in-out hover:scale-105"
                           imageName={item.thumbnail || "no img"}
                           altText={item.title}
                           heightClass="h-full"
@@ -56,7 +56,7 @@ export default function SportsNews({ sportsItems = [] }: SportsNewsListProps) {
                         />
                       </figure>
                       <div className="card-body px-3 py-2">
-                        <h2 className="card-title h-15 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
+                        <h2 className="card-title h-12 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
                           {(item.bangla_title ?? "")
                             .split(" ")
                             .slice(0, 6)
@@ -65,7 +65,7 @@ export default function SportsNews({ sportsItems = [] }: SportsNewsListProps) {
                             ? "..."
                             : ""}
                         </h2>
-                        <span className="text-site-secondary opacity-70 block mt-1 text-sm sm:text-base">
+                        <span className="text-site-secondary opacity-70 block text-sm sm:text-base">
                           <NewsTimeShower
                             newsTime={
                               item.published_at || new Date().toISOString()
@@ -89,7 +89,7 @@ export default function SportsNews({ sportsItems = [] }: SportsNewsListProps) {
                 }`}
               >
                 <div className="block cursor-pointer">
-                  <figure className="relative w-full h-[400px] sm:h-[400px] md:h-[580px] overflow-hidden rounded-md">
+                  <figure className="relative w-full h-[400px] sm:h-[400px] md:h-[545px] overflow-hidden rounded-none">
                     <OptimizedNewsImage
                       imageName={item.thumbnail || "no img"}
                       altText={`Thumbnail for ${item.title || "no img"}`}

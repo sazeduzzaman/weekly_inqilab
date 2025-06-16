@@ -38,7 +38,7 @@ const FormItems = () => {
           placeholder="আপনার ইমেইল লিখুন"
           value={formValues.email}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="w-full px-4 py-3 border border-gray-300 rounded-none shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
           required
         />
       </div>
@@ -52,7 +52,7 @@ const FormItems = () => {
           placeholder="আপনার পাসওয়ার্ড লিখুন"
           value={formValues.password}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="w-full px-4 py-3 border border-gray-300 rounded-none shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
           required
         />
       </div>

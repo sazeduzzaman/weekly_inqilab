@@ -37,7 +37,7 @@ const FormsItems = () => {
         placeholder="আপনার পুরো নাম"
         value={formValues.name}
         onChange={handleChange}
-        className="w-full px-4 py-3 border rounded-md"
+        className="w-full px-4 py-3 border rounded-none"
         required
       />
       <input
@@ -46,7 +46,7 @@ const FormsItems = () => {
         placeholder="আপনার ইমেইল"
         value={formValues.email}
         onChange={handleChange}
-        className="w-full px-4 py-3 border rounded-md"
+        className="w-full px-4 py-3 border rounded-none"
         required
       />
       <input
@@ -55,7 +55,7 @@ const FormsItems = () => {
         placeholder="ফোন নাম্বার"
         value={formValues.phone}
         onChange={handleChange}
-        className="w-full px-4 py-3 border rounded-md"
+        className="w-full px-4 py-3 border rounded-none"
         required
       />
       <input
@@ -64,12 +64,12 @@ const FormsItems = () => {
         placeholder="পাসওয়ার্ড"
         value={formValues.password}
         onChange={handleChange}
-        className="w-full px-4 py-3 border rounded-md"
+        className="w-full px-4 py-3 border rounded-none"
         required
       />
       <button
         type="submit"
-        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-black text-white rounded-md"
+        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-black text-white rounded-none"
       >
         নিবন্ধন করুন <LuDoorOpen size={24} />
       </button>

@@ -39,7 +39,7 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
   const resolvedImageSrc = isValidImageSrc(imageName) ? imageName : fallbackImageSrc;
 
   const baseClasses =
-    "rounded-md object-cover transition duration-300 ease-in-out transform";
+    "rounded-none object-cover transition duration-300 ease-in-out transform";
   const hoverClass = hoverEffect ? "hover:scale-105" : "";
 
   const containerStyle = {
@@ -57,7 +57,7 @@ const OptimizedNewsImage: React.FC<OptimizedNewsImageProps> = ({
         alt={altText}
         fill
         priority={priority}
-        className={`${baseClasses} ${className} ${hoverClass}`}
+        className={`${baseClasses} ${className} ${hoverClass} rounded-none` }
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         quality={75}
         onError={() => setHasError(true)}

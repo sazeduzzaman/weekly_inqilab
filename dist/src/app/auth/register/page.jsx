@@ -1,0 +1,74 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.metadata = void 0;
+const image_1 = __importDefault(require("next/image"));
+const link_1 = __importDefault(require("next/link"));
+const react_1 = __importDefault(require("react"));
+const FormsItems_1 = __importDefault(require("./FormItems/FormsItems"));
+// ✅ Static metadata for home page
+exports.metadata = {
+    title: "নিবন্ধন করুন | সাপ্তাহিক ইনকিলাব",
+    description: "সাপ্তাহিক ইনকিলাব-এ নতুন একাউন্ট তৈরি করুন। বাংলা সংবাদ পড়তে এবং আরও অনেক ফিচার উপভোগ করতে রেজিস্টার করুন।",
+    keywords: ["নিবন্ধন", "রেজিস্টার", "ইনকিলাব", "বাংলা নিউজ", "একাউন্ট তৈরি"],
+    metadataBase: new URL("https://weeklyinqilab.com"), // Optional but helps for og/twitter
+    openGraph: {
+        title: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
+        description: "বাংলাদেশ ও বিশ্বের সর্বশেষ সংবাদ পড়ুন সাপ্তাহিক ইনকিলাবে। সব সময় আপডেট থাকুন।",
+        url: "https://weeklyinqilab.com",
+        siteName: "সাপ্তাহিক ইনকিলাব",
+        type: "website",
+        images: [
+            {
+                // url: "https://admin.weeklyinqilab.com/images/inqilab-og-image.jpg",
+                url: "/images/placeholderImage.webp",
+                alt: "সাপ্তাহিক ইনকিলাব - বাংলা খবর",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "সাপ্তাহিক ইনকিলাব - বাংলা সংবাদ",
+        description: "সাপ্তাহিক ইনকিলাব এ সর্বশেষ সংবাদ, রাজনীতি, খেলাধুলা ও বিনোদনের খবর পড়ুন।",
+        images: ["/images/placeholderImage.webp"],
+    },
+};
+const Page = () => {
+    return (<div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-white shadow-md rounded-none p-8">
+        <div className="flex justify-center mb-6">
+          <link_1.default href="/">
+            <image_1.default src="/images/logo.png" alt="Inqilab Logo" width={200} height={80}/>
+          </link_1.default>
+        </div>
+
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          নিবন্ধন করুন ।
+        </h2>
+
+        <FormsItems_1.default />
+
+        <div className="text-center text-sm text-gray-600 mt-6">
+          ইতিমধ্যে একাউন্ট আছে?
+          <link_1.default href="/auth/login" className="text-indigo-600 font-medium ml-1 hover:underline">
+            লগইন করুন
+          </link_1.default>
+        </div>
+
+        <p className="text-xs text-gray-500 text-center mt-4">
+          নিবন্ধন করে আপনি আমাদের
+          <link_1.default href="/terms" className="mx-1 border-b border-gray-400 border-dotted">
+            পরিষেবা শর্তাবলী
+          </link_1.default>
+          এবং
+          <link_1.default href="/policy" className="mx-1 border-b border-gray-400 border-dotted">
+            গোপনীয়তা নীতি
+          </link_1.default>
+          মেনে নিচ্ছেন।
+        </p>
+      </div>
+    </div>);
+};
+exports.default = Page;

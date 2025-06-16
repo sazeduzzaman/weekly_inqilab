@@ -52,7 +52,7 @@ export default async function Page() {
         <EpaperItems epapersData={epapersData} />
         <div className="order-3 lg:order-3 col-span-12 lg:col-span-2">
           <div className="mt-5">
-            <div className="card-header bg-red-700 rounded-md text-center py-3 text-white">
+            <div className="card-header bg-red-700 rounded-none text-center py-3 text-white">
               বিজ্ঞাপন
             </div>
             <EpaperAdSidebar siteInformationData={siteInformationData} />

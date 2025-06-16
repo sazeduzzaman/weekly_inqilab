@@ -4,15 +4,13 @@ import CategoryNews from "@/components/CategoryNews/CategoryNews";
 import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import Image from "next/image";
 
-export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: any) {
   const { slug } = await params; // <-- no await here
 
   const res = await fetch(
     `https://admin.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
-      // next: { revalidate: 60 },
-      cache: "no-store", // force no caching
+      next: { revalidate: 1 }, // force no caching
     }
   );
   if (!res.ok) {
@@ -87,8 +85,7 @@ export default async function Page({ params }: any) {
   const res = await fetch(
     `https://admin.weeklyinqilab.com/api/v1/category-news/${slug}`,
     {
-      // next: { revalidate: 60 },
-      cache: "no-store", // force no caching
+      next: { revalidate: 1 }, // force no caching
     }
   );
   const json = await res.json();

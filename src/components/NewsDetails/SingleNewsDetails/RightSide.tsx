@@ -63,7 +63,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
   return (
     <>
       <div className="card rounded-none shadow-sm mt-0 mr-10">
-        <div className="card-header bg-black rounded-md text-start ps-5 py-3 text-white">
+        <div className="card-header bg-black rounded-none text-start ps-5 py-3 text-white">
           গুরুত্বপূর্ণ
         </div>
         <div className="card-body">
@@ -93,8 +93,8 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
 
       {/* Related News Section */}
       <div className="card rounded-none shadow-sm mt-5 mr-10">
-        <div className="card-header  bg-black rounded-md text-start ps-5 py-3 text-white">
-          সম্পর্কিত আরও খবর...
+        <div className="card-header  bg-black rounded-none text-start ps-5 py-3 text-white">
+          সম্পর্কিত আরও খবর
         </div>
         <div className="card-body px-1 py-0 pt-4">
           {shuffledData.slice(0, 10).map((item, index) => (
@@ -105,7 +105,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
                 }`}
               >
                 <div className="card p-0 group rounded-none card-side shadow-none items-center">
-                  <figure className="w-[80px] h-[80px] overflow-hidden rounded-lg flex-shrink-0">
+                  <figure className="w-[100px] h-[100px] overflow-hidden rounded-none flex-shrink-0">
                     <OptimizedNewsImage
                       className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
                       imageName={item.thumbnail || "no img"}
@@ -114,7 +114,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
                     />
                   </figure>
                   <div className="card-body p-2 py-0">
-                    <h2 className="card-title h-15">
+                    <h2 className="card-title h-12">
                       {(item.bangla_title ?? "")
                         .split(" ")
                         .slice(0, 4)

@@ -38,7 +38,7 @@ export default function MarqueSliderItems({
                 key={index}
               >
                 {/* <OptimizedNewsImage
-                  className="w-6 h-6 rounded-lg object-cover"
+                  className="w-6 h-6 rounded-none object-cover"
                   // src={item.thumbnail || "no img"}
                   imageName={item.thumbnail || "no img"}
                   altText={item.name}

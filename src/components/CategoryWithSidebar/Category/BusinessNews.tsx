@@ -25,7 +25,7 @@ export default function BusinessNews({
             >
               <div className="block cursor-pointer">
                 <div className="card rounded-none shadow-sm group">
-                  <figure className="relative w-full h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden rounded-md">
+                  <figure className="relative w-full h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden rounded-none">
                     <OptimizedNewsImage
                       imageName={item.thumbnail || "no img"}
                       altText={`Thumbnail for ${item.title || "no img"}`}
@@ -36,7 +36,7 @@ export default function BusinessNews({
                     />
                   </figure>
                   <div className="card-body px-3 py-2">
-                    <h2 className="card-title h-15 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
+                    <h2 className="card-title h-12 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
                       {(item.bangla_title ?? "")
                         .split(" ")
                         .slice(0, 6)
@@ -45,7 +45,7 @@ export default function BusinessNews({
                         ? "..."
                         : ""}
                     </h2>
-                    <span className="text-site-secondary opacity-70 block mt-1 text-sm sm:text-base">
+                    <span className="text-site-secondary opacity-70 block text-sm sm:text-base">
                       <NewsTimeShower
                         newsTime={item.published_at || new Date().toISOString()}
                       />

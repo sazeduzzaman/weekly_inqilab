@@ -76,7 +76,7 @@ export default async function NonFeaturedCategoryNews({
                 className="group block"
               >
                 <div className="border-b pb-4">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 bg-white rounded-md shadow-sm overflow-hidden">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 bg-white rounded-none shadow-sm overflow-hidden">
                     {/* Image */}
                     <figure className="w-full md:w-[400px] h-[250px] flex-shrink-0 relative overflow-hidden">
                       <OptimizedNewsImage

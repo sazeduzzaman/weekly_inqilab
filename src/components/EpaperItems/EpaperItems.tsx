@@ -62,7 +62,7 @@ const EpaperItems = ({ epapersData }: Props) => {
       {/* Left Sidebar */}
       <div className="order-2 lg:order-1 col-span-12 lg:col-span-2">
         <div className="card rounded-none shadow-sm mt-15 md:mt-5">
-          <div className="card-header bg-black rounded-md text-center py-3 text-white">
+          <div className="card-header bg-black rounded-none text-center py-3 text-white">
             অনুসন্ধান করুন
           </div>
           <div className="card-body p-0 border-none">
@@ -76,7 +76,7 @@ const EpaperItems = ({ epapersData }: Props) => {
 
         {/* All Pages Section */}
         <div className="card rounded-none shadow-sm mt-5">
-          <div className="card-header bg-black rounded-md text-center py-3 text-white">
+          <div className="card-header bg-black rounded-none text-center py-3 text-white">
             সকল পাতা
           </div>
           <div className="card-body p-2">
@@ -118,7 +118,7 @@ const EpaperItems = ({ epapersData }: Props) => {
       {/* Center Preview */}
       <div className="order-1 lg:order-2 col-span-12 lg:col-span-8">
         <div className="mt-5 text-center">
-          <div className="card-header bg-black rounded-md text-center py-3 text-white">
+          <div className="card-header bg-black rounded-none text-center py-3 text-white">
             ইপেপার পেইজ:{" "}
             {sortedEpapers[selectedIndex]?.page_number || selectedIndex + 1}
           </div>

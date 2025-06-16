@@ -41,7 +41,7 @@ export default async function CenterBar() {
                   />
                 </svg>
               </div> */}
-              
+
               {/* mobile  Menu */}
               <ul
                 tabIndex={0}
@@ -71,7 +71,7 @@ export default async function CenterBar() {
                 ))}
               </ul>
             </div>
-            <MobileMenu categoryItems={categoryItems}/>
+            <MobileMenu categoryItems={categoryItems} />
 
             <div className="relative w-full header-logo">
               {/* Mobile Logo */}

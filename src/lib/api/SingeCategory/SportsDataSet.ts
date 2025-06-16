@@ -16,6 +16,7 @@ export const SportsDataSet = async (): Promise<SportsNewsData[]> => {
       "https://admin.weeklyinqilab.com/api/v1/category-news/sports",
       {
         next: { revalidate: 1 },
+      // next: { revalidate: 1 },
       }
     );
     const data = await response.json();

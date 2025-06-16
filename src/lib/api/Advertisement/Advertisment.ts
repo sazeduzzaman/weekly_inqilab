@@ -23,7 +23,7 @@ export const Advertisment = async (): Promise<AdvertismentData[]> => {
     const response = await fetch(
       "https://admin.weeklyinqilab.com/api/v1/advertisements",
       {
-        next: { revalidate: 1}
+        next: { revalidate: 1 },
       }
     );
     const data = await response.json();

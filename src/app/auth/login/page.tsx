@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
+      <div className="w-full max-w-md bg-white shadow-md rounded-none p-8">
         <div className="flex justify-center mb-6">
           <Link href="/">
             <Image

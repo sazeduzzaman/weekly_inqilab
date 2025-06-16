@@ -396,12 +396,12 @@ export default async function Footer() {
                 >
                   গোপনীয়তার নীতি
                 </Link>
-                <Link
+                {/* <Link
                   href="/ad-cost"
                   className="link link-hover btn btn-outline"
                 >
                   বিজ্ঞাপন
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

@@ -20,9 +20,9 @@ export default function Sorbadhik({ viewedItems }: ViewedNewsListProps) {
     });
 
     // Step 2: Take top 10 latest items, then shuffle and take 6
-    const latestSubset = sorted.slice(0, 10); // optional buffer for better randomness
+    const latestSubset = sorted.slice(0, 15); // optional buffer for better randomness
     const shuffled = [...latestSubset].sort(() => 0.5 - Math.random());
-    setRandomLatestItems(shuffled.slice(0, 5));
+    setRandomLatestItems(shuffled.slice(0, 6));
   }, [viewedItems]);
 
   return (
@@ -34,7 +34,7 @@ export default function Sorbadhik({ viewedItems }: ViewedNewsListProps) {
           key={index}
         >
           <div className="card group rounded-none card-side shadow-sm items-center mb-3">
-            <figure className="w-[140px] h-[160px] overflow-hidden rounded-lg flex-shrink-0">
+            <figure className="w-[140px] h-[140px] overflow-hidden rounded-none flex-shrink-0">
               <OptimizedNewsImage
                 className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
                 imageName={item.thumbnail || "no img"}
@@ -42,8 +42,8 @@ export default function Sorbadhik({ viewedItems }: ViewedNewsListProps) {
                 priority
               />
             </figure>
-            <div className="card-body px-2">
-              <h2 className="card-title h-15">
+            <div className="card-body p-2">
+              <h2 className="card-title h-12">
                 {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
                 {(item.bangla_title ?? "").split(" ").length > 6 ? "..." : ""}
               </h2>

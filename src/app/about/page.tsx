@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
+
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState("bangla");
 

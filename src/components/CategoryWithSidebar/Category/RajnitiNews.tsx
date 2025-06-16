@@ -45,7 +45,7 @@ export default function RajnitiNews({
                 }`}
               >
                 <div className="block cursor-pointer">
-                  <figure className="relative w-full h-[400px] sm:h-[400px] md:h-[568px] overflow-hidden rounded-md">
+                  <figure className="relative w-full h-[400px] sm:h-[400px] md:h-[565px] overflow-hidden rounded-none">
                     <OptimizedNewsImage
                       imageName={item.thumbnail || "no img"}
                       altText={`Thumbnail for ${item.title || "no img"}`}
@@ -57,7 +57,12 @@ export default function RajnitiNews({
                   </figure>
                   <div className="card-body justify-center px-4 py-3">
                     <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold leading-tight">
-                      {item.bangla_title}
+                      {(() => {
+                        const words = (item.bangla_title ?? "").split(" ");
+                        return words.length > 6
+                          ? words.slice(0, 6).join(" ") + "..."
+                          : item.bangla_title;
+                      })()}
                     </h2>
                     <span className="text-site-secondary opacity-70 block mt-2 text-sm sm:text-base">
                       <NewsTimeShower
@@ -81,9 +86,9 @@ export default function RajnitiNews({
                 >
                   <div className="block cursor-pointer">
                     <div className="card rounded-none shadow-sm group">
-                      <figure className="relative h-[180px] sm:h-[200px] md:h-[215px] overflow-hidden rounded-md ">
+                      <figure className="relative h-[180px] sm:h-[200px] md:h-[215px] overflow-hidden rounded-none ">
                         <OptimizedNewsImage
-                          className="object-cover rounded-md w-full h-full transition-transform duration-500 ease-in-out hover:scale-105"
+                          className="object-cover rounded-none w-full h-full transition-transform duration-500 ease-in-out hover:scale-105"
                           imageName={item.thumbnail || "no img"}
                           altText={item.title}
                           heightClass="h-full"
@@ -92,16 +97,15 @@ export default function RajnitiNews({
                         />
                       </figure>
                       <div className="card-body px-3 py-2">
-                        <h2 className="card-title h-15 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
-                          {(item.bangla_title ?? "")
-                            .split(" ")
-                            .slice(0, 6)
-                            .join(" ")}
-                          {(item.bangla_title ?? "").split(" ").length > 6
-                            ? "..."
-                            : ""}
+                        <h2 className="card-title h-12 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
+                          {(() => {
+                            const words = (item.bangla_title ?? "").split(" ");
+                            return words.length > 6
+                              ? words.slice(0, 6).join(" ") + "..."
+                              : item.bangla_title;
+                          })()}
                         </h2>
-                        <span className="text-site-secondary opacity-70 block mt-1 text-sm sm:text-base">
+                        <span className="text-site-secondary opacity-70 block text-sm sm:text-base">
                           <NewsTimeShower
                             newsTime={
                               item.published_at || new Date().toISOString()

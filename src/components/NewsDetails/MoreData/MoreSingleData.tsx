@@ -86,7 +86,7 @@ export default function MoreSingleData({
             <div className="card rounded-none shadow-sm group">
               <figure className="relative h-[200px] overflow-hidden transition-transform duration-500 ease-in">
                 <OptimizedNewsImage
-                  className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  className="w-full h-full rounded-none object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                   imageName={item.thumbnail || "no img"}
                   altText={item.bangla_title}
                   heightClass="h-full"
@@ -95,7 +95,7 @@ export default function MoreSingleData({
                 />
               </figure>
               <div className="card-body px-2">
-                <h2 className="card-title h-15">
+                <h2 className="card-title h-12">
                   {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
                   {(item.bangla_title ?? "").split(" ").length > 6 ? "..." : ""}
                 </h2>

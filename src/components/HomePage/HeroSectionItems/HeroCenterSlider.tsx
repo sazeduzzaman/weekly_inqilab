@@ -52,15 +52,16 @@ export default function HeroCenterSlider({
                     </figure>
 
                     {/* Title section */}
-                    <div className="card-body relative flex items-center justify-center bg-black">
+                    <div className="card-body relative flex items-center justify-center bg-black hero-title">
                       <h1 className="slider-title font-normal text-start text-white leading-8 z-10">
-                        {(items.bangla_title ?? "")
+                        {/* {(items.bangla_title ?? "")
                           .split(" ")
                           .slice(0, 5)
                           .join(" ")}
                         {(items.bangla_title ?? "").split(" ").length > 5
                           ? "..."
-                          : ""}
+                          : ""} */}
+                          {items.bangla_title}
                       </h1>
                     </div>
                   </div>

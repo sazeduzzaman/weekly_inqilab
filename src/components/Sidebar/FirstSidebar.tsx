@@ -10,6 +10,7 @@ import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
 import Advertisement from "../Advertisement/Advertisement";
 import { SiteInformation } from "@/lib/api/SiteInformation";
 
+
 export default async function FirstSidebar() {
   const advertisementSidebarRandom = await Advertisment();
   const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(0, 8);
@@ -29,7 +30,7 @@ export default async function FirstSidebar() {
         </div>
       </div>
       <div className="card rounded-none shadow-sm mt-5">
-        <div className="card-header bg-red-700 rounded-md text-center py-3 text-white">
+        <div className="card-header bg-red-700 rounded-none text-center py-3 text-white">
           গুরুত্বপূর্ণ
         </div>
         <div className="card-body">

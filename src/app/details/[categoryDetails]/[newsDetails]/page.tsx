@@ -4,8 +4,6 @@ import NewsDetails from "@/components/NewsDetails/NewsDetails";
 import { Metadata } from "next";
 import NotFoundPage from "@/app/not-found";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const resolvedParams = await params;
   const newsId = resolvedParams.newsDetails;
@@ -52,7 +50,7 @@ export default async function Page({ params }: any) {
     `https://admin.weeklyinqilab.com/api/v1/news-details/${newsId}`,
     {
       // next: { revalidate: 60 },
-      cache: "no-store", // force no caching
+      next: { revalidate: 1 }, // force no caching
     }
   );
 

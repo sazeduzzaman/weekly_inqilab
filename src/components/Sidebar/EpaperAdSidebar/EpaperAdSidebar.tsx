@@ -11,6 +11,7 @@ import Image from "next/image";
 interface Props {
   siteInformationData: SiteInfo;
 }
+
 // export default async function MainSidebar() {
 export default async function EpaperAdSidebar({ siteInformationData }: Props) {
   const advertisementSidebarRandom = await Advertisment();
@@ -36,7 +37,7 @@ export default async function EpaperAdSidebar({ siteInformationData }: Props) {
           </div>
         </div>
         <div className="card rounded-none shadow-sm mt-5">
-          <div className="card-header bg-red-700 rounded-md text-center py-3 text-white">
+          <div className="card-header bg-red-700 rounded-none text-center py-3 text-white">
             গুরুত্বপূর্ণ
           </div>
           <div className="card-body">

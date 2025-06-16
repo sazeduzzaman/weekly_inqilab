@@ -1,5 +1,3 @@
-
-
 import type { Metadata } from "next";
 import ContactPage from "./ContactForm/ContactPage/ContactPage";
 

@@ -38,7 +38,7 @@ export default function JatiyoNews({ jatioItems = [] }: JatioNewsListProps) {
             href={`/details/${item.category_name ?? "uncategory"}/${item.slug}`}
           >
             <div className="block cursor-pointer">
-              <figure className="relative w-full h-[300px] sm:h-[400px] md:h-[440px] overflow-hidden rounded-md">
+              <figure className="relative w-full h-[300px] sm:h-[400px] md:h-[480px] overflow-hidden rounded-none">
                 <OptimizedNewsImage
                   imageName={item.thumbnail || "no img"}
                   altText={`Thumbnail for ${item.title || "no img"}`}
@@ -75,7 +75,7 @@ export default function JatiyoNews({ jatioItems = [] }: JatioNewsListProps) {
                 <div className="card rounded-none shadow-sm group">
                   <figure className="relative w-full h-55 sm:h-56 md:h-55 lg:h-40 xl:h-55 overflow-hidden transition-transform duration-500 ease-in">
                     <OptimizedNewsImage
-                      className="w-full h-full rounded-lg object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      className="w-full h-full rounded-none object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                       imageName={item.thumbnail || "no img"}
                       altText={item.bangla_title}
                       heightClass="h-full"
@@ -84,7 +84,7 @@ export default function JatiyoNews({ jatioItems = [] }: JatioNewsListProps) {
                     />
                   </figure>
                   <div className="card-body px-3 py-2">
-                    <h2 className="card-title h-15 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
+                    <h2 className="card-title h-12 text-base sm:text-lg font-semibold leading-snug line-clamp-3">
                       {(item.bangla_title ?? "")
                         .split(" ")
                         .slice(0, 6)
@@ -93,7 +93,7 @@ export default function JatiyoNews({ jatioItems = [] }: JatioNewsListProps) {
                         ? "..."
                         : ""}
                     </h2>
-                    <span className="text-site-secondary opacity-70 block mt-1 text-sm sm:text-base">
+                    <span className="text-site-secondary opacity-70 block text-sm sm:text-base">
                       <NewsTimeShower
                         newsTime={item.published_at || new Date().toISOString()}
                       />

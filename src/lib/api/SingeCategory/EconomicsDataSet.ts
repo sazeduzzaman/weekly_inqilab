@@ -16,6 +16,7 @@ export const EconomicsDataSet = async (): Promise<EconomicsData[]> => {
       "https://admin.weeklyinqilab.com/api/v1/category-news/economics",
       {
         next: { revalidate: 1 },
+      // next: { revalidate: 1 },
       }
     );
     const data = await response.json();

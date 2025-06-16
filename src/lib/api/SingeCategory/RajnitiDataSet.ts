@@ -16,6 +16,7 @@ export const RajnitiDataSet = async (): Promise<RajnitiNewsData[]> => {
       "https://admin.weeklyinqilab.com/api/v1/category-news/politics",
       {
         next: { revalidate: 1 },
+      // next: { revalidate: 1 },
       }
     );
     const data = await response.json();
