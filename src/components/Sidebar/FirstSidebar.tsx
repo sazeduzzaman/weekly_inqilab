@@ -13,7 +13,7 @@ import { SiteInformation } from "@/lib/api/SiteInformation";
 
 export default async function FirstSidebar() {
   const advertisementSidebarRandom = await Advertisment();
-  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(0, 8);
+  const AdvertisementSidebarRandom = (advertisementSidebarRandom ?? []).slice(0, 8);
   const siteInformationData = await SiteInformation();
   return (
     <div className="mt-4">

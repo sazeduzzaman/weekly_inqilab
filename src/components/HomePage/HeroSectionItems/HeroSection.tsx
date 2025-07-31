@@ -6,7 +6,7 @@ export default async function HeroSection() {
   const spotLightItems = await SpotLightDataSet();
   return (
     <div className="mt-0 md:mt-5">
-      <HeroSectionItems spotLightItems={spotLightItems} />
+      <HeroSectionItems spotLightItems={spotLightItems ?? []} />
     </div>
   );
 }

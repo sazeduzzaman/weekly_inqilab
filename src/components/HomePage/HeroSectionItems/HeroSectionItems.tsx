@@ -8,8 +8,11 @@ import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 export default function HeroSectionItems({
   spotLightItems,
 }: SpotLightNewsListProps) {
+  // Default to empty array if undefined or null
+  const items = spotLightItems ?? [];
+
   // Step 1: Sort by latest published_at first
-  const sortedByDate = [...spotLightItems].sort(
+  const sortedByDate = [...items].sort(
     (a, b) =>
       new Date(b.published_at ?? "").getTime() -
       new Date(a.published_at ?? "").getTime()
@@ -20,8 +23,8 @@ export default function HeroSectionItems({
 
   // Step 3: Divide into display sections (no shuffle)
   const latestOne = top10Latest.slice(0, 1); // Most recent item
-  const latestTwo = top10Latest.slice(1, 7); // Next 3
-  const latestThree = top10Latest.slice(7, 9); // Next 3
+  const latestTwo = top10Latest.slice(1, 7); // Next 6
+  const latestThree = top10Latest.slice(7, 9); // Next 2
 
   return (
     <div className="container mx-auto">
@@ -31,9 +34,7 @@ export default function HeroSectionItems({
           {latestOne.map((items) => (
             <div key={items.id}>
               <Link
-                href={`/details/${items.category_name ?? "uncategory"}/${
-                  items.slug
-                }`}
+                href={`/details/${items.category_name ?? "uncategory"}/${items.slug}`}
               >
                 <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
                   <figure className="transition-transform duration-500 ease-in-out group-hover:scale-105">
@@ -52,9 +53,7 @@ export default function HeroSectionItems({
                       <br />
                       <small className="text-site-secondary opacity-70 block mt-5">
                         <NewsTimeShower
-                          newsTime={
-                            items.published_at || new Date().toISOString()
-                          }
+                          newsTime={items.published_at || new Date().toISOString()}
                         />
                       </small>
                     </h2>
@@ -74,9 +73,7 @@ export default function HeroSectionItems({
         <div className="md:col-span-3">
           {latestThree.map((items) => (
             <Link
-              href={`/details/${items.category_name ?? "uncategory"}/${
-                items.slug
-              }`}
+              href={`/details/${items.category_name ?? "uncategory"}/${items.slug}`}
               key={items.id}
             >
               <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-3">
@@ -95,9 +92,7 @@ export default function HeroSectionItems({
                       <span className="block">{items.bangla_title}</span>
                       <small className="text-site-secondary opacity-70 block mt-5">
                         <NewsTimeShower
-                          newsTime={
-                            items.published_at || new Date().toISOString()
-                          }
+                          newsTime={items.published_at || new Date().toISOString()}
                         />
                       </small>
                     </h2>
