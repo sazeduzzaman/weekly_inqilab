@@ -47,7 +47,7 @@ export default async function EconomicsNews({
       <div className="grid grid-cols-12 gap-4 mt-4">
         <div className="col-span-12 lg:col-span-5">
           {featureData.map((item, index) => (
-            <div className="card rounded-none shadow-sm mb-6" key={index}>
+            <div className="card rounded-none shadow-none mb-6" key={index}>
               <Link
                 href={`/details/${item.category_name ?? "uncategory"}/${
                   item.slug

@@ -191,6 +191,10 @@ h2 {
 }
 .hero-title {
   margin-top: -40px;
+  height: 128px;
+}
+.sorbadhitk-title{
+  line-height: 1.5;
 }
 .desktop-triger {
   display: none;

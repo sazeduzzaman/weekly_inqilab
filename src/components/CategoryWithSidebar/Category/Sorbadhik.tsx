@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { ViewedNewsListProps } from "@/lib/types/ViewedDataType";
-import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import Link from "next/link";
 
@@ -42,17 +41,17 @@ export default function Sorbadhik({ viewedItems }: ViewedNewsListProps) {
                 priority
               />
             </figure>
-            <div className="card-body p-2">
-              <h2 className="card-title h-12">
-                {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
-                {(item.bangla_title ?? "").split(" ").length > 6 ? "..." : ""}
+            <div className="card-body p-2 px-3">
+              <h2 className="card-title h-12 sorbadhitk-title">
+                {(item.bangla_title ?? "").split(" ").slice(0, 11).join(" ")}
+                {(item.bangla_title ?? "").split(" ").length > 11 ? "" : ""}
               </h2>
-              <span>{item.category_bangla_name}</span>
-              <span className="text-site-secondary opacity-70 block">
+              <span className="pt-5">{item.category_bangla_name}</span>
+              {/* <span className="text-site-secondary opacity-70 block">
                 <NewsTimeShower
                   newsTime={item.published_at || new Date().toISOString()}
                 />
-              </span>
+              </span> */}
             </div>
           </div>
         </Link>

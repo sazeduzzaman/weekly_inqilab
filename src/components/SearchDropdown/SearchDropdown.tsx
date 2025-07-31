@@ -18,7 +18,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
           {/* Page content here */}
           <label
             htmlFor="my-drawer-4"
-            className="drawer-button bg-black btn btn-black px-5 py-3 search-menu"
+            className="drawer-button bg-black btn text-white btn-black px-5 py-3 search-menu"
           >
             <RiMenuSearchLine color="red" size={20} />
             আরও দেখুন...

@@ -61,7 +61,7 @@ export default function HeroCenterSlider({
                         {(items.bangla_title ?? "").split(" ").length > 5
                           ? "..."
                           : ""} */}
-                          {items.bangla_title}
+                        {items.bangla_title}
                       </h1>
                     </div>
                   </div>

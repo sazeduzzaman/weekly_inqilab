@@ -8,16 +8,27 @@ import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
 export default function HeroSectionItems({
   spotLightItems,
 }: SpotLightNewsListProps) {
-  const leatestOne = spotLightItems.slice(1, 2);
-  const leatestTwo = spotLightItems.slice(3, 6);
-  const leatestThree = spotLightItems.slice(6, 8);
+  // Step 1: Sort by latest published_at first
+  const sortedByDate = [...spotLightItems].sort(
+    (a, b) =>
+      new Date(b.published_at ?? "").getTime() -
+      new Date(a.published_at ?? "").getTime()
+  );
+
+  // Step 2: Take top 10 latest items
+  const top10Latest = sortedByDate.slice(0, 10);
+
+  // Step 3: Divide into display sections (no shuffle)
+  const latestOne = top10Latest.slice(0, 1); // Most recent item
+  const latestTwo = top10Latest.slice(1, 7); // Next 3
+  const latestThree = top10Latest.slice(7, 9); // Next 3
 
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
         {/* Left Column - Latest One */}
         <div className="md:col-span-3">
-          {leatestOne.map((items) => (
+          {latestOne.map((items) => (
             <div key={items.id}>
               <Link
                 href={`/details/${items.category_name ?? "uncategory"}/${
@@ -29,7 +40,7 @@ export default function HeroSectionItems({
                     <OptimizedNewsImage
                       imageName={items.thumbnail || "no img"}
                       altText={`Thumbnail for ${items.thumbnail || "no img"}`}
-                      heightClass="h-[500] md:h-[598px]" // Responsive height
+                      heightClass="h-[500] md:h-[598px]"
                       widthClass="w-full"
                       priority
                       className="p-0 rounded-none"
@@ -56,12 +67,12 @@ export default function HeroSectionItems({
 
         {/* Center Column - Hero Slider */}
         <div className="md:col-span-6">
-          <HeroCenterSlider spotLightItems={leatestTwo} />
+          <HeroCenterSlider spotLightItems={latestTwo} />
         </div>
 
         {/* Right Column - Latest Three */}
         <div className="md:col-span-3">
-          {leatestThree.map((items) => (
+          {latestThree.map((items) => (
             <Link
               href={`/details/${items.category_name ?? "uncategory"}/${
                 items.slug

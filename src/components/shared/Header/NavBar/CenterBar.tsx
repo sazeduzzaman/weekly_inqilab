@@ -21,26 +21,6 @@ export default async function CenterBar() {
           {/* Left Section: Logo */}
           <div className="navbar-start flex w-full sm:w-[20%]">
             <div className="dropdown">
-              {/* <div
-                tabIndex={0}
-                role="button"
-                className="btn border-0 bg-site-secondary lg:hidden"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </div> */}
 
               {/* mobile  Menu */}
               <ul
@@ -92,7 +72,7 @@ export default async function CenterBar() {
             <div className="ms-3">
               <Link
                 href="/epaper"
-                className="btn btn-black bg-black px-5 py-3 search-menu"
+                className="btn btn-black bg-black text-white px-5 py-3 search-menu"
               >
                 <RiFilePaper2Line color="red" size={18} />
                 <span>ইপেপার পড়ুন</span>
