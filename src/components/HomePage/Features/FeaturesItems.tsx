@@ -41,7 +41,7 @@ export default async function FeaturesItems({
                   <h2 className="card-title text-sm sm:text-base md:text-sm lg:text-base xl:text-sm font-semibold leading-tight h-12 line-clamp-3">
                     {(item.bangla_title ?? "").split(" ").slice(0, 7).join(" ")}
                     {(item.bangla_title ?? "").split(" ").length > 7
-                      ? "..."
+                      ? ""
                       : ""}
                   </h2>
                   <div className="flex justify-between items-center mt-2 text-xs sm:text-sm font-normal opacity-70">

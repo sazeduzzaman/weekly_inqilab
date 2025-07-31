@@ -97,7 +97,7 @@ export default function MoreSingleData({
               <div className="card-body px-2">
                 <h2 className="card-title h-12">
                   {(item.bangla_title ?? "").split(" ").slice(0, 6).join(" ")}
-                  {(item.bangla_title ?? "").split(" ").length > 6 ? "..." : ""}
+                  {(item.bangla_title ?? "").split(" ").length > 6 ? "" : ""}
                 </h2>
                 <span className="text-site-secondary opacity-70 block mt-1">
                   <NewsTimeShower newsTime={item.published_at} />

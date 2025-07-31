@@ -62,7 +62,7 @@ export default function SportsNews({ sportsItems = [] }: SportsNewsListProps) {
                             .slice(0, 6)
                             .join(" ")}
                           {(item.bangla_title ?? "").split(" ").length > 6
-                            ? "..."
+                            ? ""
                             : ""}
                         </h2>
                         <span className="text-site-secondary opacity-70 block text-sm sm:text-base">

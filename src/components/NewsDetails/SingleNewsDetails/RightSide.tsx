@@ -120,7 +120,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
                         .slice(0, 4)
                         .join(" ")}
                       {(item.bangla_title ?? "").split(" ").length > 4
-                        ? "..."
+                        ? ""
                         : ""}
                     </h2>
                     <span className="text-site-secondary opacity-70 block">

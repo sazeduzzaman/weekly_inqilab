@@ -60,7 +60,7 @@ export default function RajnitiNews({
                       {(() => {
                         const words = (item.bangla_title ?? "").split(" ");
                         return words.length > 6
-                          ? words.slice(0, 6).join(" ") + "..."
+                          ? words.slice(0, 6).join(" ") + ""
                           : item.bangla_title;
                       })()}
                     </h2>
@@ -101,7 +101,7 @@ export default function RajnitiNews({
                           {(() => {
                             const words = (item.bangla_title ?? "").split(" ");
                             return words.length > 6
-                              ? words.slice(0, 6).join(" ") + "..."
+                              ? words.slice(0, 6).join(" ") + ""
                               : item.bangla_title;
                           })()}
                         </h2>
