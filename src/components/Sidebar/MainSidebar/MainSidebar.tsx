@@ -12,7 +12,7 @@ interface Props {
 // export default async function MainSidebar() {
 export default async function MainSidebar({ siteInformationData }: Props) {
   const advertisementSidebarRandom = await Advertisment();
-  const AdvertisementSidebarRandom = advertisementSidebarRandom.slice(3, 6);
+  const AdvertisementSidebarRandom = (advertisementSidebarRandom ?? []).slice(3, 6);
   return (
     <div className="mb-3">
       <div className="card rounded-none shadow-sm p-5">

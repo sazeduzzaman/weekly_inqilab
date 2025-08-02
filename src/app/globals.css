@@ -154,6 +154,22 @@ h2 {
   letter-spacing: -0.12px;
   color: rgb(84, 86, 88);
 }
+/* styles.css or global CSS */
+.drawer-side {
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+  backdrop-filter: blur(8px); /* blur effect */
+  z-index: 9999; /* bring to front */
+}
+
+.extra-menu {
+  box-shadow: none;
+  background-color: #ea1b23;
+  border: 0;
+  font-size: 25px !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  padding: 10px;
+}
 .search-menu {
   font-weight: 400;
   font-size: 12px;
@@ -193,7 +209,7 @@ h2 {
   margin-top: -40px;
   height: 128px;
 }
-.sorbadhitk-title{
+.sorbadhitk-title {
   line-height: 1.5;
 }
 .desktop-triger {

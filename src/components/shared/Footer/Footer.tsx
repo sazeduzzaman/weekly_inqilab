@@ -408,7 +408,7 @@ export default async function Footer() {
           {/* Bottom Footer */}
         </div>
       </div>
-      <footer className="text-white bg-red-600 flex justify-between items-center footer py-4 flex-col sm:flex-row">
+      <footer className="text-white bg-red-600 flex justify-between items-center footer py-4 flex-col sm:flex-row not-mobile">
         <div className="container mx-auto">
           <div className="flex justify-between items-center w-full">
             <p className="text-sm text-center sm:text-left">
