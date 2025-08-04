@@ -8,6 +8,8 @@ import Link from "next/link";
 import { BsShare } from "react-icons/bs";
 import ClientReview from "../ClientReview/ClientReview";
 import FontSizeAdjustment from "@/utils/FontSizeAdjustment]/FontSizeAdjustment";
+import { FaRegCopy } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 // News item interface representing a single news article
 interface NewsItem {
@@ -44,7 +46,6 @@ export default function NewsDetailsContent({ itemData }: Props) {
   if (!itemData) {
     return <div>No news data available.</div>;
   }
-
   return (
     <div className="col-span-6" style={{ fontSize: `${fontSize}px` }}>
       <div>
@@ -89,9 +90,26 @@ export default function NewsDetailsContent({ itemData }: Props) {
               <div className="text-sm flex items-center text-gray-500 space-x-2">
                 <span>নিউজটি শেয়ার করুন:</span>
                 <BsShare color="red" />
+                <div className="ps-3">
+                  <button
+                    title="লিংক কপি করুন"
+                    onClick={() => {
+                      const link = `https://weeklyinqilab.com/details/${
+                        itemData.category_name ?? "uncategory"
+                      }/${itemData.slug}`;
+                      navigator.clipboard
+                        .writeText(link)
+                        .then(() => toast.success("✅ লিংক কপি হয়েছে!"))
+                        .catch(() => toast.error("❌ লিংক কপি করা যায়নি"));
+                    }}
+                    className="btn btn-circle btn-sm"
+                  >
+                    <FaRegCopy size={20} />
+                  </button>
+                </div>
                 <ShareNews
                   title={itemData.bangla_title ?? "No Title"}
-                  url={`https://weekly-inqilab.vercel.app/details/${
+                  url={`https://weeklyinqilab.com/details/${
                     itemData.category_name ?? "uncategory"
                   }/${itemData.slug}`}
                 />

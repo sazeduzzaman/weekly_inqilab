@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { ViewedNewsListProps } from "@/lib/types/ViewedDataType";

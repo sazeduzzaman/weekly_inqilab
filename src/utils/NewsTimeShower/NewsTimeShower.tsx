@@ -5,23 +5,44 @@ interface NewsTimeProps {
 }
 
 const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
+  const timeZone = "Asia/Dhaka";
+
   const toBengaliDigits = (input: number | string): string => {
     return input
       .toString()
       .replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[parseInt(digit)]);
   };
 
+  const formatExactTime12Hour = (d: Date): string => {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const parts = formatter.formatToParts(d);
+
+    const hour = parts.find((p) => p.type === "hour")?.value || "0";
+    const minute = parts.find((p) => p.type === "minute")?.value || "00";
+    const dayPeriod = parts.find((p) => p.type === "dayPeriod")?.value || "";
+
+    // Convert to Bengali numerals
+    const bengaliTime = `${toBengaliDigits(hour)}:${toBengaliDigits(
+      minute
+    )} ${dayPeriod}`;
+
+    return bengaliTime;
+  };
+
   const formatNewsTime = (rawDate?: string | null): string => {
     if (!rawDate || typeof rawDate !== "string") return "তারিখ পাওয়া যায়নি";
 
-    const timeZone = "Asia/Dhaka";
-    const isoString = rawDate.replace(" ", "T") + "+06:00";
-    const date = new Date(isoString);
+    const utcDate = new Date(rawDate.replace(" ", "T") + "Z");
     const now = new Date();
 
-    if (isNaN(date.getTime())) return "অবৈধ তারিখ";
+    if (isNaN(utcDate.getTime())) return "অবৈধ তারিখ";
 
-    const diffMs = now.getTime() - date.getTime();
+    const diffMs = now.getTime() - utcDate.getTime();
     const diffMins = Math.floor(diffMs / (1000 * 60));
     const diffHours = Math.floor(diffMins / 60);
 
@@ -34,7 +55,7 @@ const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
       }).format(d);
 
     const formattedNow = formatDate(now);
-    const formattedDate = formatDate(date);
+    const formattedDate = formatDate(utcDate);
 
     const yesterday = new Date(now);
     yesterday.setDate(yesterday.getDate() - 1);
@@ -43,17 +64,19 @@ const NewsTimeShower: React.FC<NewsTimeProps> = ({ newsTime }) => {
     if (formattedNow === formattedDate) {
       if (diffMins < 60) return `${toBengaliDigits(diffMins)} মিনিট আগে`;
       if (diffHours <= 5) return `${toBengaliDigits(diffHours)} ঘন্টা আগে`;
-      return "১ দিন আগে";
+      return `আজ ${formatExactTime12Hour(utcDate)}`;
     }
 
-    if (formattedDate === formattedYesterday) return "দিন আগে";
+    if (formattedDate === formattedYesterday) {
+      return "গতকাল";
+    }
 
     return new Intl.DateTimeFormat("bn-BD", {
       timeZone,
       year: "numeric",
       month: "long",
       day: "numeric",
-    }).format(date);
+    }).format(utcDate);
   };
 
   return <>{formatNewsTime(newsTime)}</>;

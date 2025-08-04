@@ -35,6 +35,12 @@ export default async function Footer() {
                 <h1 className="text-1xl">
                   প্রকাশক ও সম্পাদকঃ মোহাম্মদ জাহিদ আলম
                 </h1>
+                <h1 className="text-1xl">
+                  স্টেশন ইনচার্জঃ মো: মিদুল ইসলাম মৃদুল
+                </h1>
+                <h1 className="text-1xl">
+                  টেকনিক্যাল ইনচার্জঃ মো: রাশেদুজ্জামান রাজু
+                </h1>
               </div>
               <div className="text-center">
                 <span>অনুসরণ করুন</span>

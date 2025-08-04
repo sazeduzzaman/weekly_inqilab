@@ -33,7 +33,7 @@ export default function CategoryData({ categoryItems }: CategoryListProps) {
           {sortedItems.map((item, index) => (
             <li key={index} className="flex items-center px-8 pt-2">
               <Link
-                href={`/category/${item.slug}`}
+                href={`/category/${item.name.replace(/\b\b/gi, "").replace(/\s+/g, "-").toLowerCase()}?id=${item.id}`}
                 className="dark:text-white cta-menus text-white"
               >
                 {item.bangla_name}

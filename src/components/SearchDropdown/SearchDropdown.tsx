@@ -2,7 +2,6 @@ import React from "react";
 import { IoMdClose } from "react-icons/io";
 import { RiMenuSearchLine } from "react-icons/ri";
 import SearchDropdownCanvas from "./SearchDropdownCanvas";
-import Image from "next/image";
 import Link from "next/link";
 import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import { BsArrowRightCircle } from "react-icons/bs";
@@ -21,7 +20,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
             className="drawer-button bg-black btn text-white btn-black px-5 py-3 search-menu"
           >
             <RiMenuSearchLine color="red" size={20} />
-            আরও দেখুন...
+            আরও দেখুন
           </label>
         </div>
         <div className="drawer-side">
@@ -49,7 +48,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
                     <div>
                       <ul className="mt-5 w-70">
                         <p className="font-bold text-start">
-                          ইনকিলাব এ দেখুন...
+                          ইনকিলাব এ দেখুন asdasdasdasd
                         </p>
                         {categoryDataItems.map((item, index) => (
                           <li
@@ -57,7 +56,7 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
                             key={index}
                           >
                             <Link
-                              href={`/category/${item.name}?id=${item.id}`}
+                              href={`/category/${item.name.replace(/\b\b/gi, "").replace(/\s+/g, "-").toLowerCase()}?id=${item.id}`}
                               className="hover:text-red-900"
                             >
                               <BsArrowRightCircle color="red" />
@@ -68,16 +67,6 @@ export default function SearchDropdown({ categoryItems }: CategoryListProps) {
                       </ul>
                     </div>
                     <div className="bottom-0 absolute flex flex-col justify-center items-center px-3 mb-2">
-                      <div>
-                        <Link href="/" className="hover:text-red-900">
-                          <Image
-                            src="/images/logo.png"
-                            alt="Logo"
-                            width={250}
-                            height={100}
-                          />
-                        </Link>
-                      </div>
                       <div className="text-[14px] text-gray-400 pt-3">
                         <CurrentTimeShower />
                       </div>
