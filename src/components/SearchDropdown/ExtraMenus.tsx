@@ -47,7 +47,7 @@ export default function ExtraMenus({ categoryItems }: CategoryListProps) {
                     <div>
                       <ul className="mt-5 w-70">
                         <p className="font-bold text-start">
-                          ইনকিলাব এ দেখুন wsasdasd
+                          ইনকিলাব এ দেখুন
                         </p>
                         {categoryDataItems.map((item, index) => (
                           <li

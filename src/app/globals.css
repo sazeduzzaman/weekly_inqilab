@@ -22,6 +22,7 @@ body {
   color: var(--primary-color);
   transition: background-color 0.3s ease;
   overflow-x: hidden;
+  font-size: 18px;
 }
 
 .epaper-all-page::-webkit-scrollbar {
@@ -70,7 +71,7 @@ abbr:where([title]) {
   color: var(--primary-color);
 }
 .cta-menus {
-  font-size: 16px;
+  font-size: 18px;
   overflow-x: auto;
 }
 h2 {
@@ -139,7 +140,7 @@ h2 {
 }
 .section-title {
   font-weight: 800;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
@@ -147,7 +148,7 @@ h2 {
 }
 .card-body p {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 18px;
   line-height: 16px;
   text-transform: none;
   text-decoration: none;
@@ -172,7 +173,7 @@ h2 {
 }
 .search-menu {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 18px;
   line-height: 14px;
   text-transform: none;
   text-decoration: none;
@@ -181,7 +182,7 @@ h2 {
 }
 .news-details-p p {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   text-transform: none;
   text-decoration: none;
@@ -190,7 +191,7 @@ h2 {
 }
 .news-details-para p span {
   font-weight: 400;
-  font-size: 14px !important;
+  font-size: 18px !important;
   line-height: 30px !important;
   font-family: var(--font-tiro-bangla);
   text-transform: none;
@@ -279,11 +280,17 @@ h2 {
   .header-logo {
     display: flex;
     justify-content: end;
+    width: 290px;
   }
   .home-page {
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .hero-side-mobile {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .slider-title {
     text-transform: none;
@@ -292,5 +299,39 @@ h2 {
     font-weight: 500;
     line-height: 30px;
     text-decoration: none;
+  }
+  .mobile-menus {
+    text-align: end;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    align-items: end;
+  }
+  .menu-close {
+    text-align: center;
+    border: 0;
+    border-radius: 4px;
+    justify-content: start;
+    height: 38px;
+    display: flex;
+    position: relative;
+    top: -4px;
+    right: -5px;
+    width: 40px;
+    font-size: 20px;
+  }
+}
+
+.hero-banners {
+  width: 100%;
+  height: 510px; /* default desktop */
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-banners {
+    width: 400px;
+    height: 400px;
+    object-fit: contain; /* or cover depending on your need */
   }
 }

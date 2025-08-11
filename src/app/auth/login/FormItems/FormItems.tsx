@@ -19,7 +19,6 @@ const FormItems = () => {
     const { email, password } = formValues;
 
     if (email && password) {
-      console.log("Login data:", formValues);
       toast.success("লগইন সফল হয়েছে!");
     } else {
       toast.error("ইমেইল এবং পাসওয়ার্ড দিন!");

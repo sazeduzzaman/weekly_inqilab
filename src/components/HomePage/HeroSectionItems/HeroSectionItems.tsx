@@ -33,7 +33,7 @@ export default function HeroSectionItems({
           <HeroCenterSlider spotLightItems={latestOne} />
         </div>
         {/* Left Column - Latest One */}
-        <div className="md:col-span-7">
+        <div className="md:col-span-7 hero-side-mobile">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {latestThree.map((items) => (
               <div key={items.id}>

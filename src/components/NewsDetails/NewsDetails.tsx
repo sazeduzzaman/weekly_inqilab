@@ -30,7 +30,6 @@ interface NewsDetails {
 
 interface Props {
   singelNewsItems: NewsDetails;
-  
 }
 
 export default function NewsDetails({ singelNewsItems }: Props) {

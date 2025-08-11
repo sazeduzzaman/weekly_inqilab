@@ -38,7 +38,7 @@ export default function HeroCenterSlider({
                   }`}
                 >
                   <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
-                    <figure className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                    <figure className="relative h-full w-full hero-banners overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
                       {/* Black gradient overlay on top of the image */}
                       <div className="absolute inset-0 h-[510px] bg-gradient-to-t from-black/100 to-transparent z-10 " />
                       <OptimizedNewsImage

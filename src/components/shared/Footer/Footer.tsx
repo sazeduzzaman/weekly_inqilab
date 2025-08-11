@@ -402,6 +402,12 @@ export default async function Footer() {
                 >
                   গোপনীয়তার নীতি
                 </Link>
+                <Link
+                  href="/epaper"
+                  className="link link-hover btn btn-outline me-3"
+                >
+                  ইপেপার পড়ুন
+                </Link>
                 {/* <Link
                   href="/ad-cost"
                   className="link link-hover btn btn-outline"
@@ -469,6 +475,8 @@ export default async function Footer() {
                 <li>ইংরেজি পাতার সম্পাদকঃ ফুহাদ হোসেন</li>
                 <li>ব্যবস্থাপনা সম্পাদকঃ মোঃ বদরুদ্দোজা সাগর</li>
                 <li>প্রকাশক ও সম্পাদকঃ মোহাম্মদ জাহিদ আলম</li>
+                <li>স্টেশন ইনচার্জঃ মো: মিদুল ইসলাম মৃদুল</li>
+                <li>টেকনিক্যাল ইনচার্জঃ মো: রাশেদুজ্জামান রাজু</li>
               </ul>
             </div>
 

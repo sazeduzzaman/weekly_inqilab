@@ -22,7 +22,6 @@ const FormsItems = () => {
     const { name, email, phone, password } = formValues;
 
     if (name && email && phone && password) {
-      console.log("Submitted data:", formValues);
       toast.success("রেজিস্ট্রেশন সফল হয়েছে!");
     } else {
       toast.error("অনুগ্রহ করে সব ঘর পূরণ করুন!");

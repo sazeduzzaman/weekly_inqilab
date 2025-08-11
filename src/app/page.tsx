@@ -3,8 +3,6 @@ import Features from "@/components/HomePage/Features/Features";
 import HeroSection from "@/components/HomePage/HeroSectionItems/HeroSection";
 import type { Metadata } from "next";
 
-
-
 // ✅ Static metadata for home page
 export const metadata: Metadata = {
   title: "সাপ্তাহিক ইনকিলাব - সর্বশেষ বাংলা সংবাদ",
@@ -46,10 +44,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="home-page"> 
+    <>
       <HeroSection />
-      <Features />
-      <CategoryWithSidebar />
-    </div>
+      <div className="home-page">
+        <Features />
+        <CategoryWithSidebar />
+      </div>
+    </>
   );
 }

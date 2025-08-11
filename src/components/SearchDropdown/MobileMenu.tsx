@@ -10,7 +10,7 @@ import { CategoryListProps } from "@/lib/types/CategoryDataType";
 export default function MobileMenu({ categoryItems }: CategoryListProps) {
   const categoryDataItems = categoryItems.slice(0);
   return (
-    <div>
+    <div className="mobile-menus">
       <div className="drawer drawer-end z-50 ">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         {/* Visible on desktop and tablets, hidden on mobile */}
@@ -36,17 +36,18 @@ export default function MobileMenu({ categoryItems }: CategoryListProps) {
         </div>
 
         <div className="drawer-side">
-          <label
+          {/* <label
             htmlFor="my-drawer-4"
-            aria-label="close sidebar"
-            className="drawer-overlay"
-          ></label>
+            className="btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded-full p-2 absolute top-3 right-3 z-50"
+          >
+            <IoMdClose size={20} />
+          </label> */}
           <SearchDropdownCanvas />
           <div className="menu bg-white text-black min-h-full w-80 p-4">
             <div>
               <label
                 htmlFor="my-drawer-4"
-                className="btn btn-sm btn-black p-4 pb-4 -mt-0.5 me-2"
+                className="btn btn-sm btn-black menu-close"
               >
                 <IoMdClose />
               </label>
@@ -59,15 +60,17 @@ export default function MobileMenu({ categoryItems }: CategoryListProps) {
                   <div className="text-center flex justify-start items-center flex-col">
                     <div>
                       <ul className="mt-5 w-70">
-                        <p className="font-bold text-start">
-                        </p>
+                        <p className="font-bold text-start"></p>
                         {categoryDataItems.map((item, index) => (
                           <li
                             className="flex justify-start items-start w-auto "
                             key={index}
                           >
                             <Link
-                              href={`/category/${item.name.replace(/\b\b/gi, "").replace(/\s+/g, "-").toLowerCase()}?id=${item.id}`}
+                              href={`/category/${item.name
+                                .replace(/\b\b/gi, "")
+                                .replace(/\s+/g, "-")
+                                .toLowerCase()}?id=${item.id}`}
                               className="hover:text-red-900"
                             >
                               <BsArrowRightCircle color="red" />

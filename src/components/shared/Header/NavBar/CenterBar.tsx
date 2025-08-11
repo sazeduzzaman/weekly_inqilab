@@ -20,9 +20,8 @@ export default async function CenterBar() {
         <div className="navbar flex w-full flex-wrap">
           {/* Left Section: Logo */}
           <div className="navbar-start flex w-full sm:w-[20%]">
-            <div className="dropdown">
+            {/* <div className="dropdown">
 
-              {/* mobile  Menu */}
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-white border-2 border-gray-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -50,8 +49,7 @@ export default async function CenterBar() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <MobileMenu categoryItems={categoryItems} />
+            </div> */}
 
             <div className="relative w-full header-logo">
               {/* Mobile Logo */}
@@ -61,15 +59,17 @@ export default async function CenterBar() {
                   alt="Logo"
                   width={250}
                   height={100}
+                  className="object-cover"
                 />
               </Link>
             </div>
+            <MobileMenu categoryItems={categoryItems} />
           </div>
 
           {/* Middle Section: Search */}
           <div className="navbar-center flex w-full sm:w-[20%] justify-center d-sm-none pr-3">
-            <SearchDropdown categoryItems={categoryItems} />
-            <div className="ms-3">
+            {/* <SearchDropdown categoryItems={categoryItems} /> */}
+            {/* <div className="ms-3">
               <Link
                 href="/epaper"
                 className="btn btn-black bg-black text-white px-5 py-3 search-menu"
@@ -77,7 +77,7 @@ export default async function CenterBar() {
                 <RiFilePaper2Line color="red" size={18} />
                 <span>ইপেপার পড়ুন</span>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Section: Ad */}
