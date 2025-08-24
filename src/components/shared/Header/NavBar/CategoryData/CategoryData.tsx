@@ -1,3 +1,4 @@
+"use client";
 import ExtraMenus from "@/components/SearchDropdown/ExtraMenus";
 import { CategoryListProps } from "@/lib/types/CategoryDataType";
 import Link from "next/link";

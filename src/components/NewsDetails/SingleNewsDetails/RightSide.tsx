@@ -62,7 +62,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
 
   return (
     <>
-      <div className="card rounded-none shadow-sm mt-0 mr-0 lg:mr-10">
+      <div className="card rounded-none shadow-sm mt-0 mr-0 lg:mr-0">
         <div className="card-header bg-black rounded-none text-start ps-5 py-3 text-white">
           গুরুত্বপূর্ণ
         </div>
@@ -92,7 +92,7 @@ export default function RightSide({ singelNewsItems, slug }: Props) {
       </div>
 
       {/* Related News Section */}
-      <div className="card rounded-none shadow-sm mt-5 mr-0 lg:mr-10">
+      <div className="card rounded-none shadow-sm mt-5 mr-0 lg:mr-0">
         <div className="card-header  bg-black rounded-none text-start ps-5 py-3 text-white">
           সম্পর্কিত আরও খবর
         </div>

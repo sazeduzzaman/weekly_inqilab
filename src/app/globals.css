@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import "flag-icons/css/flag-icons.min.css";
 
 /* Global reset and styles */
 /* styles/globals.css */
@@ -327,7 +328,17 @@ h2 {
   height: 510px; /* default desktop */
   object-fit: cover;
 }
-
+.skiptranslate{
+  display: none !important;
+}
+#google_translate_element { display: none !important; }
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+.goog-logo-link, .goog-te-gadget span { display: none !important; }
+.goog-te-gadget { height: 0 !important; overflow: hidden !important; }
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc{
+  display: none !important;
+}
 @media only screen and (max-width: 600px) {
   .hero-banners {
     width: 400px;

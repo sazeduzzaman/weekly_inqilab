@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/shared/Header/Header";
 import Footer from "@/components/shared/Footer/Footer";
 import { Toaster } from "react-hot-toast";
+import GoogleTranslateWidget from "@/components/GoogleTranslateWidget/GoogleTranslateWidget";
 
 const shurjo = localFont({
   display: "swap", // bonus tip: improves font loading
@@ -17,12 +18,6 @@ const shurjo = localFont({
       weight: "400",
       style: "normal",
     },
-    // If you prefer WOFF2 over TTF for modern browsers, use only one:
-    // {
-    //   path: "./Font/Shurjo/ShurjoWeb_700.woff2",
-    //   weight: "700",
-    //   style: "normal",
-    // },
   ],
 });
 
@@ -31,9 +26,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="bn">
       <body className={`${shurjo.className} antialiased overflow-x-hidden`}>
+        <GoogleTranslateWidget />
         <Toaster position="top-center" reverseOrder={false} />
         <Header />
         {children}

@@ -6,21 +6,20 @@ interface AdItem {
   position: string;
   availability: string;
   image_path?: string | null;
-  link?: string; // optional link url
-  // add more fields if needed
+  link?: string;
 }
 
 interface AdvertisementProps {
-  advertisements?: AdItem[]; // made optional, will default to empty array
-  position: string; // filter by position
-  availability?: string; // optional filter by availability
-  width?: number; // optional image width
-  height?: number; // optional image height
-  marginB?: number; // optional margin bottom in px
+  advertisements?: AdItem[];
+  position: string;
+  availability?: string;
+  width?: number;
+  height?: number;
+  marginB?: number;
 }
 
 export default function Advertisement({
-  advertisements = [], // default empty array
+  advertisements = [],
   position,
   availability,
   width = 915,
@@ -33,16 +32,15 @@ export default function Advertisement({
       (availability ? ad.availability === availability : true)
   );
 
-  // Choose placeholder image based on position
   const placeholderImage =
     position === "sidebar_random"
-      ? "/images/placeholderImage.webp"
+      ? "/images/side-advertisement.webp"
       : position === "header_right"
-      ? "/images/ads-768x71.webp"
+      ? "/images/bottom-ad.gif"
       : position === "home_middle"
-      ? "/images/home_middle.webp"
+      ? "/images/bottom-ad.gif"
       : position === "home_bottom"
-      ? "/images/home_bottom.webp"
+      ? "/images/bottom-ad.gif"
       : position === "category_middle"
       ? "/images/category_middle.webp"
       : position === "category_featured"
@@ -50,7 +48,7 @@ export default function Advertisement({
       : position === "news_below_image"
       ? "/images/news_below_image.webp"
       : position === "news_bottom"
-      ? "/images/news_bottom.webp"
+      ? "/images/middle-ad.jpg"
       : "/images/placeholderImage.webp";
 
   if (filteredAds.length === 0) {

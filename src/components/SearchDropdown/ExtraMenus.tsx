@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import { RiMenuSearchLine } from "react-icons/ri";
@@ -6,11 +7,12 @@ import Link from "next/link";
 import CurrentTimeShower from "@/utils/CurrentTimeShower/CurrentTimeShower";
 import { BsArrowRightCircle } from "react-icons/bs";
 import { CategoryListProps } from "@/lib/types/CategoryDataType";
+import LanguageChanger from "./LanguageChanger";
 
 export default function ExtraMenus({ categoryItems }: CategoryListProps) {
   const categoryDataItems = categoryItems.slice(0);
   return (
-    <div>
+    <div className="flex items-center">
       <div className="drawer drawer-end z-30">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
@@ -83,6 +85,9 @@ export default function ExtraMenus({ categoryItems }: CategoryListProps) {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <LanguageChanger />
       </div>
     </div>
   );
