@@ -38,16 +38,16 @@ const ShareNews: React.FC<ShareNewsProps> = ({ url, title }) => {
           <LinkedinIcon size={32} round />
         </div>
       </LinkedinShareButton>
-      <TelegramShareButton url={url} title={title}>
+      {/* <TelegramShareButton url={url} title={title}>
         <div title="ইনস্টাগ্রাম এ শেয়ার করুন">
           <TelegramIcon size={32} round />
         </div>
-      </TelegramShareButton>
-      <WhatsappShareButton url={url} title={title}>
+      </TelegramShareButton> */}
+      {/* <WhatsappShareButton url={url} title={title}>
         <div title="ওয়াটসএপ এ শেয়ার করুন">
           <WhatsappIcon size={32} round />
         </div>
-      </WhatsappShareButton>
+      </WhatsappShareButton> */}
     </div>
   );
 };

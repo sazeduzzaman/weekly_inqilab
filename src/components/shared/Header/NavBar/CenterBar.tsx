@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import SearchDropdown from "@/components/SearchDropdown/SearchDropdown";
-import { RiFilePaper2Line } from "react-icons/ri";
 import { CategoryDataSet } from "@/lib/api/CategoryDataSet";
 import { Advertisment } from "@/lib/api/Advertisement/Advertisment";
 import Advertisement from "@/components/Advertisement/Advertisement";
@@ -94,12 +92,12 @@ export default async function CenterBar() {
                 marginB={10}
               />
             ) : (
-              <div>
+              <div className="relative w-full h-[71px] sm:h-[85px]">
                 <Image
                   src="/images/ads-768x71.webp"
                   alt="Inqilab Logo"
-                  width={915}
-                  height={400}
+                  fill
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             )}
