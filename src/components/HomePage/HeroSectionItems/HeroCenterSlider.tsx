@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import { SpotLightNewsListProps } from "@/lib/types/SpotLightNewsDataType";
+import Image from "next/image";
 
 export default function HeroCenterSlider({
   spotLightItems,
@@ -37,30 +38,25 @@ export default function HeroCenterSlider({
                     items.slug
                   }`}
                 >
-                  <div className="card rounded-none shadow-sm group bg-gradient-to-t from-black to-transparent overflow-hidden mb-3 w-full">
-                    <figure className="relative h-full w-full hero-banners overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
-                      {/* Black gradient overlay on top of the image */}
-                      <div className="absolute inset-0 h-[510px] bg-gradient-to-t from-black/100 to-transparent z-10 " />
-                      <OptimizedNewsImage
-                        imageName={items.thumbnail || "No image"}
-                        altText={`Thumbnail for ${items.thumbnail}`}
-                        heightClass="h-[510px]"
-                        widthClass="w-full"
+                  <div className="card rounded-none shadow-sm group overflow-hidden mb-3 w-full">
+                    {/* Image section */}
+                    <figure className="relative w-full overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-105">
+                      {/* Black gradient overlay */}
+                      <div className="absolute inset-0 h-full z-10" />
+
+                      <Image
+                        src={items.thumbnail || "/placeholder.png"}
+                        alt={`Thumbnail for ${items.thumbnail}`}
+                        width={800}
+                        height={310}
+                        className="w-full h-auto object-contain"
                         priority
-                        className="object-cover"
                       />
                     </figure>
 
-                    {/* Title section */}
-                    <div className="card-body relative flex items-center justify-center bg-black hero-title">
-                      <h1 className="slider-title font-normal text-start text-white leading-8 z-10">
-                        {/* {(items.bangla_title ?? "")
-                          .split(" ")
-                          .slice(0, 5)
-                          .join(" ")}
-                        {(items.bangla_title ?? "").split(" ").length > 5
-                          ? "..."
-                          : ""} */}
+                    {/* Title section with fixed height */}
+                    <div className="w-full bg-[#000000] h-[115px] flex items-center justify-center px-4 text-start">
+                      <h1 className="slider-title text-white leading-7">
                         {items.bangla_title}
                       </h1>
                     </div>

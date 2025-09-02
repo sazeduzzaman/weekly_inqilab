@@ -4,6 +4,7 @@ import HeroCenterSlider from "./HeroCenterSlider";
 import { SpotLightNewsListProps } from "@/lib/types/SpotLightNewsDataType";
 import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import NewsTimeShower from "@/utils/NewsTimeShower/NewsTimeShower";
+import Image from "next/image";
 
 export default function HeroSectionItems({
   spotLightItems,
@@ -42,21 +43,21 @@ export default function HeroSectionItems({
                     items.slug
                   }`}
                 >
-                  <div className="card rounded-none bg-base-100 image-full shadow-sm group overflow-hidden mb-1">
-                    <figure className="relative w-full h-[240px] md:h-[293px] transition-transform duration-500 ease-in-out group-hover:scale-105">
-                      <OptimizedNewsImage
-                        imageName={items.thumbnail || "no image"}
-                        altText={`Thumbnail for ${items.thumbnail}`}
+                  <div className="card rounded-none bg-base-100 shadow-sm group overflow-hidden mb-1">
+                    <figure className="relative w-full h-[230px] md:h-[230px]">
+                      <Image
+                        src={items.thumbnail || "/placeholder.png"}
+                        alt={items.bangla_title ?? ""}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                         priority
-                        widthClass="w-full"
-                        heightClass="h-full"
-                        hoverEffect
-                        className="rounded-none"
                       />
-                      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-black/0 px-4 py-3 z-10">
+
+                      {/* Gradient overlay + text */}
+                      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent px-4 py-3 z-10">
                         <h2 className="text-white font-normal text-sm md:text-base">
                           <span className="block">{items.bangla_title}</span>
-                          <small className="text-site-secondary opacity-70 block mt-5">
+                          <small className="text-site-secondary opacity-70 block mt-1">
                             <NewsTimeShower
                               newsTime={
                                 items.published_at || new Date().toISOString()

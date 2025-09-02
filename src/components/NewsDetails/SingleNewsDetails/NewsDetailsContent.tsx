@@ -33,6 +33,7 @@ interface NewsItem {
   published_at?: string;
   subCategory_bangla_name?: string;
   bangla_content?: string;
+  image_caption?: string;
 }
 
 interface Props {
@@ -184,7 +185,13 @@ export default function NewsDetailsContent({ itemData }: Props) {
             </div>
 
             {/* Font size adjustment */}
-            <div className="flex justify-end mt-2">
+            <div className="flex justify-between items-center mt-2">
+              {/* Caption text (left) */}
+              <div className="text-sm text-red-700 break-words">
+                {itemData.image_caption ?? "ইনকিলাব"}
+              </div>
+
+              {/* Font size adjustment controls (right) */}
               <FontSizeAdjustment
                 fontSize={fontSize}
                 onIncrease={handleIncrease}
