@@ -22,7 +22,7 @@ export default function Sorbadhik({ viewedItems }: ViewedNewsListProps) {
     // Step 2: Take top 10 latest items, then shuffle and take 6
     const latestSubset = sorted.slice(0, 15); // optional buffer for better randomness
     const shuffled = [...latestSubset].sort(() => 0.5 - Math.random());
-    setRandomLatestItems(shuffled.slice(0, 8));
+    setRandomLatestItems(shuffled.slice(0, 7));
   }, [viewedItems]);
 
   return (
