@@ -4,7 +4,6 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import OptimizedNewsImage from "@/utils/OptimizedNewsImage/OptimizedNewsImage";
 import { SpotLightNewsListProps } from "@/lib/types/SpotLightNewsDataType";
 import Image from "next/image";
 
@@ -45,7 +44,7 @@ export default function HeroCenterSlider({
                       <div className="absolute inset-0 h-full z-10" />
 
                       <Image
-                        src={items.thumbnail || "/placeholder.png"}
+                        src={items.thumbnail || "/images/placeholderImage.webp"}
                         alt={`Thumbnail for ${items.thumbnail}`}
                         width={800}
                         height={310}
