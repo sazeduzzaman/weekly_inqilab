@@ -14,19 +14,35 @@ interface EpaperData {
   published_by?: string;
 }
 
+// export const EpaperDataSet = async (): Promise<EpaperData[]> => {
+//   const res = await fetch("https://admin.weeklyinqilab.com/api/v1/epapers", {
+//     next: { revalidate: 1 },
+//       // next: { revalidate: 1 },
+//   });
+
+//   const json = await res.json();
+
+//   return json.data.map((item: any) => ({
+//     id: item.id,
+//     epaper_image: item.epaper_image || "/images/default-epaper.webp", // Fallback string here
+//     epaper_image_alt:
+//       item.epaper_image_alt || `Page ${item.page_number || "unknown"}`,
+//     page_number: item.page_number,
+//   }));
+// };
+
 export const EpaperDataSet = async (): Promise<EpaperData[]> => {
-  const res = await fetch("https://admin.weeklyinqilab.com/api/v1/epapers", {
-    next: { revalidate: 1 },
-      // next: { revalidate: 1 },
-  });
-
-  const json = await res.json();
-
-  return json.data.map((item: any) => ({
-    id: item.id,
-    epaper_image: item.epaper_image || "/images/default-epaper.webp", // Fallback string here
-    epaper_image_alt:
-      item.epaper_image_alt || `Page ${item.page_number || "unknown"}`,
-    page_number: item.page_number,
-  }));
+  try {
+    const response = await fetch(
+      "https://admin.weeklyinqilab.com/api/v1/epapers",
+      {
+        next: { revalidate: 1 },
+      }
+    );
+    const data = await response.json();
+    return data.data;
+  } catch (error) {
+    console.error("Failed to fetch news categories:", error);
+    throw new Error("Something went wrong while fetching news categories.");
+  }
 };

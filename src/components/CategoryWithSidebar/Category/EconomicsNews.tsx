@@ -80,7 +80,7 @@ export default async function EconomicsNews({
           ))}
         </div>
         <div className="col-span-12 lg:col-span-7">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {nonFeatureData.map((item, index) => (
               <div key={index}>
                 <Link
