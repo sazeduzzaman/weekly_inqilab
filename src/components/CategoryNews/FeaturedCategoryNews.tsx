@@ -46,7 +46,7 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
               >
                 <div className="card rounded-none shadow-sm group">
                   <figure className="relative w-full overflow-hidden h-[300px] sm:h-[400px] md:h-[495px]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
                     <OptimizedNewsImage
                       imageName={item.thumbnail || "No image"}
                       altText={`Thumbnail for ${item.bangla_title}`}
@@ -60,12 +60,12 @@ export default function FeaturedCategoryNews({ featureData }: Props) {
                     <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
                       {item.bangla_title.split(" ").slice(0, 8).join(" ")}...
                     </h1>
-                    <small className="block mt-4 text-red-700">
+                    <p className="block mt-4 text-red-700">
                       <NewsTimeShower
                         newsTime={item.published_at || new Date().toISOString()}
                       />
-                    </small>
-                    <span>{item.category_bangla_name}</span>
+                    </p>
+                    {/* <span>{item.category_bangla_name}</span> */}
                   </div>
                 </div>
               </Link>

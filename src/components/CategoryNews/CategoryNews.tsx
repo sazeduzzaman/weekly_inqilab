@@ -27,23 +27,28 @@ interface Props {
 }
 
 export default function CategoryNews({ categoryItems }: Props) {
-  // Normalize the data to ensure is_featured is a number
+  // Normalize and trim published_at strings
   const normalizedItems: NewsItem[] = categoryItems.map((item) => ({
     ...item,
     is_featured: Number(item.is_featured),
+    published_at: item.published_at.trim(),
   }));
 
-  // Filter after normalization
-  const isFeatured = normalizedItems.filter((item) => item.is_featured === 1);
-  const isNonFeatured = normalizedItems.filter(
-    (item) => item.is_featured === 0
+  // Sort by published_at latest first
+  const sortedItems = normalizedItems.sort(
+    (a, b) =>
+      new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
   );
+
+  // Slice data
+  const featured = sortedItems.slice(0, 5); // latest 5
+  const nonFeatured = sortedItems.slice(5, 25); // 6 to 25 (20 items)
 
   return (
     <div className="space-y-8">
       <div className="px-10 md:px-0">
-        <FeaturedCategoryNews featureData={isFeatured} />
-        <NonFeaturedCategoryNews nonFeatureData={isNonFeatured} />
+        <FeaturedCategoryNews featureData={featured} />
+        <NonFeaturedCategoryNews nonFeatureData={nonFeatured} />
       </div>
     </div>
   );
